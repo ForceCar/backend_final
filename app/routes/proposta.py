@@ -201,9 +201,87 @@ async def gerar_proposta(request: Request, data: Dict[str, Any] = Body(...)):
                 
             pdf_data['cenarios'][tipo_blindagem] = scenario
             
-        # Log payload para PDF - apenas os dados relevantes
+        # Log payload para PDF em formato de tabela
         logger_service.log_info("Dados para PDF:")
-        logger_service.log_info(json.dumps(pdf_data, indent=2, ensure_ascii=False))
+        # Campos básicos
+        basic = {k: v for k, v in pdf_data.items() if k != 'cenarios'}
+        logger_service.log_info(logger_service.format_dict_table(basic))
+        
+        # Se tiver cenários, apresenta cada um com formatação mais limpa
+        cenarios = pdf_data.get('cenarios', {})
+        if cenarios:
+            for label, scenario in cenarios.items():
+                logger_service.log_info(f"CENÁRIO - {label}:")
+                
+                # Extrair e formatar informações principais do cenário
+                subtotal = scenario.get('subtotal', 0)
+                desconto = scenario.get('desconto_aplicado', 0)
+                
+                # Criar um dicionário simplificado para exibição
+                cenario_info = {
+                    'subtotal': f"{subtotal:,.2f}".replace(',', '.'),
+                }
+                
+                if desconto:
+                    cenario_info['desconto_aplicado'] = f"{desconto:,.2f}".replace(',', '.') 
+                
+                # Exibir informações básicas do cenário
+                logger_service.log_info(logger_service.format_dict_table(cenario_info))
+                
+                # Exibir condições de pagamento formatadas
+                condicoes = scenario.get('condicoes_pagamento', {})
+                if condicoes:
+                    logger_service.log_info("Condições de Pagamento:")
+                    
+                    # À vista
+                    if 'a_vista' in condicoes:
+                        av = condicoes['a_vista']
+                        valor = av.get('valor_total', 0)
+                        desconto_perc = av.get('desconto_percentual', 0)
+                        logger_service.log_info(f"  - À VISTA: R$ {valor:,.2f}".replace(',', '.') + 
+                                                f" ({desconto_perc}% de desconto)")
+                    
+                    # 2 parcelas
+                    if 'duas_vezes' in condicoes:
+                        dv = condicoes['duas_vezes']
+                        parcelas = dv.get('parcelas', [])
+                        if len(parcelas) >= 2:
+                            valor_parcela = parcelas[0].get('valor', 0)
+                            logger_service.log_info(f"  - 2X SEM JUROS: {len(parcelas)}x de R$ {valor_parcela:,.2f}".replace(',', '.'))
+                    
+                    # 3 parcelas
+                    if 'tres_vezes' in condicoes:
+                        tv = condicoes['tres_vezes']
+                        parcelas = tv.get('parcelas', [])
+                        if len(parcelas) >= 3:
+                            entrada = parcelas[0].get('valor', 0)
+                            valor_parcela = parcelas[1].get('valor', 0)
+                            acrescimo = tv.get('acrescimo_percentual', 0)
+                            logger_service.log_info(f"  - 3X: Entrada de R$ {entrada:,.2f}".replace(',', '.') + 
+                                                    f" + 2x de R$ {valor_parcela:,.2f}".replace(',', '.') +
+                                                    f" ({acrescimo}% de acréscimo)")
+                    
+                    # 4 parcelas
+                    if 'quatro_vezes' in condicoes:
+                        qv = condicoes['quatro_vezes']
+                        parcelas = qv.get('parcelas', [])
+                        if len(parcelas) >= 4:
+                            entrada = parcelas[0].get('valor', 0)
+                            valor_parcela = parcelas[1].get('valor', 0)
+                            acrescimo = qv.get('acrescimo_percentual', 0)
+                            logger_service.log_info(f"  - 4X: Entrada de R$ {entrada:,.2f}".replace(',', '.') + 
+                                                    f" + 3x de R$ {valor_parcela:,.2f}".replace(',', '.') +
+                                                    f" ({acrescimo}% de acréscimo)")
+                    
+                    # Cartão
+                    cartao = condicoes.get('cartao', {})
+                    if cartao:
+                        logger_service.log_info("  - PAGAMENTO NO CARTÃO:")
+                        for parcela, info in cartao.items():
+                            valor_parcela = info.get('valor_parcela', 0)
+                            acrescimo = info.get('acrescimo', 0)
+                            logger_service.log_info(f"     {parcela.upper()}: R$ {valor_parcela:,.2f}".replace(',', '.') + 
+                                                    f" ({acrescimo}% de acréscimo)")
         # --- Fim salvamento PDF ---
         
         resultado = {

@@ -55,8 +55,9 @@ def log_raw_request_body(raw_body):
 
 def log_request(request_data, client_info=None):
     """Registra informações sobre a requisição recebida"""
-    # Log completo dos dados brutos recebidos
-    logger.info(f"Raw Request Data: {json.dumps(request_data, indent=2)}")
+    # Log completo dos dados brutos recebidos em formato de tabela (excluindo cenários)
+    raw_req = {k: v for k, v in request_data.items() if k != "cenarios"}
+    logger.info("\n" + format_dict_table(raw_req))
     
     # Log de informações do cliente
     if client_info:
@@ -101,7 +102,7 @@ def log_data_saved(request_data):
     # Exibir dados básicos recebidos sem cenários
     raw_data = {k: v for k, v in request_data.items() if k != "cenarios"}
     logger.info("DADOS RECEBIDOS (sem cenários de pagamento):")
-    logger.info(json.dumps(raw_data, indent=2, sort_keys=True, ensure_ascii=False))
+    logger.info("\n" + format_dict_table(raw_data))
     
     # Exibir apenas o cenário relevante com formato simplificado
     cenarios = request_data.get("cenarios", {})
@@ -251,7 +252,7 @@ def log_data_saved(request_data):
         
         # Log dos dados processados da proposta
         logger.info("DADOS PROCESSADOS DA PROPOSTA:")
-        logger.info(f"{json.dumps(proposal_data, indent=2, sort_keys=True, ensure_ascii=False)}")
+        logger.info("\n" + format_dict_table(proposal_data))
     
     except Exception as e:
         logger.error(f"Erro ao processar dados da proposta para logging: {str(e)}")
@@ -295,3 +296,81 @@ def log_error(error, request_data=None):
         logger.error(f"Erro na aplicação: {error}")
     
     logger.error(f"=== PROCESSAMENTO INTERROMPIDO COM ERRO ====")
+
+
+def format_dict_table(data: dict, indent=0) -> str:
+    """Formata dicionário como tabela para log com melhor suporte para estruturas aninhadas."""
+    if not data:
+        return ""
+    
+    indent_str = " " * indent
+    max_key = max(len(str(k)) for k in data.keys())
+    
+    lines = []
+    for k, v in data.items():
+        key_str = f"{indent_str}{str(k).ljust(max_key)}"
+        
+        # Formatação especial para tipos específicos
+        if isinstance(v, dict):
+            if len(v) > 0:
+                # Para dicionários pequenos e simples, tente uma linha única
+                if len(v) <= 3 and all(not isinstance(val, (dict, list)) for val in v.values()):
+                    simple_dict = ", ".join(f"{sk}:{sv}" for sk, sv in v.items())
+                    lines.append(f"{key_str} : {{{simple_dict}}}")
+                else:
+                    # Para dicionários complexos, mostra um por linha com indentação
+                    lines.append(f"{key_str} :")
+                    for sub_k, sub_v in v.items():
+                        sub_indent = indent + 4
+                        if isinstance(sub_v, dict):
+                            lines.append(f"{indent_str}    {sub_k}:")
+                            for s_line in format_dict_table(sub_v, sub_indent + 4).split("\n"):
+                                if s_line.strip():
+                                    lines.append(s_line)
+                        elif isinstance(sub_v, list):
+                            lines.append(f"{indent_str}    {sub_k}:")
+                            for i, item in enumerate(sub_v):
+                                if isinstance(item, dict):
+                                    lines.append(f"{indent_str}        Item {i+1}:")
+                                    for s_line in format_dict_table(item, sub_indent + 8).split("\n"):
+                                        if s_line.strip():
+                                            lines.append(s_line)
+                                else:
+                                    lines.append(f"{indent_str}        - {item}")
+                        else:
+                            lines.append(f"{indent_str}    {sub_k}: {sub_v}")
+            else:
+                lines.append(f"{key_str} : {{}}")
+        elif isinstance(v, list):
+            if len(v) > 0:
+                if all(not isinstance(item, (dict, list)) for item in v):
+                    # Lista simples
+                    list_str = ", ".join(str(item) for item in v)
+                    lines.append(f"{key_str} : [{list_str}]")
+                else:
+                    # Lista complexa
+                    lines.append(f"{key_str} :")
+                    for i, item in enumerate(v):
+                        if isinstance(item, dict):
+                            lines.append(f"{indent_str}    Item {i+1}:")
+                            for s_line in format_dict_table(item, indent + 8).split("\n"):
+                                if s_line.strip():
+                                    lines.append(s_line)
+                        else:
+                            lines.append(f"{indent_str}    - {item}")
+            else:
+                lines.append(f"{key_str} : []")
+        else:
+            # Para tipos simples, apenas mostrar o valor
+            if isinstance(v, (int, float)) and not isinstance(v, bool):
+                # Formatar números com vírgula para separadores de milhares
+                try:
+                    formatted_v = f"{v:,.2f}" if isinstance(v, float) else f"{v:,}"
+                    formatted_v = formatted_v.replace(",", ".")
+                    lines.append(f"{key_str} : {formatted_v}")
+                except:
+                    lines.append(f"{key_str} : {v}")
+            else:
+                lines.append(f"{key_str} : {v}")
+    
+    return "\n".join(lines)
