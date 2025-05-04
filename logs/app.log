@@ -10301,3 +10301,695 @@ ultralightSubTotal
 04/05/2025 12:08:25 | SUCCESS  | Proposta processada com sucesso - Cliente: Backend Rod
 04/05/2025 12:08:25 | INFO     | Resultado: {'status': 'success', 'message': 'Proposta processada com sucesso', 'proposta_id': '4d092fcb-c56a-47f2-b0b8-956bc3e6c3e3', 'tipo_blindagem': 'Nenhuma', 'valor_blindagem': 0, 'condicoes_pagamento': {'Comfort 10 anos': {'a_vista': {'valor_total': 96030.2, 'desconto_percentual': 2, 'parcelas': [{'numero': 1, 'valor': 96030.2}]}, 'duas_vezes': {'valor_total': 97990.0, 'desconto_percentual': 0, 'parcelas': [{'numero': 1, 'valor': 48995.0}, {'numero': 2, 'valor': 48995.0}]}, 'tres_vezes': {'valor_total': 98969.9, 'acrescimo_percentual': 1, 'parcelas': [{'numero': 1, 'valor': 49484.95, 'tipo': 'entrada'}, {'numero': 2, 'valor': 24742.475}, {'numero': 3, 'valor': 24742.475}]}, 'quatro_vezes': {'valor_total': 100929.7, 'acrescimo_percentual': 3, 'parcelas': [{'numero': 1, 'valor': 60557.81999999999, 'tipo': 'entrada'}, {'numero': 2, 'valor': 13457.293333333335}, {'numero': 3, 'valor': 13457.293333333335}, {'numero': 4, 'valor': 13457.293333333335}]}, 'cartao': {'4x': {'acrescimo': 6, 'valor_total': 103869.40000000001, 'valor_parcela': 25967.350000000002}, '5x': {'acrescimo': 7, 'valor_total': 104849.3, 'valor_parcela': 20969.86}, '6x': {'acrescimo': 8, 'valor_total': 105829.20000000001, 'valor_parcela': 17638.2}, '7x': {'acrescimo': 9, 'valor_total': 106809.1, 'valor_parcela': 15258.442857142858}, '8x': {'acrescimo': 10, 'valor_total': 107789.00000000001, 'valor_parcela': 13473.625000000002}, '9x': {'acrescimo': 11, 'valor_total': 108768.90000000001, 'valor_parcela': 12085.433333333334}, '10x': {'acrescimo': 12, 'valor_total': 109748.80000000002, 'valor_parcela': 10974.880000000001}}, 'valor_base': 97990.0, 'parcelado_direto': [{'valor_total': 97990.0, 'desconto_percentual': 0, 'parcelas': [{'numero': 1, 'valor': 48995.0}, {'numero': 2, 'valor': 48995.0}]}, {'valor_total': 98969.9, 'acrescimo_percentual': 1, 'parcelas': [{'numero': 1, 'valor': 49484.95, 'tipo': 'entrada'}, {'numero': 2, 'valor': 24742.475}, {'numero': 3, 'valor': 24742.475}]}, {'valor_total': 100929.7, 'acrescimo_percentual': 3, 'parcelas': [{'numero': 1, 'valor': 60557.81999999999, 'tipo': 'entrada'}, {'numero': 2, 'valor': 13457.293333333335}, {'numero': 3, 'valor': 13457.293333333335}, {'numero': 4, 'valor': 13457.293333333335}]}], 'parcelado_cartao': [{'acrescimo': 6, 'valor_total': 103869.40000000001, 'valor_parcela': 25967.350000000002}, {'acrescimo': 7, 'valor_total': 104849.3, 'valor_parcela': 20969.86}, {'acrescimo': 8, 'valor_total': 105829.20000000001, 'valor_parcela': 17638.2}, {'acrescimo': 9, 'valor_total': 106809.1, 'valor_parcela': 15258.442857142858}, {'acrescimo': 10, 'valor_total': 107789.00000000001, 'valor_parcela': 13473.625000000002}, {'acrescimo': 11, 'valor_total': 108768.90000000001, 'valor_parcela': 12085.433333333334}, {'acrescimo': 12, 'valor_total': 109748.80000000002, 'valor_parcela': 10974.880000000001}]}, 'Comfort 18 mm': {'a_vista': {'valor_total': 114160.2, 'desconto_percentual': 2, 'parcelas': [{'numero': 1, 'valor': 114160.2}]}, 'duas_vezes': {'valor_total': 116490.0, 'desconto_percentual': 0, 'parcelas': [{'numero': 1, 'valor': 58245.0}, {'numero': 2, 'valor': 58245.0}]}, 'tres_vezes': {'valor_total': 117654.9, 'acrescimo_percentual': 1, 'parcelas': [{'numero': 1, 'valor': 58827.45, 'tipo': 'entrada'}, {'numero': 2, 'valor': 29413.725}, {'numero': 3, 'valor': 29413.725}]}, 'quatro_vezes': {'valor_total': 119984.7, 'acrescimo_percentual': 3, 'parcelas': [{'numero': 1, 'valor': 71990.81999999999, 'tipo': 'entrada'}, {'numero': 2, 'valor': 15997.960000000001}, {'numero': 3, 'valor': 15997.960000000001}, {'numero': 4, 'valor': 15997.960000000001}]}, 'cartao': {'4x': {'acrescimo': 6, 'valor_total': 123479.40000000001, 'valor_parcela': 30869.850000000002}, '5x': {'acrescimo': 7, 'valor_total': 124644.3, 'valor_parcela': 24928.86}, '6x': {'acrescimo': 8, 'valor_total': 125809.20000000001, 'valor_parcela': 20968.2}, '7x': {'acrescimo': 9, 'valor_total': 126974.1, 'valor_parcela': 18139.157142857144}, '8x': {'acrescimo': 10, 'valor_total': 128139.00000000001, 'valor_parcela': 16017.375000000002}, '9x': {'acrescimo': 11, 'valor_total': 129303.90000000001, 'valor_parcela': 14367.1}, '10x': {'acrescimo': 12, 'valor_total': 130468.80000000002, 'valor_parcela': 13046.880000000001}}, 'valor_base': 116490.0, 'parcelado_direto': [{'valor_total': 116490.0, 'desconto_percentual': 0, 'parcelas': [{'numero': 1, 'valor': 58245.0}, {'numero': 2, 'valor': 58245.0}]}, {'valor_total': 117654.9, 'acrescimo_percentual': 1, 'parcelas': [{'numero': 1, 'valor': 58827.45, 'tipo': 'entrada'}, {'numero': 2, 'valor': 29413.725}, {'numero': 3, 'valor': 29413.725}]}, {'valor_total': 119984.7, 'acrescimo_percentual': 3, 'parcelas': [{'numero': 1, 'valor': 71990.81999999999, 'tipo': 'entrada'}, {'numero': 2, 'valor': 15997.960000000001}, {'numero': 3, 'valor': 15997.960000000001}, {'numero': 4, 'valor': 15997.960000000001}]}], 'parcelado_cartao': [{'acrescimo': 6, 'valor_total': 123479.40000000001, 'valor_parcela': 30869.850000000002}, {'acrescimo': 7, 'valor_total': 124644.3, 'valor_parcela': 24928.86}, {'acrescimo': 8, 'valor_total': 125809.20000000001, 'valor_parcela': 20968.2}, {'acrescimo': 9, 'valor_total': 126974.1, 'valor_parcela': 18139.157142857144}, {'acrescimo': 10, 'valor_total': 128139.00000000001, 'valor_parcela': 16017.375000000002}, {'acrescimo': 11, 'valor_total': 129303.90000000001, 'valor_parcela': 14367.1}, {'acrescimo': 12, 'valor_total': 130468.80000000002, 'valor_parcela': 13046.880000000001}]}, 'Ultralight': {'a_vista': {'valor_total': 125920.2, 'desconto_percentual': 2, 'parcelas': [{'numero': 1, 'valor': 125920.2}]}, 'duas_vezes': {'valor_total': 128490.0, 'desconto_percentual': 0, 'parcelas': [{'numero': 1, 'valor': 64245.0}, {'numero': 2, 'valor': 64245.0}]}, 'tres_vezes': {'valor_total': 129774.9, 'acrescimo_percentual': 1, 'parcelas': [{'numero': 1, 'valor': 64887.45, 'tipo': 'entrada'}, {'numero': 2, 'valor': 32443.725}, {'numero': 3, 'valor': 32443.725}]}, 'quatro_vezes': {'valor_total': 132344.7, 'acrescimo_percentual': 3, 'parcelas': [{'numero': 1, 'valor': 79406.82, 'tipo': 'entrada'}, {'numero': 2, 'valor': 17645.960000000003}, {'numero': 3, 'valor': 17645.960000000003}, {'numero': 4, 'valor': 17645.960000000003}]}, 'cartao': {'4x': {'acrescimo': 6, 'valor_total': 136199.4, 'valor_parcela': 34049.85}, '5x': {'acrescimo': 7, 'valor_total': 137484.30000000002, 'valor_parcela': 27496.860000000004}, '6x': {'acrescimo': 8, 'valor_total': 138769.2, 'valor_parcela': 23128.2}, '7x': {'acrescimo': 9, 'valor_total': 140054.1, 'valor_parcela': 20007.72857142857}, '8x': {'acrescimo': 10, 'valor_total': 141339.0, 'valor_parcela': 17667.375}, '9x': {'acrescimo': 11, 'valor_total': 142623.90000000002, 'valor_parcela': 15847.100000000002}, '10x': {'acrescimo': 12, 'valor_total': 143908.80000000002, 'valor_parcela': 14390.880000000001}}, 'valor_base': 128490.0, 'parcelado_direto': [{'valor_total': 128490.0, 'desconto_percentual': 0, 'parcelas': [{'numero': 1, 'valor': 64245.0}, {'numero': 2, 'valor': 64245.0}]}, {'valor_total': 129774.9, 'acrescimo_percentual': 1, 'parcelas': [{'numero': 1, 'valor': 64887.45, 'tipo': 'entrada'}, {'numero': 2, 'valor': 32443.725}, {'numero': 3, 'valor': 32443.725}]}, {'valor_total': 132344.7, 'acrescimo_percentual': 3, 'parcelas': [{'numero': 1, 'valor': 79406.82, 'tipo': 'entrada'}, {'numero': 2, 'valor': 17645.960000000003}, {'numero': 3, 'valor': 17645.960000000003}, {'numero': 4, 'valor': 17645.960000000003}]}], 'parcelado_cartao': [{'acrescimo': 6, 'valor_total': 136199.4, 'valor_parcela': 34049.85}, {'acrescimo': 7, 'valor_total': 137484.30000000002, 'valor_parcela': 27496.860000000004}, {'acrescimo': 8, 'valor_total': 138769.2, 'valor_parcela': 23128.2}, {'acrescimo': 9, 'valor_total': 140054.1, 'valor_parcela': 20007.72857142857}, {'acrescimo': 10, 'valor_total': 141339.0, 'valor_parcela': 17667.375}, {'acrescimo': 11, 'valor_total': 142623.90000000002, 'valor_parcela': 15847.100000000002}, {'acrescimo': 12, 'valor_total': 143908.80000000002, 'valor_parcela': 14390.880000000001}]}}, 'timestamp': '2025-05-04T12:08:25.424432'}
 04/05/2025 12:08:25 | INFO     | === FINALIZADO PROCESSAMENTO DA REQUISIÇÃO ====
+04/05/2025 12:16:55 | INFO     | Iniciando Forsecar Backend API v1.0.0
+04/05/2025 12:18:12 | INFO     | RAW REQUEST BODY (UNMODIFIED): {"nome_cliente":"Backend Rod","telefone_cliente":"21777777777","email_cliente":"rodrigo@beckend.com.br","nome_vendedor":"João Pereira","marca_veiculo":"Ford","modelo_veiculo":"Ranger","teto_solar":"PANORAMICO XL","abertura_porta_malas":"ELETRICA","tipo_documentacao":"AUTORIZACAO, DECLARACAO, INMETRO E DETRAN","pacote_revisao":"5 ANOS","vidro_10_anos":"ARGUS","vidro_5_anos":"CRISTAL GARD - SAFEMAX","comfort10YearsSubTotal":98000,"comfort18mmSubTotal":116500,"ultralightSubTotal":128500,"tipo_blindagem":"Nenhuma","desconto_aplicado":10,"observations":"Deu certo aqui hein"}
+04/05/2025 12:18:12 | INFO     | === INICIANDO PROCESSAMENTO DE NOVA REQUISIÇÃO ====
+04/05/2025 12:18:12 | INFO     | Requisição recebida - Cliente: Backend Rod | Tipo blindagem: Nenhuma
+04/05/2025 12:18:12 | INFO     | Calculando condições de pagamento...
+04/05/2025 12:18:12 | INFO     | Cálculos de pagamento concluídos para valor base: R$ 0.00
+04/05/2025 12:18:12 | INFO     | COMPARAÇÃO DE BLINDAGENS:
+04/05/2025 12:18:12 | INFO     |   - Comfort 10 anos: R$ 98000.00 (Desconto: R$ 10.00)
+04/05/2025 12:18:12 | INFO     |   - Comfort 18 mm: R$ 116500.00 (Desconto: R$ 10.00)
+04/05/2025 12:18:12 | INFO     |   - Ultralight: R$ 128500.00 (Desconto: R$ 10.00)
+04/05/2025 12:18:12 | INFO     | === Cálculos para Comfort 10 anos ===
+04/05/2025 12:18:12 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+04/05/2025 12:18:12 | INFO     |   - À vista: R$ 96030.20 (Desconto: 2%)
+04/05/2025 12:18:12 | INFO     |   - 2x sem juros: 48995.00 + 48995.00
+04/05/2025 12:18:12 | INFO     |   - 3x: Entrada de R$ 49484.95 + 2x de R$ 24742.47 (Acréscimo: 1%)
+04/05/2025 12:18:12 | INFO     |   - 4x: Entrada de R$ 60557.82 + 3x de R$ 13457.29 (Acréscimo: 3%)
+04/05/2025 12:18:12 | INFO     |   - Opções de cartão:
+04/05/2025 12:18:12 | INFO     |     * 4x: R$ 25967.35 (Total: R$ 103869.40, Acréscimo: 6%)
+04/05/2025 12:18:12 | INFO     |     * 5x: R$ 20969.86 (Total: R$ 104849.30, Acréscimo: 7%)
+04/05/2025 12:18:12 | INFO     |     * 6x: R$ 17638.20 (Total: R$ 105829.20, Acréscimo: 8%)
+04/05/2025 12:18:12 | INFO     |     * 7x: R$ 15258.44 (Total: R$ 106809.10, Acréscimo: 9%)
+04/05/2025 12:18:12 | INFO     |     * 8x: R$ 13473.63 (Total: R$ 107789.00, Acréscimo: 10%)
+04/05/2025 12:18:12 | INFO     |     * 9x: R$ 12085.43 (Total: R$ 108768.90, Acréscimo: 11%)
+04/05/2025 12:18:12 | INFO     |     * 10x: R$ 10974.88 (Total: R$ 109748.80, Acréscimo: 12%)
+04/05/2025 12:18:12 | INFO     | === Cálculos para Comfort 18 mm ===
+04/05/2025 12:18:12 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+04/05/2025 12:18:12 | INFO     |   - À vista: R$ 114160.20 (Desconto: 2%)
+04/05/2025 12:18:12 | INFO     |   - 2x sem juros: 58245.00 + 58245.00
+04/05/2025 12:18:12 | INFO     |   - 3x: Entrada de R$ 58827.45 + 2x de R$ 29413.72 (Acréscimo: 1%)
+04/05/2025 12:18:12 | INFO     |   - 4x: Entrada de R$ 71990.82 + 3x de R$ 15997.96 (Acréscimo: 3%)
+04/05/2025 12:18:12 | INFO     |   - Opções de cartão:
+04/05/2025 12:18:12 | INFO     |     * 4x: R$ 30869.85 (Total: R$ 123479.40, Acréscimo: 6%)
+04/05/2025 12:18:12 | INFO     |     * 5x: R$ 24928.86 (Total: R$ 124644.30, Acréscimo: 7%)
+04/05/2025 12:18:12 | INFO     |     * 6x: R$ 20968.20 (Total: R$ 125809.20, Acréscimo: 8%)
+04/05/2025 12:18:12 | INFO     |     * 7x: R$ 18139.16 (Total: R$ 126974.10, Acréscimo: 9%)
+04/05/2025 12:18:12 | INFO     |     * 8x: R$ 16017.38 (Total: R$ 128139.00, Acréscimo: 10%)
+04/05/2025 12:18:12 | INFO     |     * 9x: R$ 14367.10 (Total: R$ 129303.90, Acréscimo: 11%)
+04/05/2025 12:18:12 | INFO     |     * 10x: R$ 13046.88 (Total: R$ 130468.80, Acréscimo: 12%)
+04/05/2025 12:18:12 | INFO     | === Cálculos para Ultralight ===
+04/05/2025 12:18:12 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+04/05/2025 12:18:12 | INFO     |   - À vista: R$ 125920.20 (Desconto: 2%)
+04/05/2025 12:18:12 | INFO     |   - 2x sem juros: 64245.00 + 64245.00
+04/05/2025 12:18:12 | INFO     |   - 3x: Entrada de R$ 64887.45 + 2x de R$ 32443.72 (Acréscimo: 1%)
+04/05/2025 12:18:12 | INFO     |   - 4x: Entrada de R$ 79406.82 + 3x de R$ 17645.96 (Acréscimo: 3%)
+04/05/2025 12:18:12 | INFO     |   - Opções de cartão:
+04/05/2025 12:18:12 | INFO     |     * 4x: R$ 34049.85 (Total: R$ 136199.40, Acréscimo: 6%)
+04/05/2025 12:18:12 | INFO     |     * 5x: R$ 27496.86 (Total: R$ 137484.30, Acréscimo: 7%)
+04/05/2025 12:18:12 | INFO     |     * 6x: R$ 23128.20 (Total: R$ 138769.20, Acréscimo: 8%)
+04/05/2025 12:18:12 | INFO     |     * 7x: R$ 20007.73 (Total: R$ 140054.10, Acréscimo: 9%)
+04/05/2025 12:18:12 | INFO     |     * 8x: R$ 17667.38 (Total: R$ 141339.00, Acréscimo: 10%)
+04/05/2025 12:18:12 | INFO     |     * 9x: R$ 15847.10 (Total: R$ 142623.90, Acréscimo: 11%)
+04/05/2025 12:18:12 | INFO     |     * 10x: R$ 14390.88 (Total: R$ 143908.80, Acréscimo: 12%)
+04/05/2025 12:18:12 | INFO     | Preparando resposta final da proposta...
+04/05/2025 12:18:12 | INFO     | Salvando dados para PDF...
+04/05/2025 12:18:12 | INFO     | Dados para PDF:
+04/05/2025 12:18:12 | INFO     | {
+  "nome_cliente": "Backend Rod",
+  "telefone_cliente": "21777777777",
+  "email_cliente": "rodrigo@beckend.com.br",
+  "nome_vendedor": "João Pereira",
+  "marca_veiculo": "Ford",
+  "modelo_veiculo": "Ranger",
+  "teto_solar": "PANORAMICO XL",
+  "abertura_porta_malas": "ELETRICA",
+  "tipo_documentacao": "AUTORIZACAO, DECLARACAO, INMETRO E DETRAN",
+  "pacote_revisao": "5 ANOS",
+  "vidro_10_anos": "ARGUS",
+  "vidro_5_anos": "CRISTAL GARD - SAFEMAX",
+  "tipo_blindagem": "Nenhuma",
+  "desconto_aplicado": 10,
+  "observations": "Deu certo aqui hein",
+  "cenarios": {
+    "Comfort 10 anos": {
+      "subtotal": 98000.0,
+      "condicoes_pagamento": {
+        "a_vista": {
+          "valor_total": 96030.2,
+          "desconto_percentual": 2,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 96030.2
+            }
+          ]
+        },
+        "duas_vezes": {
+          "valor_total": 97990.0,
+          "desconto_percentual": 0,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 48995.0
+            },
+            {
+              "numero": 2,
+              "valor": 48995.0
+            }
+          ]
+        },
+        "tres_vezes": {
+          "valor_total": 98969.9,
+          "acrescimo_percentual": 1,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 49484.95,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 24742.475
+            },
+            {
+              "numero": 3,
+              "valor": 24742.475
+            }
+          ]
+        },
+        "quatro_vezes": {
+          "valor_total": 100929.7,
+          "acrescimo_percentual": 3,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 60557.81999999999,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 13457.293333333335
+            },
+            {
+              "numero": 3,
+              "valor": 13457.293333333335
+            },
+            {
+              "numero": 4,
+              "valor": 13457.293333333335
+            }
+          ]
+        },
+        "cartao": {
+          "4x": {
+            "acrescimo": 6,
+            "valor_total": 103869.40000000001,
+            "valor_parcela": 25967.350000000002
+          },
+          "5x": {
+            "acrescimo": 7,
+            "valor_total": 104849.3,
+            "valor_parcela": 20969.86
+          },
+          "6x": {
+            "acrescimo": 8,
+            "valor_total": 105829.20000000001,
+            "valor_parcela": 17638.2
+          },
+          "7x": {
+            "acrescimo": 9,
+            "valor_total": 106809.1,
+            "valor_parcela": 15258.442857142858
+          },
+          "8x": {
+            "acrescimo": 10,
+            "valor_total": 107789.00000000001,
+            "valor_parcela": 13473.625000000002
+          },
+          "9x": {
+            "acrescimo": 11,
+            "valor_total": 108768.90000000001,
+            "valor_parcela": 12085.433333333334
+          },
+          "10x": {
+            "acrescimo": 12,
+            "valor_total": 109748.80000000002,
+            "valor_parcela": 10974.880000000001
+          }
+        },
+        "valor_base": 97990.0,
+        "parcelado_direto": [
+          {
+            "valor_total": 97990.0,
+            "desconto_percentual": 0,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 48995.0
+              },
+              {
+                "numero": 2,
+                "valor": 48995.0
+              }
+            ]
+          },
+          {
+            "valor_total": 98969.9,
+            "acrescimo_percentual": 1,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 49484.95,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 24742.475
+              },
+              {
+                "numero": 3,
+                "valor": 24742.475
+              }
+            ]
+          },
+          {
+            "valor_total": 100929.7,
+            "acrescimo_percentual": 3,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 60557.81999999999,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 13457.293333333335
+              },
+              {
+                "numero": 3,
+                "valor": 13457.293333333335
+              },
+              {
+                "numero": 4,
+                "valor": 13457.293333333335
+              }
+            ]
+          }
+        ],
+        "parcelado_cartao": [
+          {
+            "acrescimo": 6,
+            "valor_total": 103869.40000000001,
+            "valor_parcela": 25967.350000000002
+          },
+          {
+            "acrescimo": 7,
+            "valor_total": 104849.3,
+            "valor_parcela": 20969.86
+          },
+          {
+            "acrescimo": 8,
+            "valor_total": 105829.20000000001,
+            "valor_parcela": 17638.2
+          },
+          {
+            "acrescimo": 9,
+            "valor_total": 106809.1,
+            "valor_parcela": 15258.442857142858
+          },
+          {
+            "acrescimo": 10,
+            "valor_total": 107789.00000000001,
+            "valor_parcela": 13473.625000000002
+          },
+          {
+            "acrescimo": 11,
+            "valor_total": 108768.90000000001,
+            "valor_parcela": 12085.433333333334
+          },
+          {
+            "acrescimo": 12,
+            "valor_total": 109748.80000000002,
+            "valor_parcela": 10974.880000000001
+          }
+        ]
+      },
+      "desconto_aplicado": 10
+    },
+    "Comfort 18 mm": {
+      "subtotal": 116500.0,
+      "condicoes_pagamento": {
+        "a_vista": {
+          "valor_total": 114160.2,
+          "desconto_percentual": 2,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 114160.2
+            }
+          ]
+        },
+        "duas_vezes": {
+          "valor_total": 116490.0,
+          "desconto_percentual": 0,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 58245.0
+            },
+            {
+              "numero": 2,
+              "valor": 58245.0
+            }
+          ]
+        },
+        "tres_vezes": {
+          "valor_total": 117654.9,
+          "acrescimo_percentual": 1,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 58827.45,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 29413.725
+            },
+            {
+              "numero": 3,
+              "valor": 29413.725
+            }
+          ]
+        },
+        "quatro_vezes": {
+          "valor_total": 119984.7,
+          "acrescimo_percentual": 3,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 71990.81999999999,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 15997.960000000001
+            },
+            {
+              "numero": 3,
+              "valor": 15997.960000000001
+            },
+            {
+              "numero": 4,
+              "valor": 15997.960000000001
+            }
+          ]
+        },
+        "cartao": {
+          "4x": {
+            "acrescimo": 6,
+            "valor_total": 123479.40000000001,
+            "valor_parcela": 30869.850000000002
+          },
+          "5x": {
+            "acrescimo": 7,
+            "valor_total": 124644.3,
+            "valor_parcela": 24928.86
+          },
+          "6x": {
+            "acrescimo": 8,
+            "valor_total": 125809.20000000001,
+            "valor_parcela": 20968.2
+          },
+          "7x": {
+            "acrescimo": 9,
+            "valor_total": 126974.1,
+            "valor_parcela": 18139.157142857144
+          },
+          "8x": {
+            "acrescimo": 10,
+            "valor_total": 128139.00000000001,
+            "valor_parcela": 16017.375000000002
+          },
+          "9x": {
+            "acrescimo": 11,
+            "valor_total": 129303.90000000001,
+            "valor_parcela": 14367.1
+          },
+          "10x": {
+            "acrescimo": 12,
+            "valor_total": 130468.80000000002,
+            "valor_parcela": 13046.880000000001
+          }
+        },
+        "valor_base": 116490.0,
+        "parcelado_direto": [
+          {
+            "valor_total": 116490.0,
+            "desconto_percentual": 0,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 58245.0
+              },
+              {
+                "numero": 2,
+                "valor": 58245.0
+              }
+            ]
+          },
+          {
+            "valor_total": 117654.9,
+            "acrescimo_percentual": 1,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 58827.45,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 29413.725
+              },
+              {
+                "numero": 3,
+                "valor": 29413.725
+              }
+            ]
+          },
+          {
+            "valor_total": 119984.7,
+            "acrescimo_percentual": 3,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 71990.81999999999,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 15997.960000000001
+              },
+              {
+                "numero": 3,
+                "valor": 15997.960000000001
+              },
+              {
+                "numero": 4,
+                "valor": 15997.960000000001
+              }
+            ]
+          }
+        ],
+        "parcelado_cartao": [
+          {
+            "acrescimo": 6,
+            "valor_total": 123479.40000000001,
+            "valor_parcela": 30869.850000000002
+          },
+          {
+            "acrescimo": 7,
+            "valor_total": 124644.3,
+            "valor_parcela": 24928.86
+          },
+          {
+            "acrescimo": 8,
+            "valor_total": 125809.20000000001,
+            "valor_parcela": 20968.2
+          },
+          {
+            "acrescimo": 9,
+            "valor_total": 126974.1,
+            "valor_parcela": 18139.157142857144
+          },
+          {
+            "acrescimo": 10,
+            "valor_total": 128139.00000000001,
+            "valor_parcela": 16017.375000000002
+          },
+          {
+            "acrescimo": 11,
+            "valor_total": 129303.90000000001,
+            "valor_parcela": 14367.1
+          },
+          {
+            "acrescimo": 12,
+            "valor_total": 130468.80000000002,
+            "valor_parcela": 13046.880000000001
+          }
+        ]
+      },
+      "desconto_aplicado": 10
+    },
+    "Ultralight": {
+      "subtotal": 128500.0,
+      "condicoes_pagamento": {
+        "a_vista": {
+          "valor_total": 125920.2,
+          "desconto_percentual": 2,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 125920.2
+            }
+          ]
+        },
+        "duas_vezes": {
+          "valor_total": 128490.0,
+          "desconto_percentual": 0,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 64245.0
+            },
+            {
+              "numero": 2,
+              "valor": 64245.0
+            }
+          ]
+        },
+        "tres_vezes": {
+          "valor_total": 129774.9,
+          "acrescimo_percentual": 1,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 64887.45,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 32443.725
+            },
+            {
+              "numero": 3,
+              "valor": 32443.725
+            }
+          ]
+        },
+        "quatro_vezes": {
+          "valor_total": 132344.7,
+          "acrescimo_percentual": 3,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 79406.82,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 17645.960000000003
+            },
+            {
+              "numero": 3,
+              "valor": 17645.960000000003
+            },
+            {
+              "numero": 4,
+              "valor": 17645.960000000003
+            }
+          ]
+        },
+        "cartao": {
+          "4x": {
+            "acrescimo": 6,
+            "valor_total": 136199.4,
+            "valor_parcela": 34049.85
+          },
+          "5x": {
+            "acrescimo": 7,
+            "valor_total": 137484.30000000002,
+            "valor_parcela": 27496.860000000004
+          },
+          "6x": {
+            "acrescimo": 8,
+            "valor_total": 138769.2,
+            "valor_parcela": 23128.2
+          },
+          "7x": {
+            "acrescimo": 9,
+            "valor_total": 140054.1,
+            "valor_parcela": 20007.72857142857
+          },
+          "8x": {
+            "acrescimo": 10,
+            "valor_total": 141339.0,
+            "valor_parcela": 17667.375
+          },
+          "9x": {
+            "acrescimo": 11,
+            "valor_total": 142623.90000000002,
+            "valor_parcela": 15847.100000000002
+          },
+          "10x": {
+            "acrescimo": 12,
+            "valor_total": 143908.80000000002,
+            "valor_parcela": 14390.880000000001
+          }
+        },
+        "valor_base": 128490.0,
+        "parcelado_direto": [
+          {
+            "valor_total": 128490.0,
+            "desconto_percentual": 0,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 64245.0
+              },
+              {
+                "numero": 2,
+                "valor": 64245.0
+              }
+            ]
+          },
+          {
+            "valor_total": 129774.9,
+            "acrescimo_percentual": 1,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 64887.45,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 32443.725
+              },
+              {
+                "numero": 3,
+                "valor": 32443.725
+              }
+            ]
+          },
+          {
+            "valor_total": 132344.7,
+            "acrescimo_percentual": 3,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 79406.82,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 17645.960000000003
+              },
+              {
+                "numero": 3,
+                "valor": 17645.960000000003
+              },
+              {
+                "numero": 4,
+                "valor": 17645.960000000003
+              }
+            ]
+          }
+        ],
+        "parcelado_cartao": [
+          {
+            "acrescimo": 6,
+            "valor_total": 136199.4,
+            "valor_parcela": 34049.85
+          },
+          {
+            "acrescimo": 7,
+            "valor_total": 137484.30000000002,
+            "valor_parcela": 27496.860000000004
+          },
+          {
+            "acrescimo": 8,
+            "valor_total": 138769.2,
+            "valor_parcela": 23128.2
+          },
+          {
+            "acrescimo": 9,
+            "valor_total": 140054.1,
+            "valor_parcela": 20007.72857142857
+          },
+          {
+            "acrescimo": 10,
+            "valor_total": 141339.0,
+            "valor_parcela": 17667.375
+          },
+          {
+            "acrescimo": 11,
+            "valor_total": 142623.90000000002,
+            "valor_parcela": 15847.100000000002
+          },
+          {
+            "acrescimo": 12,
+            "valor_total": 143908.80000000002,
+            "valor_parcela": 14390.880000000001
+          }
+        ]
+      },
+      "desconto_aplicado": 10
+    }
+  }
+}
+04/05/2025 12:18:12 | SUCCESS  | Proposta processada com sucesso - Cliente: Backend Rod
+04/05/2025 12:18:12 | INFO     | Resultado: {'status': 'success', 'message': 'Proposta processada com sucesso', 'proposta_id': 'd6345b06-f06f-47a8-a77f-acfa77d0ee51', 'tipo_blindagem': 'Nenhuma', 'valor_blindagem': 0, 'condicoes_pagamento': {'Comfort 10 anos': {'a_vista': {'valor_total': 96030.2, 'desconto_percentual': 2, 'parcelas': [{'numero': 1, 'valor': 96030.2}]}, 'duas_vezes': {'valor_total': 97990.0, 'desconto_percentual': 0, 'parcelas': [{'numero': 1, 'valor': 48995.0}, {'numero': 2, 'valor': 48995.0}]}, 'tres_vezes': {'valor_total': 98969.9, 'acrescimo_percentual': 1, 'parcelas': [{'numero': 1, 'valor': 49484.95, 'tipo': 'entrada'}, {'numero': 2, 'valor': 24742.475}, {'numero': 3, 'valor': 24742.475}]}, 'quatro_vezes': {'valor_total': 100929.7, 'acrescimo_percentual': 3, 'parcelas': [{'numero': 1, 'valor': 60557.81999999999, 'tipo': 'entrada'}, {'numero': 2, 'valor': 13457.293333333335}, {'numero': 3, 'valor': 13457.293333333335}, {'numero': 4, 'valor': 13457.293333333335}]}, 'cartao': {'4x': {'acrescimo': 6, 'valor_total': 103869.40000000001, 'valor_parcela': 25967.350000000002}, '5x': {'acrescimo': 7, 'valor_total': 104849.3, 'valor_parcela': 20969.86}, '6x': {'acrescimo': 8, 'valor_total': 105829.20000000001, 'valor_parcela': 17638.2}, '7x': {'acrescimo': 9, 'valor_total': 106809.1, 'valor_parcela': 15258.442857142858}, '8x': {'acrescimo': 10, 'valor_total': 107789.00000000001, 'valor_parcela': 13473.625000000002}, '9x': {'acrescimo': 11, 'valor_total': 108768.90000000001, 'valor_parcela': 12085.433333333334}, '10x': {'acrescimo': 12, 'valor_total': 109748.80000000002, 'valor_parcela': 10974.880000000001}}, 'valor_base': 97990.0, 'parcelado_direto': [{'valor_total': 97990.0, 'desconto_percentual': 0, 'parcelas': [{'numero': 1, 'valor': 48995.0}, {'numero': 2, 'valor': 48995.0}]}, {'valor_total': 98969.9, 'acrescimo_percentual': 1, 'parcelas': [{'numero': 1, 'valor': 49484.95, 'tipo': 'entrada'}, {'numero': 2, 'valor': 24742.475}, {'numero': 3, 'valor': 24742.475}]}, {'valor_total': 100929.7, 'acrescimo_percentual': 3, 'parcelas': [{'numero': 1, 'valor': 60557.81999999999, 'tipo': 'entrada'}, {'numero': 2, 'valor': 13457.293333333335}, {'numero': 3, 'valor': 13457.293333333335}, {'numero': 4, 'valor': 13457.293333333335}]}], 'parcelado_cartao': [{'acrescimo': 6, 'valor_total': 103869.40000000001, 'valor_parcela': 25967.350000000002}, {'acrescimo': 7, 'valor_total': 104849.3, 'valor_parcela': 20969.86}, {'acrescimo': 8, 'valor_total': 105829.20000000001, 'valor_parcela': 17638.2}, {'acrescimo': 9, 'valor_total': 106809.1, 'valor_parcela': 15258.442857142858}, {'acrescimo': 10, 'valor_total': 107789.00000000001, 'valor_parcela': 13473.625000000002}, {'acrescimo': 11, 'valor_total': 108768.90000000001, 'valor_parcela': 12085.433333333334}, {'acrescimo': 12, 'valor_total': 109748.80000000002, 'valor_parcela': 10974.880000000001}]}, 'Comfort 18 mm': {'a_vista': {'valor_total': 114160.2, 'desconto_percentual': 2, 'parcelas': [{'numero': 1, 'valor': 114160.2}]}, 'duas_vezes': {'valor_total': 116490.0, 'desconto_percentual': 0, 'parcelas': [{'numero': 1, 'valor': 58245.0}, {'numero': 2, 'valor': 58245.0}]}, 'tres_vezes': {'valor_total': 117654.9, 'acrescimo_percentual': 1, 'parcelas': [{'numero': 1, 'valor': 58827.45, 'tipo': 'entrada'}, {'numero': 2, 'valor': 29413.725}, {'numero': 3, 'valor': 29413.725}]}, 'quatro_vezes': {'valor_total': 119984.7, 'acrescimo_percentual': 3, 'parcelas': [{'numero': 1, 'valor': 71990.81999999999, 'tipo': 'entrada'}, {'numero': 2, 'valor': 15997.960000000001}, {'numero': 3, 'valor': 15997.960000000001}, {'numero': 4, 'valor': 15997.960000000001}]}, 'cartao': {'4x': {'acrescimo': 6, 'valor_total': 123479.40000000001, 'valor_parcela': 30869.850000000002}, '5x': {'acrescimo': 7, 'valor_total': 124644.3, 'valor_parcela': 24928.86}, '6x': {'acrescimo': 8, 'valor_total': 125809.20000000001, 'valor_parcela': 20968.2}, '7x': {'acrescimo': 9, 'valor_total': 126974.1, 'valor_parcela': 18139.157142857144}, '8x': {'acrescimo': 10, 'valor_total': 128139.00000000001, 'valor_parcela': 16017.375000000002}, '9x': {'acrescimo': 11, 'valor_total': 129303.90000000001, 'valor_parcela': 14367.1}, '10x': {'acrescimo': 12, 'valor_total': 130468.80000000002, 'valor_parcela': 13046.880000000001}}, 'valor_base': 116490.0, 'parcelado_direto': [{'valor_total': 116490.0, 'desconto_percentual': 0, 'parcelas': [{'numero': 1, 'valor': 58245.0}, {'numero': 2, 'valor': 58245.0}]}, {'valor_total': 117654.9, 'acrescimo_percentual': 1, 'parcelas': [{'numero': 1, 'valor': 58827.45, 'tipo': 'entrada'}, {'numero': 2, 'valor': 29413.725}, {'numero': 3, 'valor': 29413.725}]}, {'valor_total': 119984.7, 'acrescimo_percentual': 3, 'parcelas': [{'numero': 1, 'valor': 71990.81999999999, 'tipo': 'entrada'}, {'numero': 2, 'valor': 15997.960000000001}, {'numero': 3, 'valor': 15997.960000000001}, {'numero': 4, 'valor': 15997.960000000001}]}], 'parcelado_cartao': [{'acrescimo': 6, 'valor_total': 123479.40000000001, 'valor_parcela': 30869.850000000002}, {'acrescimo': 7, 'valor_total': 124644.3, 'valor_parcela': 24928.86}, {'acrescimo': 8, 'valor_total': 125809.20000000001, 'valor_parcela': 20968.2}, {'acrescimo': 9, 'valor_total': 126974.1, 'valor_parcela': 18139.157142857144}, {'acrescimo': 10, 'valor_total': 128139.00000000001, 'valor_parcela': 16017.375000000002}, {'acrescimo': 11, 'valor_total': 129303.90000000001, 'valor_parcela': 14367.1}, {'acrescimo': 12, 'valor_total': 130468.80000000002, 'valor_parcela': 13046.880000000001}]}, 'Ultralight': {'a_vista': {'valor_total': 125920.2, 'desconto_percentual': 2, 'parcelas': [{'numero': 1, 'valor': 125920.2}]}, 'duas_vezes': {'valor_total': 128490.0, 'desconto_percentual': 0, 'parcelas': [{'numero': 1, 'valor': 64245.0}, {'numero': 2, 'valor': 64245.0}]}, 'tres_vezes': {'valor_total': 129774.9, 'acrescimo_percentual': 1, 'parcelas': [{'numero': 1, 'valor': 64887.45, 'tipo': 'entrada'}, {'numero': 2, 'valor': 32443.725}, {'numero': 3, 'valor': 32443.725}]}, 'quatro_vezes': {'valor_total': 132344.7, 'acrescimo_percentual': 3, 'parcelas': [{'numero': 1, 'valor': 79406.82, 'tipo': 'entrada'}, {'numero': 2, 'valor': 17645.960000000003}, {'numero': 3, 'valor': 17645.960000000003}, {'numero': 4, 'valor': 17645.960000000003}]}, 'cartao': {'4x': {'acrescimo': 6, 'valor_total': 136199.4, 'valor_parcela': 34049.85}, '5x': {'acrescimo': 7, 'valor_total': 137484.30000000002, 'valor_parcela': 27496.860000000004}, '6x': {'acrescimo': 8, 'valor_total': 138769.2, 'valor_parcela': 23128.2}, '7x': {'acrescimo': 9, 'valor_total': 140054.1, 'valor_parcela': 20007.72857142857}, '8x': {'acrescimo': 10, 'valor_total': 141339.0, 'valor_parcela': 17667.375}, '9x': {'acrescimo': 11, 'valor_total': 142623.90000000002, 'valor_parcela': 15847.100000000002}, '10x': {'acrescimo': 12, 'valor_total': 143908.80000000002, 'valor_parcela': 14390.880000000001}}, 'valor_base': 128490.0, 'parcelado_direto': [{'valor_total': 128490.0, 'desconto_percentual': 0, 'parcelas': [{'numero': 1, 'valor': 64245.0}, {'numero': 2, 'valor': 64245.0}]}, {'valor_total': 129774.9, 'acrescimo_percentual': 1, 'parcelas': [{'numero': 1, 'valor': 64887.45, 'tipo': 'entrada'}, {'numero': 2, 'valor': 32443.725}, {'numero': 3, 'valor': 32443.725}]}, {'valor_total': 132344.7, 'acrescimo_percentual': 3, 'parcelas': [{'numero': 1, 'valor': 79406.82, 'tipo': 'entrada'}, {'numero': 2, 'valor': 17645.960000000003}, {'numero': 3, 'valor': 17645.960000000003}, {'numero': 4, 'valor': 17645.960000000003}]}], 'parcelado_cartao': [{'acrescimo': 6, 'valor_total': 136199.4, 'valor_parcela': 34049.85}, {'acrescimo': 7, 'valor_total': 137484.30000000002, 'valor_parcela': 27496.860000000004}, {'acrescimo': 8, 'valor_total': 138769.2, 'valor_parcela': 23128.2}, {'acrescimo': 9, 'valor_total': 140054.1, 'valor_parcela': 20007.72857142857}, {'acrescimo': 10, 'valor_total': 141339.0, 'valor_parcela': 17667.375}, {'acrescimo': 11, 'valor_total': 142623.90000000002, 'valor_parcela': 15847.100000000002}, {'acrescimo': 12, 'valor_total': 143908.80000000002, 'valor_parcela': 14390.880000000001}]}}, 'timestamp': '2025-05-04T12:18:12.694175'}
+04/05/2025 12:18:12 | INFO     | === FINALIZADO PROCESSAMENTO DA REQUISIÇÃO ====
