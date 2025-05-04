@@ -89,7 +89,7 @@ def log_saving_data(request_data):
 
 
 def log_data_saved(request_data):
-    """Registra que os dados foram salvos com sucesso, mostrando exatamente os campos recebidos"""
+    """Registra que os dados foram salvos com sucesso, mostrando apenas as informações essenciais"""
     
     # Registra que os dados foram salvos
     if "nome_cliente" in request_data:
@@ -98,12 +98,75 @@ def log_data_saved(request_data):
     else:
         logger.info(f"Dados da proposta salvos com sucesso")
     
-    # Log dos dados exatamente como recebidos, sem adicionar campos padrão
-    logger.info(f"DADOS BRUTOS RECEBIDOS NA REQUISIÇÃO:")
-    logger.info(f"{json.dumps(request_data, indent=2, sort_keys=True, ensure_ascii=False)}")
+    # Exibir dados básicos recebidos sem cenários
+    raw_data = {k: v for k, v in request_data.items() if k != "cenarios"}
+    logger.info("DADOS RECEBIDOS (sem cenários de pagamento):")
+    logger.info(json.dumps(raw_data, indent=2, sort_keys=True, ensure_ascii=False))
     
-    # Informar quais campos estão presentes na requisição
-    logger.info(f"CAMPOS PRESENTES NA REQUISIÇÃO: {', '.join(request_data.keys())}")
+    # Exibir apenas o cenário relevante com formato simplificado
+    cenarios = request_data.get("cenarios", {})
+    tipo = request_data.get("tipo_blindagem")
+    
+    if tipo and tipo != "Nenhuma":
+        cenario = cenarios.get(tipo, {})
+        if cenario:
+            subtotal = cenario.get("subtotal", 0)
+            desconto = cenario.get("desconto_aplicado", 0)
+            condicoes = cenario.get("condicoes_pagamento", {})
+            
+            logger.info(f"CONDIÇÕES DE PAGAMENTO - {tipo.upper()}:")
+            logger.info(f"Valor Base: R$ {subtotal:,.2f}")
+            if desconto > 0:
+                logger.info(f"Desconto Aplicado: R$ {desconto:,.2f}")
+                logger.info(f"Valor Base com Desconto: R$ {subtotal - desconto:,.2f}")
+                
+            # À vista
+            if "a_vista" in condicoes:
+                av = condicoes["a_vista"]
+                logger.info(f"1) À VISTA: R$ {av.get('valor_total', 0):,.2f} (2% de desconto)")
+            
+            # 2 parcelas
+            if "duas_vezes" in condicoes:
+                dv = condicoes["duas_vezes"]
+                parcelas = dv.get("parcelas", [])
+                if len(parcelas) >= 2:
+                    valor_parcela = parcelas[0].get("valor", 0)
+                    logger.info(f"2) 2X SEM JUROS: 2x de R$ {valor_parcela:,.2f}")
+            
+            # 3 parcelas
+            if "tres_vezes" in condicoes:
+                tv = condicoes["tres_vezes"]
+                parcelas = tv.get("parcelas", [])
+                if len(parcelas) >= 3:
+                    entrada = parcelas[0].get("valor", 0)
+                    valor_parcela = parcelas[1].get("valor", 0)
+                    logger.info(f"3) 3X: Entrada de R$ {entrada:,.2f} + 2x de R$ {valor_parcela:,.2f} (1% de acréscimo)")
+            
+            # 4 parcelas
+            if "quatro_vezes" in condicoes:
+                qv = condicoes["quatro_vezes"]
+                parcelas = qv.get("parcelas", [])
+                if len(parcelas) >= 4:
+                    entrada = parcelas[0].get("valor", 0)
+                    valor_parcela = parcelas[1].get("valor", 0)
+                    logger.info(f"4) 4X: Entrada de R$ {entrada:,.2f} + 3x de R$ {valor_parcela:,.2f} (3% de acréscimo)")
+            
+            # Cartão
+            logger.info("5) PAGAMENTO NO CARTÃO:")
+            for parcela, info in condicoes.get("cartao", {}).items():
+                valor_parcela = info.get("valor_parcela", 0)
+                acrescimo = info.get("acrescimo", 0)
+                logger.info(f"   {parcela.upper()}: R$ {valor_parcela:,.2f} ({acrescimo}% de acréscimo)")
+    
+    elif tipo == "Nenhuma":
+        logger.info("COMPARATIVO DE BLINDAGENS:")
+        for t in ["Comfort 10 anos", "Comfort 18 mm", "Ultralight"]:
+            cenario = cenarios.get(t, {})
+            if cenario:
+                subtotal = cenario.get("subtotal", 0)
+                desconto = cenario.get("desconto_aplicado", 0)
+                valor_final = subtotal - desconto
+                logger.info(f"{t}: R$ {subtotal:,.2f} - Desconto: R$ {desconto:,.2f} = R$ {valor_final:,.2f}")
     
     # Criar e registrar informações estruturadas da proposta
     try:
@@ -133,12 +196,19 @@ def log_data_saved(request_data):
         
         if tipo_blindagem == "Nenhuma":
             # Para 'Nenhuma', registramos os valores de todas as opções de blindagem
-            proposal_data["comfort_10_anos_sub_total"] = request_data.get("comfort10YearsSubTotal", 0)
-            proposal_data["comfort_10_anos_desconto"] = request_data.get("comfort10YearsDiscount", 0)
-            proposal_data["comfort_18mm_sub_total"] = request_data.get("comfort18mmSubTotal", 0)
-            proposal_data["comfort_18mm_desconto"] = request_data.get("comfort18mmDiscount", 0)
-            proposal_data["ultralight_sub_total"] = request_data.get("ultralightSubTotal", 0)
-            proposal_data["ultralight_desconto"] = request_data.get("ultralightDiscount", 0)
+            # Calcular subtotais líquidos considerando desconto
+            comfort10_bruto = request_data.get("comfort10YearsSubTotal", 0)
+            comfort10_desconto = request_data.get("comfort10YearsDiscount", 0)
+            proposal_data["comfort_10_anos_sub_total"] = comfort10_bruto - comfort10_desconto
+            proposal_data["comfort_10_anos_desconto"] = comfort10_desconto
+            comfort18_bruto = request_data.get("comfort18mmSubTotal", 0)
+            comfort18_desconto = request_data.get("comfort18mmDiscount", 0)
+            proposal_data["comfort_18mm_sub_total"] = comfort18_bruto - comfort18_desconto
+            proposal_data["comfort_18mm_desconto"] = comfort18_desconto
+            ultralight_bruto = request_data.get("ultralightSubTotal", 0)
+            ultralight_desconto = request_data.get("ultralightDiscount", 0)
+            proposal_data["ultralight_sub_total"] = ultralight_bruto - ultralight_desconto
+            proposal_data["ultralight_desconto"] = ultralight_desconto
             
             # Registrar informações de comparação das blindagens
             logger.info("COMPARAÇÃO DE BLINDAGENS:")
@@ -148,24 +218,33 @@ def log_data_saved(request_data):
             
         elif tipo_blindagem == "Comfort 10 anos":
             # Para 'Comfort 10 anos', registramos apenas os valores dessa opção
-            proposal_data["sub_total_blindagem"] = request_data.get("comfort10YearsSubTotal", 0)
-            proposal_data["desconto_blindagem"] = request_data.get("comfort10YearsDiscount", 0)
+            # Calcular subtotal líquido considerando desconto
+            bruto = request_data.get("comfort10YearsSubTotal", 0)
+            desconto = request_data.get("comfort10YearsDiscount", 0)
+            proposal_data["sub_total_blindagem"] = bruto - desconto
+            proposal_data["desconto_blindagem"] = desconto
             logger.info(f"DETALHES DE BLINDAGEM COMFORT 10 ANOS:")
             logger.info(f"  - Subtotal: R$ {proposal_data['sub_total_blindagem']:,.2f}")
             logger.info(f"  - Desconto: R$ {proposal_data['desconto_blindagem']:,.2f}")
             
         elif tipo_blindagem == "Comfort 18 mm":
             # Para 'Comfort 18 mm', registramos apenas os valores dessa opção
-            proposal_data["sub_total_blindagem"] = request_data.get("comfort18mmSubTotal", 0)
-            proposal_data["desconto_blindagem"] = request_data.get("comfort18mmDiscount", 0)
+            # Calcular subtotal líquido considerando desconto
+            bruto = request_data.get("comfort18mmSubTotal", 0)
+            desconto = request_data.get("comfort18mmDiscount", 0)
+            proposal_data["sub_total_blindagem"] = bruto - desconto
+            proposal_data["desconto_blindagem"] = desconto
             logger.info(f"DETALHES DE BLINDAGEM COMFORT 18MM:")
             logger.info(f"  - Subtotal: R$ {proposal_data['sub_total_blindagem']:,.2f}")
             logger.info(f"  - Desconto: R$ {proposal_data['desconto_blindagem']:,.2f}")
             
         elif tipo_blindagem == "Ultralight":
             # Para 'Ultralight', registramos apenas os valores dessa opção
-            proposal_data["sub_total_blindagem"] = request_data.get("ultralightSubTotal", 0)
-            proposal_data["desconto_blindagem"] = request_data.get("ultralightDiscount", 0)
+            # Calcular subtotal líquido considerando desconto
+            bruto = request_data.get("ultralightSubTotal", 0)
+            desconto = request_data.get("ultralightDiscount", 0)
+            proposal_data["sub_total_blindagem"] = bruto - desconto
+            proposal_data["desconto_blindagem"] = desconto
             logger.info(f"DETALHES DE BLINDAGEM ULTRALIGHT:")
             logger.info(f"  - Subtotal: R$ {proposal_data['sub_total_blindagem']:,.2f}")
             logger.info(f"  - Desconto: R$ {proposal_data['desconto_blindagem']:,.2f}")

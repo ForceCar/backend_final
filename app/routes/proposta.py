@@ -152,37 +152,56 @@ async def gerar_proposta(request: Request, data: Dict[str, Any] = Body(...)):
         ]:
             if field in data:
                 pdf_data[field] = data[field]
-        # Cenários de blindagem
+                
+        # Cenários de blindagem - SIMPLIFICADO para evitar duplicações
         pdf_data['cenarios'] = {}
-        mapping_sub = {
-            'Comfort 10 anos': 'comfort10_anos',
-            'Comfort 18 mm': 'comfort18mm',
-            'Ultralight': 'ultralight'
-        }
-        raw_fields = {
-            'Comfort 10 anos': 'comfort10YearsSubTotal',
-            'Comfort 18 mm': 'comfort18mmSubTotal',
-            'Ultralight': 'ultralightSubTotal'
-        }
+        
         if tipo_blindagem == "Nenhuma":
-            for label, key in mapping_sub.items():
-                sub = subtotais[key]['subtotal']
-                desc = subtotais.get('desconto_aplicado', 0)
-                conds = condicoes_pagamento[label]
-                scenario = {'subtotal': sub}
-                if desc > 0:
-                    scenario['desconto_aplicado'] = desc
-                scenario['condicoes_pagamento'] = conds
+            # Para comparação, incluir apenas um cenário por tipo de blindagem
+            for label, key in [("Comfort 10 anos", "comfort10_anos"), 
+                              ("Comfort 18 mm", "comfort18mm"), 
+                              ("Ultralight", "ultralight")]:
+                # Usar valores já calculados com desconto aplicado
+                valor_final = subtotais[key]['valor_final']
+                
+                # O valor de condicoes_pagamento já calculado no proposals contém o desconto
+                scenario = {
+                    'subtotal': subtotais[key]['subtotal'],
+                    'condicoes_pagamento': condicoes_pagamento[label]
+                }
+                
+                # Se houver desconto, incluir no cenário para documentação
+                desconto = subtotais.get('desconto_aplicado', 0)
+                if desconto > 0:
+                    scenario['desconto_aplicado'] = desconto
+                    
                 pdf_data['cenarios'][label] = scenario
         else:
-            subtotal = float(data.get(raw_fields[tipo_blindagem], 0))
-            desc = data.get('desconto_aplicado', 0)
-            scenario = {'subtotal': subtotal}
-            if desc > 0:
-                scenario['desconto_aplicado'] = desc
-            scenario['condicoes_pagamento'] = condicoes_pagamento
+            # Para um tipo específico de blindagem, usar valor_base que já contém desconto
+            valor_base = subtotais['valor_base']
+            
+            # Identificar o subtotal original sem desconto
+            subtotal_map = {
+                'Comfort 10 anos': 'comfort10YearsSubTotal',
+                'Comfort 18 mm': 'comfort18mmSubTotal',
+                'Ultralight': 'ultralightSubTotal'
+            }
+            subtotal = float(data.get(subtotal_map.get(tipo_blindagem, 0), 0))
+            
+            # Criar cenário único com condições de pagamento já calculadas
+            scenario = {
+                'subtotal': subtotal,
+                'condicoes_pagamento': condicoes_pagamento
+            }
+            
+            # Se houver desconto, incluir no cenário
+            desconto = data.get('desconto_aplicado', 0)
+            if desconto > 0:
+                scenario['desconto_aplicado'] = desconto
+                
             pdf_data['cenarios'][tipo_blindagem] = scenario
-        # Log payload para PDF
+            
+        # Log payload para PDF - apenas os dados relevantes
         logger_service.log_info("Dados para PDF:")
         logger_service.log_info(json.dumps(pdf_data, indent=2, ensure_ascii=False))
         # --- Fim salvamento PDF ---
