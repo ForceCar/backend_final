@@ -16,6 +16,8 @@ from app.schemas.proposta_schema import (
 )
 from app.services import calculos
 from app.services import logger_service
+from app.services import pdf_service
+from app.services import whatsapp_service
 from app.config import PROPOSTA_ENDPOINT
 
 # Criação do router
@@ -276,29 +278,93 @@ async def gerar_proposta(request: Request, data: Dict[str, Any] = Body(...)):
                     # Cartão
                     cartao = condicoes.get('cartao', {})
                     if cartao:
-                        logger_service.log_info("  - PAGAMENTO NO CARTÃO:")
                         for parcela, info in cartao.items():
                             valor_parcela = info.get('valor_parcela', 0)
+                            valor_total = info.get('valor_total', 0)
                             acrescimo = info.get('acrescimo', 0)
-                            logger_service.log_info(f"     {parcela.upper()}: R$ {valor_parcela:,.2f}".replace(',', '.') + 
-                                                    f" ({acrescimo}% de acréscimo)")
+                            logger_service.log_info(f"    * {parcela}: R$ {valor_parcela:,.2f}".replace(',', '.') + 
+                                                   f" (Total: R$ {valor_total:,.2f}, Acréscimo: {acrescimo}%)".replace(',', '.'))
+                
+                # Se houver desconto, incluir no cenário para documentação
+                desconto = subtotais.get('desconto_aplicado', 0)
+                if desconto > 0:
+                    scenario['desconto_aplicado'] = desconto
+                    
+                pdf_data['cenarios'][label] = scenario
+        else:
+            # Para um tipo específico de blindagem, usar valor_base que já contém desconto
+            valor_base = subtotais['valor_base']
+            
+            # Identificar o subtotal original sem desconto
+            subtotal_map = {
+                'Comfort 10 anos': 'comfort10YearsSubTotal',
+                'Comfort 18 mm': 'comfort18mmSubTotal',
+                'Ultralight': 'ultralightSubTotal'
+            }
+            subtotal = float(data.get(subtotal_map.get(tipo_blindagem, ''), 0))
+            
+            # Criar cenário único com condições de pagamento já calculadas
+            scenario = {
+                'subtotal': subtotal,
+                'condicoes_pagamento': condicoes_pagamento
+            }
+            
+            # Se houver desconto, incluir no cenário
+            desconto = data.get('desconto_aplicado', 0)
+            if desconto > 0:
+                scenario['desconto_aplicado'] = desconto
+                
+            pdf_data['cenarios'][tipo_blindagem] = scenario
+
+        # Log payload para PDF - apenas os dados relevantes
+        logger_service.log_info("Dados para PDF:")
+        logger_service.log_info(json.dumps(pdf_data, indent=2, ensure_ascii=False))
+
         # --- Fim salvamento PDF ---
-        
-        resultado = {
-            "status": "success",
-            "message": "Proposta processada com sucesso",
-            "proposta_id": proposta_id,
-            "tipo_blindagem": tipo_blindagem,
-            "valor_blindagem": valor_base,
-            "condicoes_pagamento": condicoes_pagamento,
-            "timestamp": datetime.now().isoformat()
-        }
-        
-        # Log de sucesso: passar dados originais e resultado para evitar erro de .get em string
-        logger_service.log_success(data, resultado)
-        
-        return resultado
-        
+
+        # Gerar PDF da proposta
+        logger_service.log_info("Iniciando geração de PDF da proposta...")
+        try:
+            pdf_url = await pdf_service.gerar_pdf_proposta(pdf_data)
+            logger_service.log_info(f"PDF gerado com sucesso: {pdf_url}")
+            
+            # Enviar PDF por WhatsApp se o telefone estiver disponível
+            telefone_cliente = data.get("telefone_cliente")
+            if telefone_cliente:
+                logger_service.log_info(f"Enviando proposta por WhatsApp para: {telefone_cliente}")
+                
+                # Mensagem personalizada para o WhatsApp
+                marca = data.get("marca_veiculo", "")
+                modelo = data.get("modelo_veiculo", "")
+                mensagem = f"Olá {nome_cliente}, segue sua proposta de blindagem para o {marca} {modelo}."
+                
+                # Enviar PDF por WhatsApp
+                whatsapp_result = await whatsapp_service.enviar_pdf_whatsapp(
+                    telefone_cliente, 
+                    pdf_url, 
+                    mensagem
+                )
+                logger_service.log_info(f"Proposta enviada por WhatsApp: {whatsapp_result}")
+                
+            # Preparar resultado final
+            resultado = {
+                "status": "success",
+                "message": "Proposta gerada com sucesso",
+                "tipo_blindagem": tipo_blindagem,
+                "valor_blindagem": valor_base,
+                "condicoes_pagamento": condicoes_pagamento,
+                "pdf_url": pdf_url
+            }
+            
+            return PropostaResponse(**resultado)
+            
+        except Exception as e:
+            logger_service.log_error(f"Erro ao gerar PDF ou enviar WhatsApp: {str(e)}")
+            raise HTTPException(status_code=500, detail=f"Erro ao gerar PDF ou enviar WhatsApp: {str(e)}")
+            
     except Exception as e:
-        logger_service.log_error(f"Erro ao processar proposta: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Erro ao processar proposta: {str(e)}")
+        logger_service.log_error(f"Erro no processamento da proposta: {str(e)}")
+        return PropostaResponse(
+            status="error",
+            message=f"Erro ao processar proposta: {str(e)}"
+        )
