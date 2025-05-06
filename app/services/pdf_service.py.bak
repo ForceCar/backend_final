@@ -1,0 +1,355 @@
+"""
+Serviço para geração de PDFs de proposta
+"""
+import os
+import io
+import uuid
+import httpx
+import tempfile
+from datetime import datetime
+from typing import Dict, Any, Optional, Tuple, BinaryIO
+
+from PyPDF2 import PdfReader, PdfWriter
+from PyPDF2.generic import NameObject, BooleanObject, TextStringObject
+import tempfile
+import os
+from app.services import logger_service
+
+# URLs dos templates de PDF no Supabase
+PDF_COM_DESCONTO_URL = "https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/proposta-forcecar-com-desconto//Proposta%20COM%20Desconto%20Editavel.pdf"
+PDF_SEM_DESCONTO_URL = "https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/proposta-forcecar-sem-desconto//Proposta%20SEM%20Desconto%20Editavel.pdf"
+
+# Credenciais Supabase
+SUPABASE_URL = "https://ahvryabvarxisvfdnmye.supabase.co"
+SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFodnJ5YWJ2YXJ4aXN2ZmRubXllIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0MzYxMjk0NiwiZXhwIjoyMDU5MTg4OTQ2fQ.BPoLMoBvXZ-_7uQVDO1OuTHmP3mNyxT6ZclYSQEoFlc"
+
+# Bucket onde os PDFs gerados serão armazenados
+PDF_BUCKET_NAME = "propostas-geradas"
+
+
+async def selecionar_template(desconto: float) -> str:
+    """
+    Seleciona o URL do template apropriado com base no valor do desconto
+    
+    Args:
+        desconto: Valor do desconto aplicado
+        
+    Returns:
+        URL do template de PDF a ser utilizado
+    """
+    logger_service.log_info(f"Selecionando template de PDF: desconto={desconto}")
+    if desconto > 0:
+        logger_service.log_info("Template COM desconto selecionado")
+        return PDF_COM_DESCONTO_URL
+    else:
+        logger_service.log_info("Template SEM desconto selecionado")
+        return PDF_SEM_DESCONTO_URL
+
+
+async def baixar_template(url: str) -> bytes:
+    """
+    Baixa o template de PDF da URL especificada
+    
+    Args:
+        url: URL do template de PDF
+        
+    Returns:
+        Conteúdo binário do template
+    """
+    logger_service.log_info(f"Baixando template PDF: {url}")
+    async with httpx.AsyncClient() as client:
+        response = await client.get(url)
+        if response.status_code != 200:
+            erro = f"Falha ao baixar template PDF. Status: {response.status_code}"
+            logger_service.log_error(erro)
+            raise Exception(erro)
+        
+        logger_service.log_info("Template PDF baixado com sucesso")
+        return response.content
+
+
+async def mapear_dados_para_formulario(dados: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Mapeia os dados da proposta para os campos do formulário PDF
+    
+    Args:
+        dados: Dados da proposta
+        
+    Returns:
+        Dicionário com valores mapeados para os campos do formulário
+    """
+    logger_service.log_info("Mapeando dados para formulário PDF")
+    campos: Dict[str, Any] = {}
+    # Campos básicos do cliente e veículo
+    campos["nome_cliente"] = dados.get("nome_cliente", "")
+    campos["telefone_cliente"] = dados.get("telefone_cliente", "")
+    campos["email_cliente"] = dados.get("email_cliente", "")
+    campos["marca_carro"] = dados.get("marca_veiculo", "")
+    campos["modelo_carro"] = dados.get("modelo_veiculo", "")
+    campos["teto_solar"] = "Sim" if dados.get("teto_solar") else "Não"
+    campos["porta_malas"] = "Sim" if dados.get("abertura_porta_malas") else "Não"
+    campos["tipo_documentacao"] = dados.get("tipo_documentacao", "")
+    campos["pacote_revisao"] = "Sim" if dados.get("pacote_revisao") else "Não"
+    campos["vidro_10_anos"] = "Sim" if dados.get("vidro_10_anos") else "Não"
+    campos["vidro_5_anos"] = "Sim" if dados.get("vidro_5_anos") else "Não"
+    # Desconto aplicado
+    desconto_val = dados.get("desconto_aplicado", 0)
+    campos["desconto"] = f"R$ {desconto_val:.2f}" if desconto_val else ""
+    # Cenários e condições de pagamento
+    cenarios = dados.get("cenarios", {})
+    suffix_map = {"Comfort 10 anos": "10_anos", "Comfort 18 mm": "18mm", "Ultralight": "ultralight"}
+    for nome_c, sufixo in suffix_map.items():
+        cenario = cenarios.get(nome_c)
+        if not cenario:
+            continue
+        cond = cenario.get("condicoes_pagamento", {})
+        # À vista
+        a_vista = cond.get("a_vista", {}).get("valor_total", 0)
+        campos[f"a_vista_{sufixo}"] = f"R$ {a_vista:.2f}"
+        # Total geral
+        subtotal = cenario.get("subtotal", 0)
+        total = subtotal - desconto_val if desconto_val else subtotal
+        campos[f"total_{sufixo}"] = f"R$ {total:.2f}"
+        # Parcelamentos diretos
+        if "duas_vezes" in cond:
+            dv = cond["duas_vezes"]
+            campos[f"total_2x_{sufixo}"] = f"R$ {dv.get("valor_total", 0):.2f}"
+            p = dv.get("parcelas", [])
+            if len(p) >= 2:
+                campos[f"primeira_parcela_2x_{sufixo}"] = f"R$ {p[0].get("valor", 0):.2f}"
+                campos[f"segunda_parcela_2x_{sufixo}"] = f"R$ {p[1].get("valor", 0):.2f}"
+        # Parcelamentos 3x
+        if "tres_vezes" in cond:
+            tv = cond["tres_vezes"]
+            campos[f"total_3x_{sufixo}"] = f"R$ {tv.get("valor_total", 0):.2f}"
+            campos[f"sinal_50_3x_{sufixo}"] = f"R$ {tv.get("valor_entrada", 0):.2f}"
+            p = tv.get("parcelas", [])
+            if len(p) >= 3:
+                campos[f"primeira_parcela_3x_{sufixo}"] = f"R$ {p[0].get("valor", 0):.2f}"
+                campos[f"segunda_parcela_3x_{sufixo}"] = f"R$ {p[1].get("valor", 0):.2f}"
+                campos[f"terceira_parcela_3x_{sufixo}"] = f"R$ {p[2].get("valor", 0):.2f}"
+        # Parcelamentos 4x
+        if "quatro_vezes" in cond:
+            qv = cond["quatro_vezes"]
+            campos[f"total_4x_{sufixo}"] = f"R$ {qv.get("valor_total", 0):.2f}"
+            campos[f"sinal_60_4x_{sufixo}"] = f"R$ {qv.get("valor_entrada", 0):.2f}"
+            p = qv.get("parcelas", [])
+            if len(p) >= 4:
+                campos[f"primeira_parcela_4x_{sufixo}"] = f"R$ {p[0].get("valor", 0):.2f}"
+                campos[f"segunda_parcela_4x_{sufixo}"] = f"R$ {p[1].get("valor", 0):.2f}"
+                campos[f"terceira_parcela_4x_{sufixo}"] = f"R$ {p[2].get("valor", 0):.2f}"
+                campos[f"quarta_parcela_4x_{sufixo}"] = f"R$ {p[3].get("valor", 0):.2f}"
+        # Cartão de crédito
+        for key, info in cond.get("cartao", {}).items():
+            try:
+                n = int(key.replace("x", ""))
+            except:
+                continue
+            campos[f"cartao_{n}_parcelas_{sufixo}"] = f"R$ {info.get("valor_parcela", 0):.2f}"
+    return campos
+
+
+async def preencher_formulario_pdf(template_bytes: bytes, campos: Dict[str, Any]) -> bytes:
+    """Preenche os campos do formulário no PDF usando PyPDF2 garantindo visibilidade dos campos."""
+    logger_service.log_info(f"Iniciando preenchimento de {len(campos)} campos no PDF")
+
+    # Salvar template em arquivo temporário para PyPDF2
+    with tempfile.NamedTemporaryFile(delete=False, suffix='.pdf') as tmp_in:
+        tmp_in.write(template_bytes)
+        input_path = tmp_in.name
+
+    # Criar reader e writer
+    reader = PdfReader(input_path)
+    writer = PdfWriter()
+
+    # Adicionar todas as páginas ao writer
+    for page in reader.pages:
+        writer.add_page(page)
+
+    # Configurar appearances e obter campos
+    if "/AcroForm" in reader.trailer["/Root"]:
+        writer._root_object.update({
+            NameObject("/AcroForm"): reader.trailer["/Root"]["/AcroForm"]
+        })
+        # Forçar geração de aparências
+        writer._root_object["/AcroForm"].update({
+            NameObject("/NeedAppearances"): BooleanObject(True)
+        })
+
+    # Preencher campos
+    campos_preenchidos = 0
+    for field_name, value in campos.items():
+        try:
+            if field_name in [field[0] for field in reader.get_fields().items()]:
+                # Converter valor para string se não for
+                if value is not None:
+                    if not isinstance(value, str):
+                        value = str(value)
+                    # Criar objeto Unicode string
+                    text_string = TextStringObject(value)
+                    # Atualizar o campo
+                    writer.update_page_form_field_values(
+                        writer.pages[0], {field_name: text_string}, 
+                        auto_regenerate=True
+                    )
+                    campos_preenchidos += 1
+                    logger_service.log_info(f"Campo '{field_name}' preenchido com '{value}'")
+        except Exception as e:
+            logger_service.log_error(f"Erro ao preencher campo '{field_name}': {str(e)}")
+            continue
+
+    # Escrever PDF resultante
+    output = io.BytesIO()
+    writer.write(output)
+    output.seek(0)
+    result = output.read()
+
+    # Limpar arquivos temporários
+    os.remove(input_path)
+    
+    logger_service.log_info(f"Formulário PDF preenchido com sucesso ({campos_preenchidos} campos)")
+    return result
+
+
+async def upload_pdf_para_supabase(pdf_bytes: bytes, nome_arquivo: str) -> str:
+    """
+    Faz o upload do PDF gerado para o bucket do Supabase
+    
+    Args:
+        pdf_bytes: Conteúdo binário do PDF
+        nome_arquivo: Nome do arquivo a ser salvo
+    
+    Returns:
+        URL pública do PDF salvo
+    """
+    logger_service.log_info(f"Fazendo upload do PDF: {nome_arquivo}")
+    
+    # Endpoint para upload
+    upload_url = f"{SUPABASE_URL}/storage/v1/object/{PDF_BUCKET_NAME}/{nome_arquivo}"
+    
+    # Headers para autenticação
+    headers = {
+        "Authorization": f"Bearer {SUPABASE_KEY}",
+        "Content-Type": "application/pdf"
+    }
+    
+    # Fazer o upload
+    async with httpx.AsyncClient() as client:
+        response = await client.post(
+            upload_url,
+            headers=headers,
+            content=pdf_bytes
+        )
+        
+        if response.status_code not in (200, 201):
+            erro = f"Falha ao fazer upload do PDF. Status: {response.status_code}, Resposta: {response.text}"
+            logger_service.log_error(erro)
+            raise Exception(erro)
+    
+    # URL pública do PDF salvo
+    public_url = f"{SUPABASE_URL}/storage/v1/object/public/{PDF_BUCKET_NAME}/{nome_arquivo}"
+    logger_service.log_info(f"Upload concluído com sucesso. URL: {public_url}")
+    
+    return public_url
+
+
+async def gerar_pdf_proposta(dados: Dict[str, Any]) -> str:
+    """
+    Gera um PDF de proposta com base nos dados fornecidos
+    
+    Args:
+        dados: Dados da proposta
+    
+    Returns:
+        URL pública do PDF gerado
+    """
+    logger_service.log_info("=== INÍCIO: GERAÇÃO DE PDF DE PROPOSTA ===")
+    
+    try:
+        # Extrair informações básicas
+        nome_cliente = dados.get("nome_cliente", "Cliente")
+        desconto = dados.get("desconto_aplicado", 0)
+        tipo_blindagem = dados.get("tipo_blindagem", "")
+        
+        logger_service.log_info(f"Gerando proposta para: {nome_cliente} | Tipo: {tipo_blindagem} | Desconto: {desconto}")
+        
+        # Selecionar o template apropriado
+        template_url = await selecionar_template(desconto)
+        
+        # Baixar o template
+        template_bytes = await baixar_template(template_url)
+        
+        # Mapear dados para os campos do formulário
+        campos_preenchidos = await mapear_dados_para_formulario(dados)
+        
+        # Preencher os campos no PDF
+        pdf_preenchido = await preencher_formulario_pdf(template_bytes, campos_preenchidos)
+        
+        # Gerar nome de arquivo único
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        nome_seguro = nome_cliente.replace(" ", "_").lower()
+        unique_id = str(uuid.uuid4())[:8]
+        nome_arquivo = f"proposta_{nome_seguro}_{timestamp}_{unique_id}.pdf"
+        
+        # Fazer upload do PDF para o Supabase
+        pdf_url = await upload_pdf_para_supabase(pdf_preenchido, nome_arquivo)
+        
+        logger_service.log_info(f"PDF gerado com sucesso: {pdf_url}")
+        logger_service.log_info("=== FIM: GERAÇÃO DE PDF DE PROPOSTA ===")
+        
+        return pdf_url
+        
+    except Exception as e:
+        logger_service.log_error(f"Erro ao gerar PDF de proposta: {str(e)}")
+        raise e
+
+
+async def gerar_pdf_proposta(dados: Dict[str, Any]) -> str:
+    """
+    Gera um PDF de proposta com base nos dados fornecidos
+    
+    Args:
+        dados: Dados da proposta
+    
+    Returns:
+        URL pública do PDF gerado
+    """
+    logger_service.log_info("=== INÍCIO: GERAÇÃO DE PDF DE PROPOSTA ===")
+    
+    try:
+        # Extrair informações básicas
+        nome_cliente = dados.get("nome_cliente", "Cliente")
+        desconto = dados.get("desconto_aplicado", 0)
+        tipo_blindagem = dados.get("tipo_blindagem", "")
+        
+        logger_service.log_info(f"Gerando proposta para: {nome_cliente} | Tipo: {tipo_blindagem} | Desconto: {desconto}")
+        
+        # Selecionar o template apropriado
+        template_url = await selecionar_template(desconto)
+        
+        # Baixar o template
+        template_bytes = await baixar_template(template_url)
+        
+        # Mapear dados para os campos do formulário
+        campos_preenchidos = await mapear_dados_para_formulario(dados)
+        
+        # Preencher os campos no PDF
+        pdf_preenchido = await preencher_formulario_pdf(template_bytes, campos_preenchidos)
+        
+        # Gerar nome de arquivo único
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        nome_seguro = nome_cliente.replace(" ", "_").lower()
+        unique_id = str(uuid.uuid4())[:8]
+        nome_arquivo = f"proposta_{nome_seguro}_{timestamp}_{unique_id}.pdf"
+        
+        # Fazer upload do PDF para o Supabase
+        pdf_url = await upload_pdf_para_supabase(pdf_preenchido, nome_arquivo)
+        
+        logger_service.log_info(f"PDF gerado com sucesso: {pdf_url}")
+        logger_service.log_info("=== FIM: GERAÇÃO DE PDF DE PROPOSTA ===")
+        
+        return pdf_url
+        
+    except Exception as e:
+        logger_service.log_error(f"Erro ao gerar PDF de proposta: {str(e)}")
+        raise e
