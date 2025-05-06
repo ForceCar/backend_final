@@ -12,7 +12,7 @@ from reportlab.pdfgen import canvas
 
 # URLs dos templates de PDF no Supabase
 PDF_COM_DESCONTO_URL = "https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/proposta-forcecar-com-desconto//proposta-force-com-descconto.pdf"
-PDF_SEM_DESCONTO_URL = "https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/proposta-forcecar-sem-desconto//proposta-force-sem-desconto.pdf"
+PDF_SEM_DESCONTO_URL = "https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/proposta-forcecar-sem-desconto//proposta-forcecar-sem-desconto.pdf"
 
 # Credenciais Supabase
 SUPABASE_URL = "https://ahvryabvarxisvfdnmye.supabase.co"
@@ -94,12 +94,12 @@ async def mapear_dados_para_formulario(dados: Dict[str, Any]) -> Dict[str, Any]:
     campos["email_cliente"] = dados.get("email_cliente", "")
     campos["marca_carro"] = dados.get("marca_veiculo", "")
     campos["modelo_carro"] = dados.get("modelo_veiculo", "")
-    campos["teto_solar"] = "Sim" if dados.get("teto_solar") else "Não"
-    campos["porta_malas"] = "Sim" if dados.get("abertura_porta_malas") else "Não"
+    campos["teto_solar"] = dados.get("teto_solar", "")
+    campos["porta_malas"] = dados.get("abertura_porta_malas", "")
     campos["tipo_documentacao"] = dados.get("tipo_documentacao", "")
-    campos["pacote_revisao"] = "Sim" if dados.get("pacote_revisao") else "Não"
-    campos["vidro_10_anos"] = "Sim" if dados.get("vidro_10_anos") else "Não"
-    campos["vidro_5_anos"] = "Sim" if dados.get("vidro_5_anos") else "Não"
+    campos["pacote_revisao"] = dados.get("pacote_revisao", "")
+    campos["vidro_10_anos"] = dados.get("vidro_10_anos", "")
+    campos["vidro_5_anos"] = dados.get("vidro_5_anos", "")
     # Desconto aplicado
     desconto_val = dados.get("desconto_aplicado", 0)
     campos["desconto"] = f"R$ {desconto_val:.2f}" if desconto_val else ""
@@ -110,28 +110,51 @@ async def mapear_dados_para_formulario(dados: Dict[str, Any]) -> Dict[str, Any]:
         cenario = cenarios.get(nome_c)
         if not cenario:
             continue
-        # Preços
-        campos[f"modelo_{sufixo}"] = nome_c
-        campos[f"preco_original_{sufixo}"] = f"R$ {cenario.get('preco_original', 0):.2f}"
-        campos[f"preco_final_{sufixo}"] = f"R$ {cenario.get('preco_final', 0):.2f}"
         
-        # Condições de pagamento
         cond_pagto = cenario.get("condicoes_pagamento", {})
         
         # À vista
-        a_vista = cond_pagto.get("a_vista", {})
-        campos[f"valor_avista_{sufixo}"] = f"R$ {a_vista.get('valor', 0):.2f}"
+        a_v = cond_pagto.get("a_vista", {})
+        campos[f"a_vista_{sufixo}"] = f"R$ {a_v.get('valor_total', 0):.2f}"
+        campos[f"total_{sufixo}"] = f"R$ {a_v.get('valor_total', 0):.2f}"
         
-        # Entrada + parcelas
-        entrada_parcelas = cond_pagto.get("entrada_parcelas", {})
-        campos[f"valor_entrada_{sufixo}"] = f"R$ {entrada_parcelas.get('valor_entrada', 0):.2f}"
-        campos[f"valor_parcela_{sufixo}"] = f"R$ {entrada_parcelas.get('valor_parcela', 0):.2f}"
-        campos[f"num_parcelas_{sufixo}"] = str(entrada_parcelas.get("num_parcelas", 0))
+        # 2x sem juros
+        duas = cond_pagto.get("duas_vezes", {})
+        parcelas2 = duas.get("parcelas", [])
+        if len(parcelas2) >= 2:
+            campos[f"primeira_parcela_2x_{sufixo}"] = f"R$ {parcelas2[0]['valor']:.2f}"
+            campos[f"segunda_parcela_2x_{sufixo}"] = f"R$ {parcelas2[1]['valor']:.2f}"
+        campos[f"total_2x_{sufixo}"] = f"R$ {duas.get('valor_total', 0):.2f}"
         
-        # Parcelas sem entrada
-        sem_entrada = cond_pagto.get("sem_entrada", {})
-        campos[f"valor_parcela_sem_entrada_{sufixo}"] = f"R$ {sem_entrada.get('valor_parcela', 0):.2f}"
-        campos[f"num_parcelas_sem_entrada_{sufixo}"] = str(sem_entrada.get("num_parcelas", 0))
+        # 3x
+        tres = cond_pagto.get("tres_vezes", {})
+        parcelas3 = tres.get("parcelas", [])
+        if len(parcelas3) >= 1:
+            campos[f"sinal_50_3x_{sufixo}"] = f"R$ {parcelas3[0]['valor']:.2f}"
+        if len(parcelas3) >= 2:
+            campos[f"primeira_parcela_3x_{sufixo}"] = f"R$ {parcelas3[1]['valor']:.2f}"
+        if len(parcelas3) >= 3:
+            campos[f"segunda_parcela_3x_{sufixo}"] = f"R$ {parcelas3[2]['valor']:.2f}"
+        campos[f"total_3x_{sufixo}"] = f"R$ {tres.get('valor_total', 0):.2f}"
+        
+        # 4x
+        quatro = cond_pagto.get("quatro_vezes", {})
+        parcelas4 = quatro.get("parcelas", [])
+        if len(parcelas4) >= 1:
+            campos[f"sinal_60_4x_{sufixo}"] = f"R$ {parcelas4[0]['valor']:.2f}"
+        if len(parcelas4) >= 2:
+            campos[f"primeira_parcela_4x_{sufixo}"] = f"R$ {parcelas4[1]['valor']:.2f}"
+        if len(parcelas4) >= 3:
+            campos[f"segunda_parcela_4x_{sufixo}"] = f"R$ {parcelas4[2]['valor']:.2f}"
+        if len(parcelas4) >= 4:
+            campos[f"terceira_parcela_4x_{sufixo}"] = f"R$ {parcelas4[3]['valor']:.2f}"
+        campos[f"total_4x_{sufixo}"] = f"R$ {quatro.get('valor_total', 0):.2f}"
+        
+        # Cartão de crédito
+        cartao = cond_pagto.get("cartao", {})
+        for n in range(4, 11):
+            opc = cartao.get(f"{n}x", {})
+            campos[f"cartao_{n}_parcelas_{sufixo}"] = f"R$ {opc.get('valor_parcela', 0):.2f}"
     
     # Contagem de campos preenchidos para log
     campos_preenchidos = len([k for k, v in campos.items() if v])
@@ -142,53 +165,93 @@ async def mapear_dados_para_formulario(dados: Dict[str, Any]) -> Dict[str, Any]:
 
 # Mapeamento de coordenadas para preenchimento de campos no PDF
 COORDINATE_MAP: Dict[str, Dict[str, Any]] = {
-    # Página 11 - Dados do cliente e veículo
+    # Informações básicas página 11
     "nome_cliente": {"page": 11, "x": 100, "y": 700},
-    "telefone_cliente": {"page": 11, "x": 300, "y": 700},
-    "email_cliente": {"page": 11, "x": 100, "y": 670},
-    "marca_carro": {"page": 11, "x": 300, "y": 670},
-    "modelo_carro": {"page": 11, "x": 100, "y": 640},
-    "teto_solar": {"page": 11, "x": 300, "y": 640},
-    "porta_malas": {"page": 11, "x": 100, "y": 610},
-    "tipo_documentacao": {"page": 11, "x": 300, "y": 610},
-    "pacote_revisao": {"page": 11, "x": 100, "y": 580},
-    "vidro_10_anos": {"page": 11, "x": 300, "y": 580},
-    "vidro_5_anos": {"page": 11, "x": 100, "y": 550},
-    "desconto": {"page": 11, "x": 300, "y": 550},
-    
-    # Página 11 - Opção Comfort 10 anos
-    "modelo_10_anos": {"page": 11, "x": 100, "y": 500},
-    "preco_original_10_anos": {"page": 11, "x": 300, "y": 500},
-    "preco_final_10_anos": {"page": 11, "x": 100, "y": 470},
-    "valor_avista_10_anos": {"page": 11, "x": 300, "y": 470},
-    "valor_entrada_10_anos": {"page": 11, "x": 100, "y": 440},
-    "valor_parcela_10_anos": {"page": 11, "x": 300, "y": 440},
-    "num_parcelas_10_anos": {"page": 11, "x": 100, "y": 410},
-    "valor_parcela_sem_entrada_10_anos": {"page": 11, "x": 300, "y": 410},
-    "num_parcelas_sem_entrada_10_anos": {"page": 11, "x": 100, "y": 380},
-    
-    # Página 12 - Opção Comfort 18mm
-    "modelo_18mm": {"page": 12, "x": 100, "y": 700},
-    "preco_original_18mm": {"page": 12, "x": 300, "y": 700},
-    "preco_final_18mm": {"page": 12, "x": 100, "y": 670},
-    "valor_avista_18mm": {"page": 12, "x": 300, "y": 670},
-    "valor_entrada_18mm": {"page": 12, "x": 100, "y": 640},
-    "valor_parcela_18mm": {"page": 12, "x": 300, "y": 640},
-    "num_parcelas_18mm": {"page": 12, "x": 100, "y": 610},
-    "valor_parcela_sem_entrada_18mm": {"page": 12, "x": 300, "y": 610},
-    "num_parcelas_sem_entrada_18mm": {"page": 12, "x": 100, "y": 580},
-    
-    # Página 12 - Opção Ultralight
-    "modelo_ultralight": {"page": 12, "x": 100, "y": 500},
-    "preco_original_ultralight": {"page": 12, "x": 300, "y": 500},
-    "preco_final_ultralight": {"page": 12, "x": 100, "y": 470},
-    "valor_avista_ultralight": {"page": 12, "x": 300, "y": 470},
-    "valor_entrada_ultralight": {"page": 12, "x": 100, "y": 440},
-    "valor_parcela_ultralight": {"page": 12, "x": 300, "y": 440},
-    "num_parcelas_ultralight": {"page": 12, "x": 100, "y": 410},
-    "valor_parcela_sem_entrada_ultralight": {"page": 12, "x": 300, "y": 410},
-    "num_parcelas_sem_entrada_ultralight": {"page": 12, "x": 100, "y": 380},
+    "telefone_cliente": {"page": 11, "x": 100, "y": 680},
+    "email_cliente": {"page": 11, "x": 100, "y": 660},
+    "marca_carro": {"page": 11, "x": 100, "y": 640},
+    "modelo_carro": {"page": 11, "x": 100, "y": 620},
+    "teto_solar": {"page": 11, "x": 100, "y": 600},
+    "porta_malas": {"page": 11, "x": 100, "y": 580},
+    "tipo_documentacao": {"page": 11, "x": 100, "y": 560},
+    "desconto": {"page": 11, "x": 100, "y": 540},
+    "vidro_10_anos": {"page": 11, "x": 100, "y": 520},
+    "vidro_5_anos": {"page": 11, "x": 100, "y": 500},
+    "pacote_revisao": {"page": 11, "x": 100, "y": 480},
+    # Condições pagamento página 12 - Comfort 10 Anos
+    "a_vista_10_anos": {"page": 12, "x": 100, "y": 700},
+    "total_10_anos": {"page": 12, "x": 300, "y": 700},
+    "primeira_parcela_2x_10_anos": {"page": 12, "x": 100, "y": 680},
+    "segunda_parcela_2x_10_anos": {"page": 12, "x": 300, "y": 680},
+    "total_2x_10_anos": {"page": 12, "x": 100, "y": 660},
+    "sinal_50_3x_10_anos": {"page": 12, "x": 100, "y": 640},
+    "primeira_parcela_3x_10_anos": {"page": 12, "x": 300, "y": 640},
+    "segunda_parcela_3x_10_anos": {"page": 12, "x": 100, "y": 620},
+    "terceira_parcela_3x_10_anos": {"page": 12, "x": 300, "y": 620},
+    "total_3x_10_anos": {"page": 12, "x": 100, "y": 600},
+    "sinal_60_4x_10_anos": {"page": 12, "x": 100, "y": 580},
+    "primeira_parcela_4x_10_anos": {"page": 12, "x": 300, "y": 580},
+    "segunda_parcela_4x_10_anos": {"page": 12, "x": 100, "y": 560},
+    "terceira_parcela_4x_10_anos": {"page": 12, "x": 300, "y": 560},
+    "quarta_parcela_4x_10_anos": {"page": 12, "x": 100, "y": 540},
+    "total_4x_10_anos": {"page": 12, "x": 300, "y": 540},
+    "cartao_4_parcelas_10_anos": {"page": 12, "x": 100, "y": 520},
+    "cartao_5_parcelas_10_anos": {"page": 12, "x": 300, "y": 520},
+    "cartao_6_parcelas_10_anos": {"page": 12, "x": 100, "y": 500},
+    "cartao_7_parcelas_10_anos": {"page": 12, "x": 300, "y": 500},
+    "cartao_8_parcelas_10_anos": {"page": 12, "x": 100, "y": 480},
+    "cartao_9_parcelas_10_anos": {"page": 12, "x": 300, "y": 480},
+    "cartao_10_parcelas_10_anos": {"page": 12, "x": 100, "y": 460},
+    # Condições pagamento página 12 - Comfort 18 mm
+    "a_vista_18mm": {"page": 12, "x": 100, "y": 440},
+    "total_18mm": {"page": 12, "x": 300, "y": 440},
+    "primeira_parcela_2x_18mm": {"page": 12, "x": 100, "y": 420},
+    "segunda_parcela_2x_18mm": {"page": 12, "x": 300, "y": 420},
+    "total_2x_18mm": {"page": 12, "x": 100, "y": 400},
+    "sinal_50_3x_18mm": {"page": 12, "x": 100, "y": 380},
+    "primeira_parcela_3x_18mm": {"page": 12, "x": 300, "y": 380},
+    "segunda_parcela_3x_18mm": {"page": 12, "x": 100, "y": 360},
+    "terceira_parcela_3x_18mm": {"page": 12, "x": 300, "y": 360},
+    "total_3x_18mm": {"page": 12, "x": 100, "y": 340},
+    "sinal_60_4x_18mm": {"page": 12, "x": 100, "y": 320},
+    "primeira_parcela_4x_18mm": {"page": 12, "x": 300, "y": 320},
+    "segunda_parcela_4x_18mm": {"page": 12, "x": 100, "y": 300},
+    "terceira_parcela_4x_18mm": {"page": 12, "x": 300, "y": 300},
+    "quarta_parcela_4x_18mm": {"page": 12, "x": 100, "y": 280},
+    "total_4x_18mm": {"page": 12, "x": 300, "y": 280},
+    "cartao_4_parcelas_18mm": {"page": 12, "x": 100, "y": 260},
+    "cartao_5_parcelas_18mm": {"page": 12, "x": 300, "y": 260},
+    "cartao_6_parcelas_18mm": {"page": 12, "x": 100, "y": 240},
+    "cartao_7_parcelas_18mm": {"page": 12, "x": 300, "y": 240},
+    "cartao_8_parcelas_18mm": {"page": 12, "x": 100, "y": 220},
+    "cartao_9_parcelas_18mm": {"page": 12, "x": 300, "y": 220},
+    "cartao_10_parcelas_18mm": {"page": 12, "x": 100, "y": 200},
+    # Condições pagamento página 12 - Ultralight
+    "a_vista_ultralight": {"page": 12, "x": 100, "y": 180},
+    "total_ultralight": {"page": 12, "x": 300, "y": 180},
+    "primeira_parcela_2x_ultralight": {"page": 12, "x": 100, "y": 160},
+    "segunda_parcela_2x_ultralight": {"page": 12, "x": 300, "y": 160},
+    "total_2x_ultralight": {"page": 12, "x": 100, "y": 140},
+    "sinal_50_3x_ultralight": {"page": 12, "x": 100, "y": 120},
+    "primeira_parcela_3x_ultralight": {"page": 12, "x": 300, "y": 120},
+    "segunda_parcela_3x_ultralight": {"page": 12, "x": 100, "y": 100},
+    "terceira_parcela_3x_ultralight": {"page": 12, "x": 300, "y": 100},
+    "total_3x_ultralight": {"page": 12, "x": 100, "y": 80},
+    "sinal_60_4x_ultralight": {"page": 12, "x": 100, "y": 60},
+    "primeira_parcela_4x_ultralight": {"page": 12, "x": 300, "y": 60},
+    "segunda_parcela_4x_ultralight": {"page": 12, "x": 100, "y": 40},
+    "terceira_parcela_4x_ultralight": {"page": 12, "x": 300, "y": 40},
+    "quarta_parcela_4x_ultralight": {"page": 12, "x": 100, "y": 20},
+    "total_4x_ultralight": {"page": 12, "x": 300, "y": 20},
+    "cartao_4_parcelas_ultralight": {"page": 12, "x": 100, "y": 0},
+    "cartao_5_parcelas_ultralight": {"page": 12, "x": 300, "y": 0},
+    "cartao_6_parcelas_ultralight": {"page": 12, "x": 100, "y": -20},
+    "cartao_7_parcelas_ultralight": {"page": 12, "x": 300, "y": -20},
+    "cartao_8_parcelas_ultralight": {"page": 12, "x": 100, "y": -40},
+    "cartao_9_parcelas_ultralight": {"page": 12, "x": 300, "y": -40},
+    "cartao_10_parcelas_ultralight": {"page": 12, "x": 100, "y": -60},
 }
+
 
 async def preencher_formulario_pdf(template_bytes: bytes, campos: Dict[str, Any]) -> bytes:
     """
