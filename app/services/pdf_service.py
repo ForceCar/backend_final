@@ -164,92 +164,93 @@ async def mapear_dados_para_formulario(dados: Dict[str, Any]) -> Dict[str, Any]:
 
 
 # Mapeamento de coordenadas para preenchimento de campos no PDF
+# Formato: (page, left, right, width, bottom, top, height)
 COORDINATE_MAP: Dict[str, Dict[str, Any]] = {
     # Informações básicas página 11
-    "nome_cliente": {"page": 11, "x": 100, "y": 700},
-    "telefone_cliente": {"page": 11, "x": 100, "y": 680},
-    "email_cliente": {"page": 11, "x": 100, "y": 660},
-    "marca_carro": {"page": 11, "x": 100, "y": 640},
-    "modelo_carro": {"page": 11, "x": 100, "y": 620},
-    "teto_solar": {"page": 11, "x": 100, "y": 600},
-    "porta_malas": {"page": 11, "x": 100, "y": 580},
-    "tipo_documentacao": {"page": 11, "x": 100, "y": 560},
-    "desconto": {"page": 11, "x": 100, "y": 540},
-    "vidro_10_anos": {"page": 11, "x": 100, "y": 520},
-    "vidro_5_anos": {"page": 11, "x": 100, "y": 500},
-    "pacote_revisao": {"page": 11, "x": 100, "y": 480},
+    "nome_cliente": {"page": 11, "left": 159.71, "right": 572.54, "width": 412.82, "bottom": 609.35, "top": 630.47, "height": 21.12, "alignment": "left"},
+    "telefone_cliente": {"page": 11, "left": 158.16, "right": 574.5, "width": 416.34, "bottom": 234.57, "top": 255.27, "height": 20.7, "alignment": "left"},
+    "email_cliente": {"page": 11, "left": 158.65, "right": 574.5, "width": 415.85, "bottom": 260.68, "top": 280.88, "height": 20.2, "alignment": "left"},
+    "marca_carro": {"page": 11, "left": 158, "right": 575, "width": 417, "bottom": 285, "top": 307, "height": 22, "alignment": "left"},
+    "modelo_carro": {"page": 11, "left": 158.65, "right": 574.5, "width": 415.85, "bottom": 311.93, "top": 332.13, "height": 20.2, "alignment": "left"},
+    "teto_solar": {"page": 11, "left": 158.16, "right": 574.5, "width": 416.34, "bottom": 337.07, "top": 357.27, "height": 20.2, "alignment": "left"},
+    "porta-malas": {"page": 11, "left": 158, "right": 575, "width": 417, "bottom": 362, "top": 383, "height": 21, "alignment": "left"},
+    "tipo_documentacao": {"page": 11, "left": 157, "right": 575, "width": 418, "bottom": 388, "top": 409, "height": 21, "alignment": "left"},
+    "desconto": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 540, "top": 560, "height": 20, "alignment": "left"},
+    "vidro_10_anos": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 520, "top": 540, "height": 20, "alignment": "left"},
+    "vidro_5_anos": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 500, "top": 520, "height": 20, "alignment": "left"},
+    "pacote_revisao": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 480, "top": 500, "height": 20, "alignment": "left"},
     # Condições pagamento página 12 - Comfort 10 Anos
-    "a_vista_10_anos": {"page": 12, "x": 100, "y": 700},
-    "total_10_anos": {"page": 12, "x": 300, "y": 700},
-    "primeira_parcela_2x_10_anos": {"page": 12, "x": 100, "y": 680},
-    "segunda_parcela_2x_10_anos": {"page": 12, "x": 300, "y": 680},
-    "total_2x_10_anos": {"page": 12, "x": 100, "y": 660},
-    "sinal_50_3x_10_anos": {"page": 12, "x": 100, "y": 640},
-    "primeira_parcela_3x_10_anos": {"page": 12, "x": 300, "y": 640},
-    "segunda_parcela_3x_10_anos": {"page": 12, "x": 100, "y": 620},
-    "terceira_parcela_3x_10_anos": {"page": 12, "x": 300, "y": 620},
-    "total_3x_10_anos": {"page": 12, "x": 100, "y": 600},
-    "sinal_60_4x_10_anos": {"page": 12, "x": 100, "y": 580},
-    "primeira_parcela_4x_10_anos": {"page": 12, "x": 300, "y": 580},
-    "segunda_parcela_4x_10_anos": {"page": 12, "x": 100, "y": 560},
-    "terceira_parcela_4x_10_anos": {"page": 12, "x": 300, "y": 560},
-    "quarta_parcela_4x_10_anos": {"page": 12, "x": 100, "y": 540},
-    "total_4x_10_anos": {"page": 12, "x": 300, "y": 540},
-    "cartao_4_parcelas_10_anos": {"page": 12, "x": 100, "y": 520},
-    "cartao_5_parcelas_10_anos": {"page": 12, "x": 300, "y": 520},
-    "cartao_6_parcelas_10_anos": {"page": 12, "x": 100, "y": 500},
-    "cartao_7_parcelas_10_anos": {"page": 12, "x": 300, "y": 500},
-    "cartao_8_parcelas_10_anos": {"page": 12, "x": 100, "y": 480},
-    "cartao_9_parcelas_10_anos": {"page": 12, "x": 300, "y": 480},
-    "cartao_10_parcelas_10_anos": {"page": 12, "x": 100, "y": 460},
+    "a_vista_10_anos": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 700, "top": 720, "height": 20, "alignment": "left"},
+    "total_10_anos": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 700, "top": 720, "height": 20, "alignment": "left"},
+    "primeira_parcela_2x_10_anos": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 680, "top": 700, "height": 20, "alignment": "left"},
+    "segunda_parcela_2x_10_anos": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 680, "top": 700, "height": 20, "alignment": "left"},
+    "total_2x_10_anos": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 660, "top": 680, "height": 20, "alignment": "left"},
+    "sinal_50_3x_10_anos": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 640, "top": 660, "height": 20, "alignment": "left"},
+    "primeira_parcela_3x_10_anos": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 640, "top": 660, "height": 20, "alignment": "left"},
+    "segunda_parcela_3x_10_anos": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 620, "top": 640, "height": 20, "alignment": "left"},
+    "terceira_parcela_3x_10_anos": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 620, "top": 640, "height": 20, "alignment": "left"},
+    "total_3x_10_anos": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 600, "top": 620, "height": 20, "alignment": "left"},
+    "sinal_60_4x_10_anos": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 580, "top": 600, "height": 20, "alignment": "left"},
+    "primeira_parcela_4x_10_anos": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 580, "top": 600, "height": 20, "alignment": "left"},
+    "segunda_parcela_4x_10_anos": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 560, "top": 580, "height": 20, "alignment": "left"},
+    "terceira_parcela_4x_10_anos": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 560, "top": 580, "height": 20, "alignment": "left"},
+    "quarta_parcela_4x_10_anos": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 540, "top": 560, "height": 20, "alignment": "left"},
+    "total_4x_10_anos": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 540, "top": 560, "height": 20, "alignment": "left"},
+    "cartao_4_parcelas_10_anos": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 520, "top": 540, "height": 20, "alignment": "left"},
+    "cartao_5_parcelas_10_anos": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 520, "top": 540, "height": 20, "alignment": "left"},
+    "cartao_6_parcelas_10_anos": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 500, "top": 520, "height": 20, "alignment": "left"},
+    "cartao_7_parcelas_10_anos": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 500, "top": 520, "height": 20, "alignment": "left"},
+    "cartao_8_parcelas_10_anos": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 480, "top": 500, "height": 20, "alignment": "left"},
+    "cartao_9_parcelas_10_anos": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 480, "top": 500, "height": 20, "alignment": "left"},
+    "cartao_10_parcelas_10_anos": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 460, "top": 480, "height": 20, "alignment": "left"},
     # Condições pagamento página 12 - Comfort 18 mm
-    "a_vista_18mm": {"page": 12, "x": 100, "y": 440},
-    "total_18mm": {"page": 12, "x": 300, "y": 440},
-    "primeira_parcela_2x_18mm": {"page": 12, "x": 100, "y": 420},
-    "segunda_parcela_2x_18mm": {"page": 12, "x": 300, "y": 420},
-    "total_2x_18mm": {"page": 12, "x": 100, "y": 400},
-    "sinal_50_3x_18mm": {"page": 12, "x": 100, "y": 380},
-    "primeira_parcela_3x_18mm": {"page": 12, "x": 300, "y": 380},
-    "segunda_parcela_3x_18mm": {"page": 12, "x": 100, "y": 360},
-    "terceira_parcela_3x_18mm": {"page": 12, "x": 300, "y": 360},
-    "total_3x_18mm": {"page": 12, "x": 100, "y": 340},
-    "sinal_60_4x_18mm": {"page": 12, "x": 100, "y": 320},
-    "primeira_parcela_4x_18mm": {"page": 12, "x": 300, "y": 320},
-    "segunda_parcela_4x_18mm": {"page": 12, "x": 100, "y": 300},
-    "terceira_parcela_4x_18mm": {"page": 12, "x": 300, "y": 300},
-    "quarta_parcela_4x_18mm": {"page": 12, "x": 100, "y": 280},
-    "total_4x_18mm": {"page": 12, "x": 300, "y": 280},
-    "cartao_4_parcelas_18mm": {"page": 12, "x": 100, "y": 260},
-    "cartao_5_parcelas_18mm": {"page": 12, "x": 300, "y": 260},
-    "cartao_6_parcelas_18mm": {"page": 12, "x": 100, "y": 240},
-    "cartao_7_parcelas_18mm": {"page": 12, "x": 300, "y": 240},
-    "cartao_8_parcelas_18mm": {"page": 12, "x": 100, "y": 220},
-    "cartao_9_parcelas_18mm": {"page": 12, "x": 300, "y": 220},
-    "cartao_10_parcelas_18mm": {"page": 12, "x": 100, "y": 200},
+    "a_vista_18mm": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 440, "top": 460, "height": 20, "alignment": "left"},
+    "total_18mm": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 440, "top": 460, "height": 20, "alignment": "left"},
+    "primeira_parcela_2x_18mm": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 420, "top": 440, "height": 20, "alignment": "left"},
+    "segunda_parcela_2x_18mm": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 420, "top": 440, "height": 20, "alignment": "left"},
+    "total_2x_18mm": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 400, "top": 420, "height": 20, "alignment": "left"},
+    "sinal_50_3x_18mm": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 380, "top": 400, "height": 20, "alignment": "left"},
+    "primeira_parcela_3x_18mm": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 380, "top": 400, "height": 20, "alignment": "left"},
+    "segunda_parcela_3x_18mm": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 360, "top": 380, "height": 20, "alignment": "left"},
+    "terceira_parcela_3x_18mm": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 360, "top": 380, "height": 20, "alignment": "left"},
+    "total_3x_18mm": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 340, "top": 360, "height": 20, "alignment": "left"},
+    "sinal_60_4x_18mm": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 320, "top": 340, "height": 20, "alignment": "left"},
+    "primeira_parcela_4x_18mm": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 320, "top": 340, "height": 20, "alignment": "left"},
+    "segunda_parcela_4x_18mm": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 300, "top": 320, "height": 20, "alignment": "left"},
+    "terceira_parcela_4x_18mm": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 300, "top": 320, "height": 20, "alignment": "left"},
+    "quarta_parcela_4x_18mm": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 280, "top": 300, "height": 20, "alignment": "left"},
+    "total_4x_18mm": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 280, "top": 300, "height": 20, "alignment": "left"},
+    "cartao_4_parcelas_18mm": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 260, "top": 280, "height": 20, "alignment": "left"},
+    "cartao_5_parcelas_18mm": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 260, "top": 280, "height": 20, "alignment": "left"},
+    "cartao_6_parcelas_18mm": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 240, "top": 260, "height": 20, "alignment": "left"},
+    "cartao_7_parcelas_18mm": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 240, "top": 260, "height": 20, "alignment": "left"},
+    "cartao_8_parcelas_18mm": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 220, "top": 240, "height": 20, "alignment": "left"},
+    "cartao_9_parcelas_18mm": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 220, "top": 240, "height": 20, "alignment": "left"},
+    "cartao_10_parcelas_18mm": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 200, "top": 220, "height": 20, "alignment": "left"},
     # Condições pagamento página 12 - Ultralight
-    "a_vista_ultralight": {"page": 12, "x": 100, "y": 180},
-    "total_ultralight": {"page": 12, "x": 300, "y": 180},
-    "primeira_parcela_2x_ultralight": {"page": 12, "x": 100, "y": 160},
-    "segunda_parcela_2x_ultralight": {"page": 12, "x": 300, "y": 160},
-    "total_2x_ultralight": {"page": 12, "x": 100, "y": 140},
-    "sinal_50_3x_ultralight": {"page": 12, "x": 100, "y": 120},
-    "primeira_parcela_3x_ultralight": {"page": 12, "x": 300, "y": 120},
-    "segunda_parcela_3x_ultralight": {"page": 12, "x": 100, "y": 100},
-    "terceira_parcela_3x_ultralight": {"page": 12, "x": 300, "y": 100},
-    "total_3x_ultralight": {"page": 12, "x": 100, "y": 80},
-    "sinal_60_4x_ultralight": {"page": 12, "x": 100, "y": 60},
-    "primeira_parcela_4x_ultralight": {"page": 12, "x": 300, "y": 60},
-    "segunda_parcela_4x_ultralight": {"page": 12, "x": 100, "y": 40},
-    "terceira_parcela_4x_ultralight": {"page": 12, "x": 300, "y": 40},
-    "quarta_parcela_4x_ultralight": {"page": 12, "x": 100, "y": 20},
-    "total_4x_ultralight": {"page": 12, "x": 300, "y": 20},
-    "cartao_4_parcelas_ultralight": {"page": 12, "x": 100, "y": 0},
-    "cartao_5_parcelas_ultralight": {"page": 12, "x": 300, "y": 0},
-    "cartao_6_parcelas_ultralight": {"page": 12, "x": 100, "y": -20},
-    "cartao_7_parcelas_ultralight": {"page": 12, "x": 300, "y": -20},
-    "cartao_8_parcelas_ultralight": {"page": 12, "x": 100, "y": -40},
-    "cartao_9_parcelas_ultralight": {"page": 12, "x": 300, "y": -40},
-    "cartao_10_parcelas_ultralight": {"page": 12, "x": 100, "y": -60},
+    "a_vista_ultralight": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 180, "top": 200, "height": 20, "alignment": "left"},
+    "total_ultralight": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 180, "top": 200, "height": 20, "alignment": "left"},
+    "primeira_parcela_2x_ultralight": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 160, "top": 180, "height": 20, "alignment": "left"},
+    "segunda_parcela_2x_ultralight": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 160, "top": 180, "height": 20, "alignment": "left"},
+    "total_2x_ultralight": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 140, "top": 160, "height": 20, "alignment": "left"},
+    "sinal_50_3x_ultralight": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 120, "top": 140, "height": 20, "alignment": "left"},
+    "primeira_parcela_3x_ultralight": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 120, "top": 140, "height": 20, "alignment": "left"},
+    "segunda_parcela_3x_ultralight": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 100, "top": 120, "height": 20, "alignment": "left"},
+    "terceira_parcela_3x_ultralight": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 100, "top": 120, "height": 20, "alignment": "left"},
+    "total_3x_ultralight": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 80, "top": 100, "height": 20, "alignment": "left"},
+    "sinal_60_4x_ultralight": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 60, "top": 80, "height": 20, "alignment": "left"},
+    "primeira_parcela_4x_ultralight": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 60, "top": 80, "height": 20, "alignment": "left"},
+    "segunda_parcela_4x_ultralight": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 40, "top": 60, "height": 20, "alignment": "left"},
+    "terceira_parcela_4x_ultralight": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 40, "top": 60, "height": 20, "alignment": "left"},
+    "quarta_parcela_4x_ultralight": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 20, "top": 40, "height": 20, "alignment": "left"},
+    "total_4x_ultralight": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 20, "top": 40, "height": 20, "alignment": "left"},
+    "cartao_4_parcelas_ultralight": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 0, "top": 20, "height": 20, "alignment": "left"},
+    "cartao_5_parcelas_ultralight": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 0, "top": 20, "height": 20, "alignment": "left"},
+    "cartao_6_parcelas_ultralight": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": -20, "top": 0, "height": 20, "alignment": "left"},
+    "cartao_7_parcelas_ultralight": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": -20, "top": 0, "height": 20, "alignment": "left"},
+    "cartao_8_parcelas_ultralight": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": -40, "top": -20, "height": 20, "alignment": "left"},
+    "cartao_9_parcelas_ultralight": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": -40, "top": -20, "height": 20, "alignment": "left"},
+    "cartao_10_parcelas_ultralight": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": -60, "top": -40, "height": 20, "alignment": "left"},
 }
 
 
@@ -316,10 +317,43 @@ async def preencher_formulario_pdf(template_bytes: bytes, campos: Dict[str, Any]
                 
                 # Adicionar cada campo ao overlay
                 for field, value, coord in campos_por_pagina[page_num]:
-                    x, y = float(coord.get("x")), float(coord.get("y"))
-                    overlay_canvas.setFillColorRGB(0, 0, 0.8)  # Azul escuro
-                    overlay_canvas.drawString(x, y, str(value))
-                    logger_service.log_info(f"Campo '{field}': '{value}' em ({x},{y}) na página {page_num}")
+                    # Verificar se estamos usando o formato antigo ou novo
+                    if "left" in coord:
+                        # Novo formato (left, right, width, bottom, top, height)
+                        left = float(coord.get("left"))
+                        bottom = float(coord.get("bottom"))
+                        width = float(coord.get("width"))
+                        height = float(coord.get("height"))
+                        # Em PDF, a origem Y (0,0) é no canto inferior esquerdo
+                        # bottom é a coordenada Y do texto (da base do texto)
+                    else:
+                        # Formato antigo (x, y, width, height) - para compatibilidade
+                        left = float(coord.get("x", 0))
+                        bottom = float(coord.get("y", 0))
+                        width = float(coord.get("width", 400))  # Valor padrão caso não exista
+                        height = float(coord.get("height", 20))  # Valor padrão caso não exista
+                    
+                    alignment = coord.get("alignment", "left")  # Valor padrão caso não exista
+                    
+                    # Configurar alinhamento do texto
+                    text = str(value)
+                    if alignment == "center":
+                        overlay_canvas.setFillColorRGB(0, 0, .8)  # Azul escuro
+                        # Centralizar o texto na largura disponível
+                        text_width = overlay_canvas.stringWidth(text, "Helvetica-Bold", 14)
+                        text_x = left + (width - text_width) / 2
+                        overlay_canvas.drawString(text_x, bottom, text)
+                    elif alignment == "right":
+                        overlay_canvas.setFillColorRGB(0, 0, .8)  # Azul escuro
+                        # Alinhar à direita na largura disponível
+                        text_width = overlay_canvas.stringWidth(text, "Helvetica-Bold", 14)
+                        text_x = left + width - text_width
+                        overlay_canvas.drawString(text_x, bottom, text)
+                    else:  # left (padrão)
+                        overlay_canvas.setFillColorRGB(0, 0, .8)  # Azul escuro
+                        overlay_canvas.drawString(left, bottom, text)
+                    
+                    logger_service.log_info(f"Campo '{field}': '{value}' - position: left={left}, bottom={bottom}, width={width}, height={height}, alinhamento: {alignment}, página: {page_num}")
                 
                 # Finalizar o overlay
                 overlay_canvas.save()
