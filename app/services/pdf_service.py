@@ -18,11 +18,15 @@ PDF_SEM_DESCONTO_URL = "https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/obje
 SUPABASE_URL = "https://ahvryabvarxisvfdnmye.supabase.co"
 SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFodnJ5YWJ2YXJ4aXN2ZmRubXllIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0MzYxMjk0NiwiZXhwIjoyMDU5MTg4OTQ2fQ.BPoLMoBvXZ-_7uQVDO1OuTHmP3mNyxT6ZclYSQEoFlc"
 
+# Constantes para identificar os templates
+TEMPLATE_COM_DESCONTO = "com_desconto"
+TEMPLATE_SEM_DESCONTO = "sem_desconto"
+
 # Bucket onde os PDFs gerados serão armazenados
 PDF_BUCKET_NAME = "propostas-geradas"
 
 
-async def selecionar_template(desconto: float) -> str:
+async def selecionar_template(desconto: float) -> tuple[str, str]:
     """
     Seleciona o URL do template apropriado com base no valor do desconto
     
@@ -30,15 +34,15 @@ async def selecionar_template(desconto: float) -> str:
         desconto: Valor do desconto aplicado
         
     Returns:
-        URL do template de PDF a ser utilizado
+        Tupla contendo (URL do template, tipo de template)
     """
     logger_service.log_info(f"Selecionando template de PDF: desconto={desconto}")
     if desconto > 0:
         logger_service.log_info("Template COM desconto selecionado")
-        return PDF_COM_DESCONTO_URL
+        return (PDF_COM_DESCONTO_URL, TEMPLATE_COM_DESCONTO)
     else:
         logger_service.log_info("Template SEM desconto selecionado")
-        return PDF_SEM_DESCONTO_URL
+        return (PDF_SEM_DESCONTO_URL, TEMPLATE_SEM_DESCONTO)
 
 
 async def baixar_template(url: str) -> bytes:
@@ -165,8 +169,9 @@ async def mapear_dados_para_formulario(dados: Dict[str, Any]) -> Dict[str, Any]:
 
 # Mapeamento de coordenadas para preenchimento de campos no PDF
 # Formato: (page, left, right, width, bottom, top, height)
-COORDINATE_MAP: Dict[str, Dict[str, Any]] = {
-    # Informações básicas página 11
+# Coordenadas para a página 11 no template COM DESCONTO
+COORDINATE_MAP_COM_DESCONTO_PAGE_11: Dict[str, Dict[str, Any]] = {
+    # Informações básicas página 11 - COM DESCONTO
     "nome_cliente": {"page": 11, "left": 159.71, "right": 572.54, "width": 412.82, "bottom": 609.35, "top": 630.47, "height": 21.12, "alignment": "left"},
     "telefone_cliente": {"page": 11, "left": 158.16, "right": 574.5, "width": 416.34, "bottom": 234.57, "top": 255.27, "height": 20.7, "alignment": "left"},
     "email_cliente": {"page": 11, "left": 158.65, "right": 574.5, "width": 415.85, "bottom": 260.68, "top": 280.88, "height": 20.2, "alignment": "left"},
@@ -179,6 +184,27 @@ COORDINATE_MAP: Dict[str, Dict[str, Any]] = {
     "vidro_10_anos": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 520, "top": 540, "height": 20, "alignment": "left"},
     "vidro_5_anos": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 500, "top": 520, "height": 20, "alignment": "left"},
     "pacote_revisao": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 480, "top": 500, "height": 20, "alignment": "left"},
+}
+
+# Coordenadas para a página 11 no template SEM DESCONTO
+COORDINATE_MAP_SEM_DESCONTO_PAGE_11: Dict[str, Dict[str, Any]] = {
+    # Informações básicas página 11 - SEM DESCONTO (coordenadas diferentes)
+    "nome_cliente": {"page": 11, "left": 159.71, "right": 572.54, "width": 412.82, "bottom": 609.35, "top": 630.47, "height": 21.12, "alignment": "left"},
+    "telefone_cliente": {"page": 11, "left": 158.16, "right": 574.5, "width": 416.34, "bottom": 234.57, "top": 255.27, "height": 20.7, "alignment": "left"},
+    "email_cliente": {"page": 11, "left": 158.65, "right": 574.5, "width": 415.85, "bottom": 260.68, "top": 280.88, "height": 20.2, "alignment": "left"},
+    "marca_carro": {"page": 11, "left": 158, "right": 575, "width": 417, "bottom": 285, "top": 307, "height": 22, "alignment": "left"},
+    "modelo_carro": {"page": 11, "left": 158.65, "right": 574.5, "width": 415.85, "bottom": 311.93, "top": 332.13, "height": 20.2, "alignment": "left"},
+    "teto_solar": {"page": 11, "left": 158.16, "right": 574.5, "width": 416.34, "bottom": 337.07, "top": 357.27, "height": 20.2, "alignment": "left"},
+    "porta-malas": {"page": 11, "left": 158, "right": 575, "width": 417, "bottom": 362, "top": 383, "height": 21, "alignment": "left"},
+    "tipo_documentacao": {"page": 11, "left": 157, "right": 575, "width": 418, "bottom": 388, "top": 409, "height": 21, "alignment": "left"},
+    "vidro_10_anos": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 520, "top": 540, "height": 20, "alignment": "left"},
+    "vidro_5_anos": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 500, "top": 520, "height": 20, "alignment": "left"},
+    "pacote_revisao": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 480, "top": 500, "height": 20, "alignment": "left"},
+}
+
+# Coordenadas para a página 12 (comum a ambos os templates)
+COORDINATE_MAP_PAGE_12: Dict[str, Dict[str, Any]] = {
+
     # Condições pagamento página 12 - Comfort 10 Anos
     "a_vista_10_anos": {"page": 12, "left": 100, "right": 300, "width": 200, "bottom": 700, "top": 720, "height": 20, "alignment": "left"},
     "total_10_anos": {"page": 12, "left": 300, "right": 500, "width": 200, "bottom": 700, "top": 720, "height": 20, "alignment": "left"},
@@ -254,7 +280,30 @@ COORDINATE_MAP: Dict[str, Dict[str, Any]] = {
 }
 
 
-async def preencher_formulario_pdf(template_bytes: bytes, campos: Dict[str, Any]) -> bytes:
+# Função auxiliar para obter o mapa de coordenadas apropriado com base no template
+def obter_coordinate_map(template_type: str) -> Dict[str, Dict[str, Any]]:
+    """
+    Retorna o mapa de coordenadas apropriado com base no tipo de template
+    
+    Args:
+        template_type: Tipo do template (com_desconto ou sem_desconto)
+        
+    Returns:
+        Mapa de coordenadas para o template especificado
+    """
+    # Inicializar com as coordenadas da página 12 (comuns a ambos os templates)
+    coordinate_map = COORDINATE_MAP_PAGE_12.copy()
+    
+    # Adicionar as coordenadas da página 11 de acordo com o template
+    if template_type == TEMPLATE_COM_DESCONTO:
+        coordinate_map.update(COORDINATE_MAP_COM_DESCONTO_PAGE_11)
+    else:  # template_type == TEMPLATE_SEM_DESCONTO
+        coordinate_map.update(COORDINATE_MAP_SEM_DESCONTO_PAGE_11)
+    
+    return coordinate_map
+
+
+async def preencher_formulario_pdf(template_bytes: bytes, campos: Dict[str, Any], template_type: str) -> bytes:
     """
     Preenche os campos do formulário no PDF usando coordenadas.
     IMPORTANTE: Usa uma abordagem que preserva o PDF original.
@@ -281,7 +330,9 @@ async def preencher_formulario_pdf(template_bytes: bytes, campos: Dict[str, Any]
             if not value:  # Ignorar campos vazios
                 continue
                 
-            coord = COORDINATE_MAP.get(field)
+            # Obter o mapa de coordenadas apropriado para o template
+            coordinate_map = obter_coordinate_map(template_type)
+            coord = coordinate_map.get(field)
             if not coord:
                 continue
                 
@@ -338,19 +389,19 @@ async def preencher_formulario_pdf(template_bytes: bytes, campos: Dict[str, Any]
                     # Configurar alinhamento do texto
                     text = str(value)
                     if alignment == "center":
-                        overlay_canvas.setFillColorRGB(0, 0, .8)  # Azul escuro
+                        overlay_canvas.setFillColorRGB(0, 0, 0)  # Preto
                         # Centralizar o texto na largura disponível
                         text_width = overlay_canvas.stringWidth(text, "Helvetica-Bold", 14)
                         text_x = left + (width - text_width) / 2
                         overlay_canvas.drawString(text_x, bottom, text)
                     elif alignment == "right":
-                        overlay_canvas.setFillColorRGB(0, 0, .8)  # Azul escuro
+                        overlay_canvas.setFillColorRGB(0, 0, 0)  # Preto
                         # Alinhar à direita na largura disponível
                         text_width = overlay_canvas.stringWidth(text, "Helvetica-Bold", 14)
                         text_x = left + width - text_width
                         overlay_canvas.drawString(text_x, bottom, text)
                     else:  # left (padrão)
-                        overlay_canvas.setFillColorRGB(0, 0, .8)  # Azul escuro
+                        overlay_canvas.setFillColorRGB(0, 0, 0)  # Preto
                         overlay_canvas.drawString(left, bottom, text)
                     
                     logger_service.log_info(f"Campo '{field}': '{value}' - position: left={left}, bottom={bottom}, width={width}, height={height}, alinhamento: {alignment}, página: {page_num}")
@@ -469,16 +520,17 @@ async def gerar_pdf_proposta(dados: Dict[str, Any]) -> str:
         logger_service.log_info(f"Gerando proposta para: {nome_cliente} | Tipo: {tipo_blindagem} | Desconto: {desconto}")
         
         # Selecionar o template apropriado
-        template_url = await selecionar_template(desconto)
+        template_url_tuple = await selecionar_template(desconto)
+        template_url, template_type = template_url_tuple
         
-        # Baixar o template
+        # Baixar o template usando apenas a URL
         template_bytes = await baixar_template(template_url)
         
         # Mapear dados para os campos do formulário
         campos_preenchidos = await mapear_dados_para_formulario(dados)
         
-        # Preencher os campos no PDF
-        pdf_preenchido = await preencher_formulario_pdf(template_bytes, campos_preenchidos)
+        # Preencher os campos no PDF com o tipo de template correto
+        pdf_preenchido = await preencher_formulario_pdf(template_bytes, campos_preenchidos, template_type)
         
         # Gerar nome de arquivo único
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
