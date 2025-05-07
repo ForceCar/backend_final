@@ -42728,3 +42728,2542 @@ observations         : Deu certo aqui hein
 06/05/2025 20:15:59 | ERROR    | Erro na aplicação: Erro ao enviar PDF. Status: 200, Resposta: {"error":"NOT_FOUND","message":"Unable to find matching target resource method"}
 06/05/2025 20:15:59 | ERROR    | === PROCESSAMENTO INTERROMPIDO COM ERRO ====
 06/05/2025 20:15:59 | INFO     | Proposta enviada por WhatsApp: {'error': 'NOT_FOUND', 'message': 'Unable to find matching target resource method'}
+07/05/2025 08:02:19 | INFO     | Iniciando Forsecar Backend API v1.0.0
+07/05/2025 08:02:41 | INFO     | RAW REQUEST BODY (UNMODIFIED): {"nome_cliente":"Novo teste","telefone_cliente":"21980407422","email_cliente":"rodrigo@novoteste.com.br","nome_vendedor":"João Pereira","marca_veiculo":"Porsche","modelo_veiculo":"911","teto_solar":"PANORAMICO XL","abertura_porta_malas":"ELETRICA","tipo_documentacao":"AUTORIZACAO, DECLARACAO, INMETRO E DETRAN","pacote_revisao":"4 ANOS","vidro_10_anos":"SEC FORCE LEV","vidro_5_anos":"AGP IB-33","comfort10YearsSubTotal":120500,"comfort18mmSubTotal":150500,"ultralightSubTotal":175500,"tipo_blindagem":"Nenhuma","desconto_aplicado":0,"observations":"Deu certo aqui hein"}
+07/05/2025 08:02:41 | INFO     | === INICIANDO PROCESSAMENTO DE NOVA REQUISIÇÃO ====
+07/05/2025 08:02:41 | INFO     | Requisição recebida - Cliente: Novo teste | Tipo blindagem: Nenhuma
+07/05/2025 08:02:41 | INFO     | Calculando condições de pagamento...
+07/05/2025 08:02:41 | INFO     | Cálculos de pagamento concluídos para valor base: R$ 0.00
+07/05/2025 08:02:41 | INFO     | COMPARAÇÃO DE BLINDAGENS:
+07/05/2025 08:02:41 | INFO     |   - Comfort 10 anos: R$ 120500.00 (Desconto: R$ 0.00)
+07/05/2025 08:02:41 | INFO     |   - Comfort 18 mm: R$ 150500.00 (Desconto: R$ 0.00)
+07/05/2025 08:02:41 | INFO     |   - Ultralight: R$ 175500.00 (Desconto: R$ 0.00)
+07/05/2025 08:02:41 | INFO     | === Cálculos para Comfort 10 anos ===
+07/05/2025 08:02:41 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+07/05/2025 08:02:41 | INFO     |   - À vista: R$ 118090.00 (Desconto: 2%)
+07/05/2025 08:02:41 | INFO     |   - 2x sem juros: 60250.00 + 60250.00
+07/05/2025 08:02:41 | INFO     |   - 3x: Entrada de R$ 60852.50 + 2x de R$ 30426.25 (Acréscimo: 1%)
+07/05/2025 08:02:41 | INFO     |   - 4x: Entrada de R$ 74469.00 + 3x de R$ 16548.67 (Acréscimo: 3%)
+07/05/2025 08:02:41 | INFO     |   - Opções de cartão:
+07/05/2025 08:02:41 | INFO     |     * 4x: R$ 31932.50 (Total: R$ 127730.00, Acréscimo: 6%)
+07/05/2025 08:02:41 | INFO     |     * 5x: R$ 25787.00 (Total: R$ 128935.00, Acréscimo: 7%)
+07/05/2025 08:02:41 | INFO     |     * 6x: R$ 21690.00 (Total: R$ 130140.00, Acréscimo: 8%)
+07/05/2025 08:02:41 | INFO     |     * 7x: R$ 18763.57 (Total: R$ 131345.00, Acréscimo: 9%)
+07/05/2025 08:02:41 | INFO     |     * 8x: R$ 16568.75 (Total: R$ 132550.00, Acréscimo: 10%)
+07/05/2025 08:02:41 | INFO     |     * 9x: R$ 14861.67 (Total: R$ 133755.00, Acréscimo: 11%)
+07/05/2025 08:02:41 | INFO     |     * 10x: R$ 13496.00 (Total: R$ 134960.00, Acréscimo: 12%)
+07/05/2025 08:02:41 | INFO     | === Cálculos para Comfort 18 mm ===
+07/05/2025 08:02:41 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+07/05/2025 08:02:41 | INFO     |   - À vista: R$ 147490.00 (Desconto: 2%)
+07/05/2025 08:02:41 | INFO     |   - 2x sem juros: 75250.00 + 75250.00
+07/05/2025 08:02:41 | INFO     |   - 3x: Entrada de R$ 76002.50 + 2x de R$ 38001.25 (Acréscimo: 1%)
+07/05/2025 08:02:41 | INFO     |   - 4x: Entrada de R$ 93009.00 + 3x de R$ 20668.67 (Acréscimo: 3%)
+07/05/2025 08:02:41 | INFO     |   - Opções de cartão:
+07/05/2025 08:02:41 | INFO     |     * 4x: R$ 39882.50 (Total: R$ 159530.00, Acréscimo: 6%)
+07/05/2025 08:02:41 | INFO     |     * 5x: R$ 32207.00 (Total: R$ 161035.00, Acréscimo: 7%)
+07/05/2025 08:02:41 | INFO     |     * 6x: R$ 27090.00 (Total: R$ 162540.00, Acréscimo: 8%)
+07/05/2025 08:02:41 | INFO     |     * 7x: R$ 23435.00 (Total: R$ 164045.00, Acréscimo: 9%)
+07/05/2025 08:02:41 | INFO     |     * 8x: R$ 20693.75 (Total: R$ 165550.00, Acréscimo: 10%)
+07/05/2025 08:02:41 | INFO     |     * 9x: R$ 18561.67 (Total: R$ 167055.00, Acréscimo: 11%)
+07/05/2025 08:02:41 | INFO     |     * 10x: R$ 16856.00 (Total: R$ 168560.00, Acréscimo: 12%)
+07/05/2025 08:02:41 | INFO     | === Cálculos para Ultralight ===
+07/05/2025 08:02:41 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+07/05/2025 08:02:41 | INFO     |   - À vista: R$ 171990.00 (Desconto: 2%)
+07/05/2025 08:02:41 | INFO     |   - 2x sem juros: 87750.00 + 87750.00
+07/05/2025 08:02:41 | INFO     |   - 3x: Entrada de R$ 88627.50 + 2x de R$ 44313.75 (Acréscimo: 1%)
+07/05/2025 08:02:41 | INFO     |   - 4x: Entrada de R$ 108459.00 + 3x de R$ 24102.00 (Acréscimo: 3%)
+07/05/2025 08:02:41 | INFO     |   - Opções de cartão:
+07/05/2025 08:02:41 | INFO     |     * 4x: R$ 46507.50 (Total: R$ 186030.00, Acréscimo: 6%)
+07/05/2025 08:02:41 | INFO     |     * 5x: R$ 37557.00 (Total: R$ 187785.00, Acréscimo: 7%)
+07/05/2025 08:02:41 | INFO     |     * 6x: R$ 31590.00 (Total: R$ 189540.00, Acréscimo: 8%)
+07/05/2025 08:02:41 | INFO     |     * 7x: R$ 27327.86 (Total: R$ 191295.00, Acréscimo: 9%)
+07/05/2025 08:02:41 | INFO     |     * 8x: R$ 24131.25 (Total: R$ 193050.00, Acréscimo: 10%)
+07/05/2025 08:02:41 | INFO     |     * 9x: R$ 21645.00 (Total: R$ 194805.00, Acréscimo: 11%)
+07/05/2025 08:02:42 | INFO     |     * 10x: R$ 19656.00 (Total: R$ 196560.00, Acréscimo: 12%)
+07/05/2025 08:02:42 | INFO     | Preparando resposta final da proposta...
+07/05/2025 08:02:42 | INFO     | Salvando dados para PDF...
+07/05/2025 08:02:42 | INFO     | Dados para PDF:
+07/05/2025 08:02:42 | INFO     | nome_cliente         : Novo teste
+telefone_cliente     : 21980407422
+email_cliente        : rodrigo@novoteste.com.br
+nome_vendedor        : João Pereira
+marca_veiculo        : Porsche
+modelo_veiculo       : 911
+teto_solar           : PANORAMICO XL
+abertura_porta_malas : ELETRICA
+tipo_documentacao    : AUTORIZACAO, DECLARACAO, INMETRO E DETRAN
+pacote_revisao       : 4 ANOS
+vidro_10_anos        : SEC FORCE LEV
+vidro_5_anos         : AGP IB-33
+tipo_blindagem       : Nenhuma
+desconto_aplicado    : 0
+observations         : Deu certo aqui hein
+07/05/2025 08:02:42 | INFO     | CENÁRIO - Comfort 10 anos:
+07/05/2025 08:02:42 | INFO     | subtotal : 120.500.00
+07/05/2025 08:02:42 | INFO     | Condições de Pagamento:
+07/05/2025 08:02:42 | INFO     |   - À VISTA: R$ 118.090.00 (2% de desconto)
+07/05/2025 08:02:42 | INFO     |   - 2X SEM JUROS: 2x de R$ 60.250.00
+07/05/2025 08:02:42 | INFO     |   - 3X: Entrada de R$ 60.852.50 + 2x de R$ 30.426.25 (1% de acréscimo)
+07/05/2025 08:02:42 | INFO     |   - 4X: Entrada de R$ 74.469.00 + 3x de R$ 16.548.67 (3% de acréscimo)
+07/05/2025 08:02:42 | INFO     |     * 4x: R$ 31.932.50 (Total: R$ 127.730.00. Acréscimo: 6%)
+07/05/2025 08:02:42 | INFO     |     * 5x: R$ 25.787.00 (Total: R$ 128.935.00. Acréscimo: 7%)
+07/05/2025 08:02:42 | INFO     |     * 6x: R$ 21.690.00 (Total: R$ 130.140.00. Acréscimo: 8%)
+07/05/2025 08:02:42 | INFO     |     * 7x: R$ 18.763.57 (Total: R$ 131.345.00. Acréscimo: 9%)
+07/05/2025 08:02:42 | INFO     |     * 8x: R$ 16.568.75 (Total: R$ 132.550.00. Acréscimo: 10%)
+07/05/2025 08:02:42 | INFO     |     * 9x: R$ 14.861.67 (Total: R$ 133.755.00. Acréscimo: 11%)
+07/05/2025 08:02:42 | INFO     |     * 10x: R$ 13.496.00 (Total: R$ 134.960.00. Acréscimo: 12%)
+07/05/2025 08:02:42 | INFO     | CENÁRIO - Comfort 18 mm:
+07/05/2025 08:02:42 | INFO     | subtotal : 150.500.00
+07/05/2025 08:02:42 | INFO     | Condições de Pagamento:
+07/05/2025 08:02:42 | INFO     |   - À VISTA: R$ 147.490.00 (2% de desconto)
+07/05/2025 08:02:42 | INFO     |   - 2X SEM JUROS: 2x de R$ 75.250.00
+07/05/2025 08:02:42 | INFO     |   - 3X: Entrada de R$ 76.002.50 + 2x de R$ 38.001.25 (1% de acréscimo)
+07/05/2025 08:02:42 | INFO     |   - 4X: Entrada de R$ 93.009.00 + 3x de R$ 20.668.67 (3% de acréscimo)
+07/05/2025 08:02:42 | INFO     |     * 4x: R$ 39.882.50 (Total: R$ 159.530.00. Acréscimo: 6%)
+07/05/2025 08:02:42 | INFO     |     * 5x: R$ 32.207.00 (Total: R$ 161.035.00. Acréscimo: 7%)
+07/05/2025 08:02:42 | INFO     |     * 6x: R$ 27.090.00 (Total: R$ 162.540.00. Acréscimo: 8%)
+07/05/2025 08:02:42 | INFO     |     * 7x: R$ 23.435.00 (Total: R$ 164.045.00. Acréscimo: 9%)
+07/05/2025 08:02:42 | INFO     |     * 8x: R$ 20.693.75 (Total: R$ 165.550.00. Acréscimo: 10%)
+07/05/2025 08:02:42 | INFO     |     * 9x: R$ 18.561.67 (Total: R$ 167.055.00. Acréscimo: 11%)
+07/05/2025 08:02:42 | INFO     |     * 10x: R$ 16.856.00 (Total: R$ 168.560.00. Acréscimo: 12%)
+07/05/2025 08:02:42 | INFO     | CENÁRIO - Ultralight:
+07/05/2025 08:02:42 | INFO     | subtotal : 175.500.00
+07/05/2025 08:02:42 | INFO     | Condições de Pagamento:
+07/05/2025 08:02:42 | INFO     |   - À VISTA: R$ 171.990.00 (2% de desconto)
+07/05/2025 08:02:42 | INFO     |   - 2X SEM JUROS: 2x de R$ 87.750.00
+07/05/2025 08:02:42 | INFO     |   - 3X: Entrada de R$ 88.627.50 + 2x de R$ 44.313.75 (1% de acréscimo)
+07/05/2025 08:02:42 | INFO     |   - 4X: Entrada de R$ 108.459.00 + 3x de R$ 24.102.00 (3% de acréscimo)
+07/05/2025 08:02:42 | INFO     |     * 4x: R$ 46.507.50 (Total: R$ 186.030.00. Acréscimo: 6%)
+07/05/2025 08:02:42 | INFO     |     * 5x: R$ 37.557.00 (Total: R$ 187.785.00. Acréscimo: 7%)
+07/05/2025 08:02:42 | INFO     |     * 6x: R$ 31.590.00 (Total: R$ 189.540.00. Acréscimo: 8%)
+07/05/2025 08:02:42 | INFO     |     * 7x: R$ 27.327.86 (Total: R$ 191.295.00. Acréscimo: 9%)
+07/05/2025 08:02:42 | INFO     |     * 8x: R$ 24.131.25 (Total: R$ 193.050.00. Acréscimo: 10%)
+07/05/2025 08:02:42 | INFO     |     * 9x: R$ 21.645.00 (Total: R$ 194.805.00. Acréscimo: 11%)
+07/05/2025 08:02:42 | INFO     |     * 10x: R$ 19.656.00 (Total: R$ 196.560.00. Acréscimo: 12%)
+07/05/2025 08:02:42 | INFO     | Dados para PDF:
+07/05/2025 08:02:42 | INFO     | {
+  "nome_cliente": "Novo teste",
+  "telefone_cliente": "21980407422",
+  "email_cliente": "rodrigo@novoteste.com.br",
+  "nome_vendedor": "João Pereira",
+  "marca_veiculo": "Porsche",
+  "modelo_veiculo": "911",
+  "teto_solar": "PANORAMICO XL",
+  "abertura_porta_malas": "ELETRICA",
+  "tipo_documentacao": "AUTORIZACAO, DECLARACAO, INMETRO E DETRAN",
+  "pacote_revisao": "4 ANOS",
+  "vidro_10_anos": "SEC FORCE LEV",
+  "vidro_5_anos": "AGP IB-33",
+  "tipo_blindagem": "Nenhuma",
+  "desconto_aplicado": 0,
+  "observations": "Deu certo aqui hein",
+  "cenarios": {
+    "Comfort 10 anos": {
+      "subtotal": 120500.0,
+      "condicoes_pagamento": {
+        "a_vista": {
+          "valor_total": 118090.0,
+          "desconto_percentual": 2,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 118090.0
+            }
+          ]
+        },
+        "duas_vezes": {
+          "valor_total": 120500.0,
+          "desconto_percentual": 0,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 60250.0
+            },
+            {
+              "numero": 2,
+              "valor": 60250.0
+            }
+          ]
+        },
+        "tres_vezes": {
+          "valor_total": 121705.0,
+          "acrescimo_percentual": 1,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 60852.5,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 30426.25
+            },
+            {
+              "numero": 3,
+              "valor": 30426.25
+            }
+          ]
+        },
+        "quatro_vezes": {
+          "valor_total": 124115.0,
+          "acrescimo_percentual": 3,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 74469.0,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 16548.666666666668
+            },
+            {
+              "numero": 3,
+              "valor": 16548.666666666668
+            },
+            {
+              "numero": 4,
+              "valor": 16548.666666666668
+            }
+          ]
+        },
+        "cartao": {
+          "4x": {
+            "acrescimo": 6,
+            "valor_total": 127730.0,
+            "valor_parcela": 31932.5
+          },
+          "5x": {
+            "acrescimo": 7,
+            "valor_total": 128935.00000000001,
+            "valor_parcela": 25787.000000000004
+          },
+          "6x": {
+            "acrescimo": 8,
+            "valor_total": 130140.00000000001,
+            "valor_parcela": 21690.000000000004
+          },
+          "7x": {
+            "acrescimo": 9,
+            "valor_total": 131345.0,
+            "valor_parcela": 18763.571428571428
+          },
+          "8x": {
+            "acrescimo": 10,
+            "valor_total": 132550.0,
+            "valor_parcela": 16568.75
+          },
+          "9x": {
+            "acrescimo": 11,
+            "valor_total": 133755.0,
+            "valor_parcela": 14861.666666666666
+          },
+          "10x": {
+            "acrescimo": 12,
+            "valor_total": 134960.0,
+            "valor_parcela": 13496.0
+          }
+        },
+        "valor_base": 120500.0,
+        "parcelado_direto": [
+          {
+            "valor_total": 120500.0,
+            "desconto_percentual": 0,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 60250.0
+              },
+              {
+                "numero": 2,
+                "valor": 60250.0
+              }
+            ]
+          },
+          {
+            "valor_total": 121705.0,
+            "acrescimo_percentual": 1,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 60852.5,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 30426.25
+              },
+              {
+                "numero": 3,
+                "valor": 30426.25
+              }
+            ]
+          },
+          {
+            "valor_total": 124115.0,
+            "acrescimo_percentual": 3,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 74469.0,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 16548.666666666668
+              },
+              {
+                "numero": 3,
+                "valor": 16548.666666666668
+              },
+              {
+                "numero": 4,
+                "valor": 16548.666666666668
+              }
+            ]
+          }
+        ],
+        "parcelado_cartao": [
+          {
+            "acrescimo": 6,
+            "valor_total": 127730.0,
+            "valor_parcela": 31932.5
+          },
+          {
+            "acrescimo": 7,
+            "valor_total": 128935.00000000001,
+            "valor_parcela": 25787.000000000004
+          },
+          {
+            "acrescimo": 8,
+            "valor_total": 130140.00000000001,
+            "valor_parcela": 21690.000000000004
+          },
+          {
+            "acrescimo": 9,
+            "valor_total": 131345.0,
+            "valor_parcela": 18763.571428571428
+          },
+          {
+            "acrescimo": 10,
+            "valor_total": 132550.0,
+            "valor_parcela": 16568.75
+          },
+          {
+            "acrescimo": 11,
+            "valor_total": 133755.0,
+            "valor_parcela": 14861.666666666666
+          },
+          {
+            "acrescimo": 12,
+            "valor_total": 134960.0,
+            "valor_parcela": 13496.0
+          }
+        ]
+      }
+    },
+    "Comfort 18 mm": {
+      "subtotal": 150500.0,
+      "condicoes_pagamento": {
+        "a_vista": {
+          "valor_total": 147490.0,
+          "desconto_percentual": 2,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 147490.0
+            }
+          ]
+        },
+        "duas_vezes": {
+          "valor_total": 150500.0,
+          "desconto_percentual": 0,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 75250.0
+            },
+            {
+              "numero": 2,
+              "valor": 75250.0
+            }
+          ]
+        },
+        "tres_vezes": {
+          "valor_total": 152005.0,
+          "acrescimo_percentual": 1,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 76002.5,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 38001.25
+            },
+            {
+              "numero": 3,
+              "valor": 38001.25
+            }
+          ]
+        },
+        "quatro_vezes": {
+          "valor_total": 155015.0,
+          "acrescimo_percentual": 3,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 93009.0,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 20668.666666666668
+            },
+            {
+              "numero": 3,
+              "valor": 20668.666666666668
+            },
+            {
+              "numero": 4,
+              "valor": 20668.666666666668
+            }
+          ]
+        },
+        "cartao": {
+          "4x": {
+            "acrescimo": 6,
+            "valor_total": 159530.0,
+            "valor_parcela": 39882.5
+          },
+          "5x": {
+            "acrescimo": 7,
+            "valor_total": 161035.0,
+            "valor_parcela": 32207.0
+          },
+          "6x": {
+            "acrescimo": 8,
+            "valor_total": 162540.0,
+            "valor_parcela": 27090.0
+          },
+          "7x": {
+            "acrescimo": 9,
+            "valor_total": 164045.0,
+            "valor_parcela": 23435.0
+          },
+          "8x": {
+            "acrescimo": 10,
+            "valor_total": 165550.0,
+            "valor_parcela": 20693.75
+          },
+          "9x": {
+            "acrescimo": 11,
+            "valor_total": 167055.00000000003,
+            "valor_parcela": 18561.66666666667
+          },
+          "10x": {
+            "acrescimo": 12,
+            "valor_total": 168560.00000000003,
+            "valor_parcela": 16856.000000000004
+          }
+        },
+        "valor_base": 150500.0,
+        "parcelado_direto": [
+          {
+            "valor_total": 150500.0,
+            "desconto_percentual": 0,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 75250.0
+              },
+              {
+                "numero": 2,
+                "valor": 75250.0
+              }
+            ]
+          },
+          {
+            "valor_total": 152005.0,
+            "acrescimo_percentual": 1,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 76002.5,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 38001.25
+              },
+              {
+                "numero": 3,
+                "valor": 38001.25
+              }
+            ]
+          },
+          {
+            "valor_total": 155015.0,
+            "acrescimo_percentual": 3,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 93009.0,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 20668.666666666668
+              },
+              {
+                "numero": 3,
+                "valor": 20668.666666666668
+              },
+              {
+                "numero": 4,
+                "valor": 20668.666666666668
+              }
+            ]
+          }
+        ],
+        "parcelado_cartao": [
+          {
+            "acrescimo": 6,
+            "valor_total": 159530.0,
+            "valor_parcela": 39882.5
+          },
+          {
+            "acrescimo": 7,
+            "valor_total": 161035.0,
+            "valor_parcela": 32207.0
+          },
+          {
+            "acrescimo": 8,
+            "valor_total": 162540.0,
+            "valor_parcela": 27090.0
+          },
+          {
+            "acrescimo": 9,
+            "valor_total": 164045.0,
+            "valor_parcela": 23435.0
+          },
+          {
+            "acrescimo": 10,
+            "valor_total": 165550.0,
+            "valor_parcela": 20693.75
+          },
+          {
+            "acrescimo": 11,
+            "valor_total": 167055.00000000003,
+            "valor_parcela": 18561.66666666667
+          },
+          {
+            "acrescimo": 12,
+            "valor_total": 168560.00000000003,
+            "valor_parcela": 16856.000000000004
+          }
+        ]
+      }
+    },
+    "Ultralight": {
+      "subtotal": 175500.0,
+      "condicoes_pagamento": {
+        "a_vista": {
+          "valor_total": 171990.0,
+          "desconto_percentual": 2,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 171990.0
+            }
+          ]
+        },
+        "duas_vezes": {
+          "valor_total": 175500.0,
+          "desconto_percentual": 0,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 87750.0
+            },
+            {
+              "numero": 2,
+              "valor": 87750.0
+            }
+          ]
+        },
+        "tres_vezes": {
+          "valor_total": 177255.0,
+          "acrescimo_percentual": 1,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 88627.5,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 44313.75
+            },
+            {
+              "numero": 3,
+              "valor": 44313.75
+            }
+          ]
+        },
+        "quatro_vezes": {
+          "valor_total": 180765.0,
+          "acrescimo_percentual": 3,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 108459.0,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 24102.0
+            },
+            {
+              "numero": 3,
+              "valor": 24102.0
+            },
+            {
+              "numero": 4,
+              "valor": 24102.0
+            }
+          ]
+        },
+        "cartao": {
+          "4x": {
+            "acrescimo": 6,
+            "valor_total": 186030.0,
+            "valor_parcela": 46507.5
+          },
+          "5x": {
+            "acrescimo": 7,
+            "valor_total": 187785.0,
+            "valor_parcela": 37557.0
+          },
+          "6x": {
+            "acrescimo": 8,
+            "valor_total": 189540.0,
+            "valor_parcela": 31590.0
+          },
+          "7x": {
+            "acrescimo": 9,
+            "valor_total": 191295.0,
+            "valor_parcela": 27327.85714285714
+          },
+          "8x": {
+            "acrescimo": 10,
+            "valor_total": 193050.00000000003,
+            "valor_parcela": 24131.250000000004
+          },
+          "9x": {
+            "acrescimo": 11,
+            "valor_total": 194805.00000000003,
+            "valor_parcela": 21645.000000000004
+          },
+          "10x": {
+            "acrescimo": 12,
+            "valor_total": 196560.00000000003,
+            "valor_parcela": 19656.000000000004
+          }
+        },
+        "valor_base": 175500.0,
+        "parcelado_direto": [
+          {
+            "valor_total": 175500.0,
+            "desconto_percentual": 0,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 87750.0
+              },
+              {
+                "numero": 2,
+                "valor": 87750.0
+              }
+            ]
+          },
+          {
+            "valor_total": 177255.0,
+            "acrescimo_percentual": 1,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 88627.5,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 44313.75
+              },
+              {
+                "numero": 3,
+                "valor": 44313.75
+              }
+            ]
+          },
+          {
+            "valor_total": 180765.0,
+            "acrescimo_percentual": 3,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 108459.0,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 24102.0
+              },
+              {
+                "numero": 3,
+                "valor": 24102.0
+              },
+              {
+                "numero": 4,
+                "valor": 24102.0
+              }
+            ]
+          }
+        ],
+        "parcelado_cartao": [
+          {
+            "acrescimo": 6,
+            "valor_total": 186030.0,
+            "valor_parcela": 46507.5
+          },
+          {
+            "acrescimo": 7,
+            "valor_total": 187785.0,
+            "valor_parcela": 37557.0
+          },
+          {
+            "acrescimo": 8,
+            "valor_total": 189540.0,
+            "valor_parcela": 31590.0
+          },
+          {
+            "acrescimo": 9,
+            "valor_total": 191295.0,
+            "valor_parcela": 27327.85714285714
+          },
+          {
+            "acrescimo": 10,
+            "valor_total": 193050.00000000003,
+            "valor_parcela": 24131.250000000004
+          },
+          {
+            "acrescimo": 11,
+            "valor_total": 194805.00000000003,
+            "valor_parcela": 21645.000000000004
+          },
+          {
+            "acrescimo": 12,
+            "valor_total": 196560.00000000003,
+            "valor_parcela": 19656.000000000004
+          }
+        ]
+      }
+    }
+  }
+}
+07/05/2025 08:02:42 | INFO     | Iniciando geração de PDF da proposta...
+07/05/2025 08:02:42 | INFO     | === INÍCIO: GERAÇÃO DE PDF DE PROPOSTA ===
+07/05/2025 08:02:42 | INFO     | Gerando proposta para: Novo teste | Tipo: Nenhuma | Desconto: 0
+07/05/2025 08:02:42 | INFO     | Selecionando template de PDF: desconto=0
+07/05/2025 08:02:42 | INFO     | Template SEM desconto selecionado
+07/05/2025 08:02:42 | INFO     | Baixando template PDF: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/proposta-forcecar-sem-desconto//proposta-forcecar-sem-desconto.pdf
+07/05/2025 08:02:45 | INFO     | Iniciando download do template...
+07/05/2025 08:02:46 | INFO     | Template PDF baixado com sucesso. Tamanho: 1723487 bytes
+07/05/2025 08:02:46 | INFO     | Mapeando dados para formulário PDF
+07/05/2025 08:02:46 | INFO     | Dados mapeados para formulário PDF: 74 campos preenchidos
+07/05/2025 08:02:46 | INFO     | Preenchendo formulário PDF via coordenadas - Abordagem preservadora
+07/05/2025 08:02:46 | INFO     | Lendo PDF original
+07/05/2025 08:02:46 | INFO     | PDF original possui 13 páginas
+07/05/2025 08:02:46 | INFO     | Processando página 11 com 11 campos
+07/05/2025 08:02:46 | INFO     | Campo 'nome_cliente': 'Novo teste' - position: left=159.72, bottom=630.47, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:02:46 | INFO     | Campo 'telefone_cliente': '21980407422' - position: left=159.5, bottom=605.04, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:02:46 | INFO     | Campo 'email_cliente': 'rodrigo@novoteste.com.br' - position: left=159.5, bottom=580.22, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:02:46 | INFO     | Campo 'marca_carro': 'Porsche' - position: left=159.5, bottom=554.12, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:02:46 | INFO     | Campo 'modelo_carro': '911' - position: left=159.5, bottom=528.03, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:02:46 | INFO     | Campo 'teto_solar': 'PANORAMICO XL' - position: left=159.14, bottom=503.21, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:02:46 | INFO     | Campo 'porta_malas': 'ELETRICA' - position: left=159.14, bottom=477.12, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:02:46 | INFO     | Campo 'tipo_documentacao': 'AUTORIZACAO, DECLARACAO, INMETRO E DETRAN' - position: left=159.78, bottom=450.76, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:02:46 | INFO     | Campo 'pacote_revisao': '4 ANOS' - position: left=100.0, bottom=480.0, width=200.0, height=20.0, alinhamento: left, página: 11
+07/05/2025 08:02:46 | INFO     | Campo 'vidro_10_anos': 'SEC FORCE LEV' - position: left=100.0, bottom=520.0, width=200.0, height=20.0, alinhamento: left, página: 11
+07/05/2025 08:02:46 | INFO     | Campo 'vidro_5_anos': 'AGP IB-33' - position: left=100.0, bottom=500.0, width=200.0, height=20.0, alinhamento: left, página: 11
+07/05/2025 08:02:46 | INFO     | Overlay aplicado com sucesso na página 11
+07/05/2025 08:02:46 | INFO     | Processando página 12 com 63 campos
+07/05/2025 08:02:46 | INFO     | Campo 'a_vista_10_anos': 'R$ 118090.00' - position: left=185.83, bottom=729.24, width=131.04, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'total_10_anos': 'R$ 118090.00' - position: left=185.06, bottom=175.7, width=130.19, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'primeira_parcela_2x_10_anos': 'R$ 60250.00' - position: left=185.6, bottom=628.34, width=131.04, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'segunda_parcela_2x_10_anos': 'R$ 60250.00' - position: left=185.6, bottom=606.26, width=131.04, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'total_2x_10_anos': 'R$ 120500.00' - position: left=100.0, bottom=660.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'sinal_50_3x_10_anos': 'R$ 60852.50' - position: left=186.08, bottom=520.82, width=132.0, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'primeira_parcela_3x_10_anos': 'R$ 30426.25' - position: left=186.08, bottom=498.74, width=132.0, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'segunda_parcela_3x_10_anos': 'R$ 30426.25' - position: left=186.08, bottom=476.66, width=132.0, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'total_3x_10_anos': 'R$ 121705.00' - position: left=100.0, bottom=600.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'sinal_60_4x_10_anos': 'R$ 74469.00' - position: left=200.48, bottom=372.02, width=117.6, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'primeira_parcela_4x_10_anos': 'R$ 16548.67' - position: left=200.48, bottom=349.94, width=117.6, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'segunda_parcela_4x_10_anos': 'R$ 16548.67' - position: left=200.48, bottom=327.86, width=117.6, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'terceira_parcela_4x_10_anos': 'R$ 16548.67' - position: left=200.48, bottom=305.78, width=117.6, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'total_4x_10_anos': 'R$ 124115.00' - position: left=300.0, bottom=540.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'cartao_4_parcelas_10_anos': 'R$ 31932.50' - position: left=208.16, bottom=191.54, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'cartao_5_parcelas_10_anos': 'R$ 25787.00' - position: left=208.16, bottom=169.46, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'cartao_6_parcelas_10_anos': 'R$ 21690.00' - position: left=208.16, bottom=147.38, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'cartao_7_parcelas_10_anos': 'R$ 18763.57' - position: left=208.16, bottom=125.3, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'cartao_8_parcelas_10_anos': 'R$ 16568.75' - position: left=208.16, bottom=103.46, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'cartao_9_parcelas_10_anos': 'R$ 14861.67' - position: left=208.16, bottom=81.62, width=116.16, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'cartao_10_parcelas_10_anos': 'R$ 13496.00' - position: left=208.16, bottom=60.02, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'a_vista_18mm': 'R$ 147490.00' - position: left=318.7, bottom=728.59, width=120.57, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'total_18mm': 'R$ 147490.00' - position: left=300.0, bottom=440.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'primeira_parcela_2x_18mm': 'R$ 75250.00' - position: left=317.68, bottom=627.49, width=121.88, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'segunda_parcela_2x_18mm': 'R$ 75250.00' - position: left=318.67, bottom=606.06, width=120.27, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'total_2x_18mm': 'R$ 150500.00' - position: left=100.0, bottom=400.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'sinal_50_3x_18mm': 'R$ 76002.50' - position: left=320.18, bottom=520.44, width=120.22, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'primeira_parcela_3x_18mm': 'R$ 38001.25' - position: left=320.79, bottom=499.13, width=118.45, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'segunda_parcela_3x_18mm': 'R$ 38001.25' - position: left=320.12, bottom=476.45, width=119.86, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'total_3x_18mm': 'R$ 152005.00' - position: left=100.0, bottom=340.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'sinal_60_4x_18mm': 'R$ 93009.00' - position: left=320.18, bottom=371.5, width=119.5, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'primeira_parcela_4x_18mm': 'R$ 20668.67' - position: left=319.94, bottom=349.27, width=119.12, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:46 | INFO     | Campo 'segunda_parcela_4x_18mm': 'R$ 20668.67' - position: left=320.08, bottom=327.05, width=118.82, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'terceira_parcela_4x_18mm': 'R$ 20668.67' - position: left=320.78, bottom=306.16, width=118.21, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'total_4x_18mm': 'R$ 155015.00' - position: left=300.0, bottom=280.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'cartao_4_parcelas_18mm': 'R$ 39882.50' - position: left=325.99, bottom=191.22, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'cartao_5_parcelas_18mm': 'R$ 32207.00' - position: left=325.91, bottom=169.39, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'cartao_6_parcelas_18mm': 'R$ 27090.00' - position: left=326.46, bottom=147.26, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'cartao_7_parcelas_18mm': 'R$ 23435.00' - position: left=325.91, bottom=125.46, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'cartao_8_parcelas_18mm': 'R$ 20693.75' - position: left=326.46, bottom=103.88, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'cartao_9_parcelas_18mm': 'R$ 18561.67' - position: left=326.46, bottom=82.44, width=116.16, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'cartao_10_parcelas_18mm': 'R$ 16856.00' - position: left=326.36, bottom=60.43, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'a_vista_ultralight': 'R$ 171990.00' - position: left=439.14, bottom=729.24, width=136.93, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'total_ultralight': 'R$ 171990.00' - position: left=300.0, bottom=180.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'primeira_parcela_2x_ultralight': 'R$ 87750.00' - position: left=439.5, bottom=627.78, width=135.26, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'segunda_parcela_2x_ultralight': 'R$ 87750.00' - position: left=439.14, bottom=605.41, width=135.62, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'total_2x_ultralight': 'R$ 175500.00' - position: left=100.0, bottom=140.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'sinal_50_3x_ultralight': 'R$ 88627.50' - position: left=440.62, bottom=520.44, width=132.65, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'primeira_parcela_3x_ultralight': 'R$ 44313.75' - position: left=440.38, bottom=498.61, width=133.03, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'segunda_parcela_3x_ultralight': 'R$ 44313.75' - position: left=440.44, bottom=476.29, width=133.41, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'total_3x_ultralight': 'R$ 177255.00' - position: left=100.0, bottom=80.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'sinal_60_4x_ultralight': 'R$ 108459.00' - position: left=437.87, bottom=371.28, width=135.27, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'primeira_parcela_4x_ultralight': 'R$ 24102.00' - position: left=440.58, bottom=349.75, width=133.27, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'segunda_parcela_4x_ultralight': 'R$ 24102.00' - position: left=440.66, bottom=327.57, width=132.74, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'terceira_parcela_4x_ultralight': 'R$ 24102.00' - position: left=440.82, bottom=305.3, width=132.31, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'total_4x_ultralight': 'R$ 180765.00' - position: left=300.0, bottom=20.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'cartao_4_parcelas_ultralight': 'R$ 46507.50' - position: left=442.53, bottom=190.93, width=131.06, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'cartao_5_parcelas_ultralight': 'R$ 37557.00' - position: left=442.43, bottom=169.39, width=131.06, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'cartao_6_parcelas_ultralight': 'R$ 31590.00' - position: left=442.43, bottom=147.38, width=131.06, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'cartao_7_parcelas_ultralight': 'R$ 27327.86' - position: left=442.52, bottom=125.46, width=131.06, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'cartao_8_parcelas_ultralight': 'R$ 24131.25' - position: left=442.98, bottom=104.34, width=130.61, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'cartao_9_parcelas_ultralight': 'R$ 21645.00' - position: left=442.98, bottom=82.44, width=130.61, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:02:47 | INFO     | Campo 'cartao_10_parcelas_ultralight': 'R$ 19656.00' - position: left=442.52, bottom=60.43, width=131.51, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:02:48 | INFO     | Overlay aplicado com sucesso na página 12
+07/05/2025 08:02:48 | INFO     | PDF finalizado com sucesso: 1808333 bytes
+07/05/2025 08:02:48 | INFO     | Fazendo upload do PDF: proposta_novo_teste_20250507_080248_41dfbd69.pdf
+07/05/2025 08:02:49 | INFO     | Upload concluído com sucesso. URL: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/propostas-geradas/proposta_novo_teste_20250507_080248_41dfbd69.pdf
+07/05/2025 08:02:49 | INFO     | PDF gerado com sucesso: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/propostas-geradas/proposta_novo_teste_20250507_080248_41dfbd69.pdf
+07/05/2025 08:02:49 | INFO     | === FIM: GERAÇÃO DE PDF DE PROPOSTA ===
+07/05/2025 08:02:49 | INFO     | PDF gerado com sucesso: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/propostas-geradas/proposta_novo_teste_20250507_080248_41dfbd69.pdf
+07/05/2025 08:02:49 | INFO     | Enviando proposta por WhatsApp para: 21980407422
+07/05/2025 08:02:49 | INFO     | Enviando PDF via WhatsApp para: 21980407422
+07/05/2025 08:02:49 | INFO     | Número formatado para WhatsApp: 5521980407422
+07/05/2025 08:02:50 | ERROR    | Erro na aplicação: Erro ao enviar PDF. Status: 200, Resposta: {"error":"NOT_FOUND","message":"Unable to find matching target resource method"}
+07/05/2025 08:02:50 | ERROR    | === PROCESSAMENTO INTERROMPIDO COM ERRO ====
+07/05/2025 08:02:50 | INFO     | Proposta enviada por WhatsApp: {'error': 'NOT_FOUND', 'message': 'Unable to find matching target resource method'}
+07/05/2025 08:29:33 | INFO     | RAW REQUEST BODY (UNMODIFIED): {"nome_cliente":"Novo teste","telefone_cliente":"21980407422","email_cliente":"rodrigo@novoteste.com.br","nome_vendedor":"João Pereira","marca_veiculo":"Porsche","modelo_veiculo":"911","teto_solar":"PANORAMICO XL","abertura_porta_malas":"ELETRICA","tipo_documentacao":"AUTORIZACAO, DECLARACAO, INMETRO E DETRAN","pacote_revisao":"4 ANOS","vidro_10_anos":"SEC FORCE LEV","vidro_5_anos":"AGP IB-33","comfort10YearsSubTotal":120500,"comfort18mmSubTotal":150500,"ultralightSubTotal":175500,"tipo_blindagem":"Nenhuma","desconto_aplicado":0,"observations":"Deu certo aqui hein"}
+07/05/2025 08:29:33 | INFO     | === INICIANDO PROCESSAMENTO DE NOVA REQUISIÇÃO ====
+07/05/2025 08:29:33 | INFO     | Requisição recebida - Cliente: Novo teste | Tipo blindagem: Nenhuma
+07/05/2025 08:29:33 | INFO     | Calculando condições de pagamento...
+07/05/2025 08:29:33 | INFO     | Cálculos de pagamento concluídos para valor base: R$ 0.00
+07/05/2025 08:29:33 | INFO     | COMPARAÇÃO DE BLINDAGENS:
+07/05/2025 08:29:33 | INFO     |   - Comfort 10 anos: R$ 120500.00 (Desconto: R$ 0.00)
+07/05/2025 08:29:33 | INFO     |   - Comfort 18 mm: R$ 150500.00 (Desconto: R$ 0.00)
+07/05/2025 08:29:33 | INFO     |   - Ultralight: R$ 175500.00 (Desconto: R$ 0.00)
+07/05/2025 08:29:33 | INFO     | === Cálculos para Comfort 10 anos ===
+07/05/2025 08:29:33 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+07/05/2025 08:29:33 | INFO     |   - À vista: R$ 118090.00 (Desconto: 2%)
+07/05/2025 08:29:33 | INFO     |   - 2x sem juros: 60250.00 + 60250.00
+07/05/2025 08:29:33 | INFO     |   - 3x: Entrada de R$ 60852.50 + 2x de R$ 30426.25 (Acréscimo: 1%)
+07/05/2025 08:29:33 | INFO     |   - 4x: Entrada de R$ 74469.00 + 3x de R$ 16548.67 (Acréscimo: 3%)
+07/05/2025 08:29:33 | INFO     |   - Opções de cartão:
+07/05/2025 08:29:33 | INFO     |     * 4x: R$ 31932.50 (Total: R$ 127730.00, Acréscimo: 6%)
+07/05/2025 08:29:33 | INFO     |     * 5x: R$ 25787.00 (Total: R$ 128935.00, Acréscimo: 7%)
+07/05/2025 08:29:33 | INFO     |     * 6x: R$ 21690.00 (Total: R$ 130140.00, Acréscimo: 8%)
+07/05/2025 08:29:33 | INFO     |     * 7x: R$ 18763.57 (Total: R$ 131345.00, Acréscimo: 9%)
+07/05/2025 08:29:33 | INFO     |     * 8x: R$ 16568.75 (Total: R$ 132550.00, Acréscimo: 10%)
+07/05/2025 08:29:33 | INFO     |     * 9x: R$ 14861.67 (Total: R$ 133755.00, Acréscimo: 11%)
+07/05/2025 08:29:33 | INFO     |     * 10x: R$ 13496.00 (Total: R$ 134960.00, Acréscimo: 12%)
+07/05/2025 08:29:33 | INFO     | === Cálculos para Comfort 18 mm ===
+07/05/2025 08:29:33 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+07/05/2025 08:29:33 | INFO     |   - À vista: R$ 147490.00 (Desconto: 2%)
+07/05/2025 08:29:33 | INFO     |   - 2x sem juros: 75250.00 + 75250.00
+07/05/2025 08:29:33 | INFO     |   - 3x: Entrada de R$ 76002.50 + 2x de R$ 38001.25 (Acréscimo: 1%)
+07/05/2025 08:29:33 | INFO     |   - 4x: Entrada de R$ 93009.00 + 3x de R$ 20668.67 (Acréscimo: 3%)
+07/05/2025 08:29:33 | INFO     |   - Opções de cartão:
+07/05/2025 08:29:33 | INFO     |     * 4x: R$ 39882.50 (Total: R$ 159530.00, Acréscimo: 6%)
+07/05/2025 08:29:33 | INFO     |     * 5x: R$ 32207.00 (Total: R$ 161035.00, Acréscimo: 7%)
+07/05/2025 08:29:33 | INFO     |     * 6x: R$ 27090.00 (Total: R$ 162540.00, Acréscimo: 8%)
+07/05/2025 08:29:33 | INFO     |     * 7x: R$ 23435.00 (Total: R$ 164045.00, Acréscimo: 9%)
+07/05/2025 08:29:33 | INFO     |     * 8x: R$ 20693.75 (Total: R$ 165550.00, Acréscimo: 10%)
+07/05/2025 08:29:33 | INFO     |     * 9x: R$ 18561.67 (Total: R$ 167055.00, Acréscimo: 11%)
+07/05/2025 08:29:33 | INFO     |     * 10x: R$ 16856.00 (Total: R$ 168560.00, Acréscimo: 12%)
+07/05/2025 08:29:33 | INFO     | === Cálculos para Ultralight ===
+07/05/2025 08:29:33 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+07/05/2025 08:29:33 | INFO     |   - À vista: R$ 171990.00 (Desconto: 2%)
+07/05/2025 08:29:33 | INFO     |   - 2x sem juros: 87750.00 + 87750.00
+07/05/2025 08:29:33 | INFO     |   - 3x: Entrada de R$ 88627.50 + 2x de R$ 44313.75 (Acréscimo: 1%)
+07/05/2025 08:29:33 | INFO     |   - 4x: Entrada de R$ 108459.00 + 3x de R$ 24102.00 (Acréscimo: 3%)
+07/05/2025 08:29:33 | INFO     |   - Opções de cartão:
+07/05/2025 08:29:33 | INFO     |     * 4x: R$ 46507.50 (Total: R$ 186030.00, Acréscimo: 6%)
+07/05/2025 08:29:33 | INFO     |     * 5x: R$ 37557.00 (Total: R$ 187785.00, Acréscimo: 7%)
+07/05/2025 08:29:33 | INFO     |     * 6x: R$ 31590.00 (Total: R$ 189540.00, Acréscimo: 8%)
+07/05/2025 08:29:33 | INFO     |     * 7x: R$ 27327.86 (Total: R$ 191295.00, Acréscimo: 9%)
+07/05/2025 08:29:33 | INFO     |     * 8x: R$ 24131.25 (Total: R$ 193050.00, Acréscimo: 10%)
+07/05/2025 08:29:33 | INFO     |     * 9x: R$ 21645.00 (Total: R$ 194805.00, Acréscimo: 11%)
+07/05/2025 08:29:33 | INFO     |     * 10x: R$ 19656.00 (Total: R$ 196560.00, Acréscimo: 12%)
+07/05/2025 08:29:33 | INFO     | Preparando resposta final da proposta...
+07/05/2025 08:29:33 | INFO     | Salvando dados para PDF...
+07/05/2025 08:29:33 | INFO     | Dados para PDF:
+07/05/2025 08:29:33 | INFO     | nome_cliente         : Novo teste
+telefone_cliente     : 21980407422
+email_cliente        : rodrigo@novoteste.com.br
+nome_vendedor        : João Pereira
+marca_veiculo        : Porsche
+modelo_veiculo       : 911
+teto_solar           : PANORAMICO XL
+abertura_porta_malas : ELETRICA
+tipo_documentacao    : AUTORIZACAO, DECLARACAO, INMETRO E DETRAN
+pacote_revisao       : 4 ANOS
+vidro_10_anos        : SEC FORCE LEV
+vidro_5_anos         : AGP IB-33
+tipo_blindagem       : Nenhuma
+desconto_aplicado    : 0
+observations         : Deu certo aqui hein
+07/05/2025 08:29:33 | INFO     | CENÁRIO - Comfort 10 anos:
+07/05/2025 08:29:33 | INFO     | subtotal : 120.500.00
+07/05/2025 08:29:33 | INFO     | Condições de Pagamento:
+07/05/2025 08:29:33 | INFO     |   - À VISTA: R$ 118.090.00 (2% de desconto)
+07/05/2025 08:29:33 | INFO     |   - 2X SEM JUROS: 2x de R$ 60.250.00
+07/05/2025 08:29:33 | INFO     |   - 3X: Entrada de R$ 60.852.50 + 2x de R$ 30.426.25 (1% de acréscimo)
+07/05/2025 08:29:33 | INFO     |   - 4X: Entrada de R$ 74.469.00 + 3x de R$ 16.548.67 (3% de acréscimo)
+07/05/2025 08:29:33 | INFO     |     * 4x: R$ 31.932.50 (Total: R$ 127.730.00. Acréscimo: 6%)
+07/05/2025 08:29:33 | INFO     |     * 5x: R$ 25.787.00 (Total: R$ 128.935.00. Acréscimo: 7%)
+07/05/2025 08:29:33 | INFO     |     * 6x: R$ 21.690.00 (Total: R$ 130.140.00. Acréscimo: 8%)
+07/05/2025 08:29:33 | INFO     |     * 7x: R$ 18.763.57 (Total: R$ 131.345.00. Acréscimo: 9%)
+07/05/2025 08:29:33 | INFO     |     * 8x: R$ 16.568.75 (Total: R$ 132.550.00. Acréscimo: 10%)
+07/05/2025 08:29:33 | INFO     |     * 9x: R$ 14.861.67 (Total: R$ 133.755.00. Acréscimo: 11%)
+07/05/2025 08:29:33 | INFO     |     * 10x: R$ 13.496.00 (Total: R$ 134.960.00. Acréscimo: 12%)
+07/05/2025 08:29:33 | INFO     | CENÁRIO - Comfort 18 mm:
+07/05/2025 08:29:33 | INFO     | subtotal : 150.500.00
+07/05/2025 08:29:33 | INFO     | Condições de Pagamento:
+07/05/2025 08:29:33 | INFO     |   - À VISTA: R$ 147.490.00 (2% de desconto)
+07/05/2025 08:29:33 | INFO     |   - 2X SEM JUROS: 2x de R$ 75.250.00
+07/05/2025 08:29:33 | INFO     |   - 3X: Entrada de R$ 76.002.50 + 2x de R$ 38.001.25 (1% de acréscimo)
+07/05/2025 08:29:33 | INFO     |   - 4X: Entrada de R$ 93.009.00 + 3x de R$ 20.668.67 (3% de acréscimo)
+07/05/2025 08:29:33 | INFO     |     * 4x: R$ 39.882.50 (Total: R$ 159.530.00. Acréscimo: 6%)
+07/05/2025 08:29:33 | INFO     |     * 5x: R$ 32.207.00 (Total: R$ 161.035.00. Acréscimo: 7%)
+07/05/2025 08:29:33 | INFO     |     * 6x: R$ 27.090.00 (Total: R$ 162.540.00. Acréscimo: 8%)
+07/05/2025 08:29:33 | INFO     |     * 7x: R$ 23.435.00 (Total: R$ 164.045.00. Acréscimo: 9%)
+07/05/2025 08:29:33 | INFO     |     * 8x: R$ 20.693.75 (Total: R$ 165.550.00. Acréscimo: 10%)
+07/05/2025 08:29:33 | INFO     |     * 9x: R$ 18.561.67 (Total: R$ 167.055.00. Acréscimo: 11%)
+07/05/2025 08:29:33 | INFO     |     * 10x: R$ 16.856.00 (Total: R$ 168.560.00. Acréscimo: 12%)
+07/05/2025 08:29:33 | INFO     | CENÁRIO - Ultralight:
+07/05/2025 08:29:33 | INFO     | subtotal : 175.500.00
+07/05/2025 08:29:33 | INFO     | Condições de Pagamento:
+07/05/2025 08:29:33 | INFO     |   - À VISTA: R$ 171.990.00 (2% de desconto)
+07/05/2025 08:29:33 | INFO     |   - 2X SEM JUROS: 2x de R$ 87.750.00
+07/05/2025 08:29:33 | INFO     |   - 3X: Entrada de R$ 88.627.50 + 2x de R$ 44.313.75 (1% de acréscimo)
+07/05/2025 08:29:33 | INFO     |   - 4X: Entrada de R$ 108.459.00 + 3x de R$ 24.102.00 (3% de acréscimo)
+07/05/2025 08:29:33 | INFO     |     * 4x: R$ 46.507.50 (Total: R$ 186.030.00. Acréscimo: 6%)
+07/05/2025 08:29:33 | INFO     |     * 5x: R$ 37.557.00 (Total: R$ 187.785.00. Acréscimo: 7%)
+07/05/2025 08:29:33 | INFO     |     * 6x: R$ 31.590.00 (Total: R$ 189.540.00. Acréscimo: 8%)
+07/05/2025 08:29:33 | INFO     |     * 7x: R$ 27.327.86 (Total: R$ 191.295.00. Acréscimo: 9%)
+07/05/2025 08:29:33 | INFO     |     * 8x: R$ 24.131.25 (Total: R$ 193.050.00. Acréscimo: 10%)
+07/05/2025 08:29:33 | INFO     |     * 9x: R$ 21.645.00 (Total: R$ 194.805.00. Acréscimo: 11%)
+07/05/2025 08:29:33 | INFO     |     * 10x: R$ 19.656.00 (Total: R$ 196.560.00. Acréscimo: 12%)
+07/05/2025 08:29:33 | INFO     | Dados para PDF:
+07/05/2025 08:29:33 | INFO     | {
+  "nome_cliente": "Novo teste",
+  "telefone_cliente": "21980407422",
+  "email_cliente": "rodrigo@novoteste.com.br",
+  "nome_vendedor": "João Pereira",
+  "marca_veiculo": "Porsche",
+  "modelo_veiculo": "911",
+  "teto_solar": "PANORAMICO XL",
+  "abertura_porta_malas": "ELETRICA",
+  "tipo_documentacao": "AUTORIZACAO, DECLARACAO, INMETRO E DETRAN",
+  "pacote_revisao": "4 ANOS",
+  "vidro_10_anos": "SEC FORCE LEV",
+  "vidro_5_anos": "AGP IB-33",
+  "tipo_blindagem": "Nenhuma",
+  "desconto_aplicado": 0,
+  "observations": "Deu certo aqui hein",
+  "cenarios": {
+    "Comfort 10 anos": {
+      "subtotal": 120500.0,
+      "condicoes_pagamento": {
+        "a_vista": {
+          "valor_total": 118090.0,
+          "desconto_percentual": 2,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 118090.0
+            }
+          ]
+        },
+        "duas_vezes": {
+          "valor_total": 120500.0,
+          "desconto_percentual": 0,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 60250.0
+            },
+            {
+              "numero": 2,
+              "valor": 60250.0
+            }
+          ]
+        },
+        "tres_vezes": {
+          "valor_total": 121705.0,
+          "acrescimo_percentual": 1,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 60852.5,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 30426.25
+            },
+            {
+              "numero": 3,
+              "valor": 30426.25
+            }
+          ]
+        },
+        "quatro_vezes": {
+          "valor_total": 124115.0,
+          "acrescimo_percentual": 3,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 74469.0,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 16548.666666666668
+            },
+            {
+              "numero": 3,
+              "valor": 16548.666666666668
+            },
+            {
+              "numero": 4,
+              "valor": 16548.666666666668
+            }
+          ]
+        },
+        "cartao": {
+          "4x": {
+            "acrescimo": 6,
+            "valor_total": 127730.0,
+            "valor_parcela": 31932.5
+          },
+          "5x": {
+            "acrescimo": 7,
+            "valor_total": 128935.00000000001,
+            "valor_parcela": 25787.000000000004
+          },
+          "6x": {
+            "acrescimo": 8,
+            "valor_total": 130140.00000000001,
+            "valor_parcela": 21690.000000000004
+          },
+          "7x": {
+            "acrescimo": 9,
+            "valor_total": 131345.0,
+            "valor_parcela": 18763.571428571428
+          },
+          "8x": {
+            "acrescimo": 10,
+            "valor_total": 132550.0,
+            "valor_parcela": 16568.75
+          },
+          "9x": {
+            "acrescimo": 11,
+            "valor_total": 133755.0,
+            "valor_parcela": 14861.666666666666
+          },
+          "10x": {
+            "acrescimo": 12,
+            "valor_total": 134960.0,
+            "valor_parcela": 13496.0
+          }
+        },
+        "valor_base": 120500.0,
+        "parcelado_direto": [
+          {
+            "valor_total": 120500.0,
+            "desconto_percentual": 0,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 60250.0
+              },
+              {
+                "numero": 2,
+                "valor": 60250.0
+              }
+            ]
+          },
+          {
+            "valor_total": 121705.0,
+            "acrescimo_percentual": 1,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 60852.5,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 30426.25
+              },
+              {
+                "numero": 3,
+                "valor": 30426.25
+              }
+            ]
+          },
+          {
+            "valor_total": 124115.0,
+            "acrescimo_percentual": 3,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 74469.0,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 16548.666666666668
+              },
+              {
+                "numero": 3,
+                "valor": 16548.666666666668
+              },
+              {
+                "numero": 4,
+                "valor": 16548.666666666668
+              }
+            ]
+          }
+        ],
+        "parcelado_cartao": [
+          {
+            "acrescimo": 6,
+            "valor_total": 127730.0,
+            "valor_parcela": 31932.5
+          },
+          {
+            "acrescimo": 7,
+            "valor_total": 128935.00000000001,
+            "valor_parcela": 25787.000000000004
+          },
+          {
+            "acrescimo": 8,
+            "valor_total": 130140.00000000001,
+            "valor_parcela": 21690.000000000004
+          },
+          {
+            "acrescimo": 9,
+            "valor_total": 131345.0,
+            "valor_parcela": 18763.571428571428
+          },
+          {
+            "acrescimo": 10,
+            "valor_total": 132550.0,
+            "valor_parcela": 16568.75
+          },
+          {
+            "acrescimo": 11,
+            "valor_total": 133755.0,
+            "valor_parcela": 14861.666666666666
+          },
+          {
+            "acrescimo": 12,
+            "valor_total": 134960.0,
+            "valor_parcela": 13496.0
+          }
+        ]
+      }
+    },
+    "Comfort 18 mm": {
+      "subtotal": 150500.0,
+      "condicoes_pagamento": {
+        "a_vista": {
+          "valor_total": 147490.0,
+          "desconto_percentual": 2,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 147490.0
+            }
+          ]
+        },
+        "duas_vezes": {
+          "valor_total": 150500.0,
+          "desconto_percentual": 0,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 75250.0
+            },
+            {
+              "numero": 2,
+              "valor": 75250.0
+            }
+          ]
+        },
+        "tres_vezes": {
+          "valor_total": 152005.0,
+          "acrescimo_percentual": 1,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 76002.5,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 38001.25
+            },
+            {
+              "numero": 3,
+              "valor": 38001.25
+            }
+          ]
+        },
+        "quatro_vezes": {
+          "valor_total": 155015.0,
+          "acrescimo_percentual": 3,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 93009.0,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 20668.666666666668
+            },
+            {
+              "numero": 3,
+              "valor": 20668.666666666668
+            },
+            {
+              "numero": 4,
+              "valor": 20668.666666666668
+            }
+          ]
+        },
+        "cartao": {
+          "4x": {
+            "acrescimo": 6,
+            "valor_total": 159530.0,
+            "valor_parcela": 39882.5
+          },
+          "5x": {
+            "acrescimo": 7,
+            "valor_total": 161035.0,
+            "valor_parcela": 32207.0
+          },
+          "6x": {
+            "acrescimo": 8,
+            "valor_total": 162540.0,
+            "valor_parcela": 27090.0
+          },
+          "7x": {
+            "acrescimo": 9,
+            "valor_total": 164045.0,
+            "valor_parcela": 23435.0
+          },
+          "8x": {
+            "acrescimo": 10,
+            "valor_total": 165550.0,
+            "valor_parcela": 20693.75
+          },
+          "9x": {
+            "acrescimo": 11,
+            "valor_total": 167055.00000000003,
+            "valor_parcela": 18561.66666666667
+          },
+          "10x": {
+            "acrescimo": 12,
+            "valor_total": 168560.00000000003,
+            "valor_parcela": 16856.000000000004
+          }
+        },
+        "valor_base": 150500.0,
+        "parcelado_direto": [
+          {
+            "valor_total": 150500.0,
+            "desconto_percentual": 0,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 75250.0
+              },
+              {
+                "numero": 2,
+                "valor": 75250.0
+              }
+            ]
+          },
+          {
+            "valor_total": 152005.0,
+            "acrescimo_percentual": 1,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 76002.5,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 38001.25
+              },
+              {
+                "numero": 3,
+                "valor": 38001.25
+              }
+            ]
+          },
+          {
+            "valor_total": 155015.0,
+            "acrescimo_percentual": 3,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 93009.0,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 20668.666666666668
+              },
+              {
+                "numero": 3,
+                "valor": 20668.666666666668
+              },
+              {
+                "numero": 4,
+                "valor": 20668.666666666668
+              }
+            ]
+          }
+        ],
+        "parcelado_cartao": [
+          {
+            "acrescimo": 6,
+            "valor_total": 159530.0,
+            "valor_parcela": 39882.5
+          },
+          {
+            "acrescimo": 7,
+            "valor_total": 161035.0,
+            "valor_parcela": 32207.0
+          },
+          {
+            "acrescimo": 8,
+            "valor_total": 162540.0,
+            "valor_parcela": 27090.0
+          },
+          {
+            "acrescimo": 9,
+            "valor_total": 164045.0,
+            "valor_parcela": 23435.0
+          },
+          {
+            "acrescimo": 10,
+            "valor_total": 165550.0,
+            "valor_parcela": 20693.75
+          },
+          {
+            "acrescimo": 11,
+            "valor_total": 167055.00000000003,
+            "valor_parcela": 18561.66666666667
+          },
+          {
+            "acrescimo": 12,
+            "valor_total": 168560.00000000003,
+            "valor_parcela": 16856.000000000004
+          }
+        ]
+      }
+    },
+    "Ultralight": {
+      "subtotal": 175500.0,
+      "condicoes_pagamento": {
+        "a_vista": {
+          "valor_total": 171990.0,
+          "desconto_percentual": 2,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 171990.0
+            }
+          ]
+        },
+        "duas_vezes": {
+          "valor_total": 175500.0,
+          "desconto_percentual": 0,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 87750.0
+            },
+            {
+              "numero": 2,
+              "valor": 87750.0
+            }
+          ]
+        },
+        "tres_vezes": {
+          "valor_total": 177255.0,
+          "acrescimo_percentual": 1,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 88627.5,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 44313.75
+            },
+            {
+              "numero": 3,
+              "valor": 44313.75
+            }
+          ]
+        },
+        "quatro_vezes": {
+          "valor_total": 180765.0,
+          "acrescimo_percentual": 3,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 108459.0,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 24102.0
+            },
+            {
+              "numero": 3,
+              "valor": 24102.0
+            },
+            {
+              "numero": 4,
+              "valor": 24102.0
+            }
+          ]
+        },
+        "cartao": {
+          "4x": {
+            "acrescimo": 6,
+            "valor_total": 186030.0,
+            "valor_parcela": 46507.5
+          },
+          "5x": {
+            "acrescimo": 7,
+            "valor_total": 187785.0,
+            "valor_parcela": 37557.0
+          },
+          "6x": {
+            "acrescimo": 8,
+            "valor_total": 189540.0,
+            "valor_parcela": 31590.0
+          },
+          "7x": {
+            "acrescimo": 9,
+            "valor_total": 191295.0,
+            "valor_parcela": 27327.85714285714
+          },
+          "8x": {
+            "acrescimo": 10,
+            "valor_total": 193050.00000000003,
+            "valor_parcela": 24131.250000000004
+          },
+          "9x": {
+            "acrescimo": 11,
+            "valor_total": 194805.00000000003,
+            "valor_parcela": 21645.000000000004
+          },
+          "10x": {
+            "acrescimo": 12,
+            "valor_total": 196560.00000000003,
+            "valor_parcela": 19656.000000000004
+          }
+        },
+        "valor_base": 175500.0,
+        "parcelado_direto": [
+          {
+            "valor_total": 175500.0,
+            "desconto_percentual": 0,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 87750.0
+              },
+              {
+                "numero": 2,
+                "valor": 87750.0
+              }
+            ]
+          },
+          {
+            "valor_total": 177255.0,
+            "acrescimo_percentual": 1,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 88627.5,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 44313.75
+              },
+              {
+                "numero": 3,
+                "valor": 44313.75
+              }
+            ]
+          },
+          {
+            "valor_total": 180765.0,
+            "acrescimo_percentual": 3,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 108459.0,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 24102.0
+              },
+              {
+                "numero": 3,
+                "valor": 24102.0
+              },
+              {
+                "numero": 4,
+                "valor": 24102.0
+              }
+            ]
+          }
+        ],
+        "parcelado_cartao": [
+          {
+            "acrescimo": 6,
+            "valor_total": 186030.0,
+            "valor_parcela": 46507.5
+          },
+          {
+            "acrescimo": 7,
+            "valor_total": 187785.0,
+            "valor_parcela": 37557.0
+          },
+          {
+            "acrescimo": 8,
+            "valor_total": 189540.0,
+            "valor_parcela": 31590.0
+          },
+          {
+            "acrescimo": 9,
+            "valor_total": 191295.0,
+            "valor_parcela": 27327.85714285714
+          },
+          {
+            "acrescimo": 10,
+            "valor_total": 193050.00000000003,
+            "valor_parcela": 24131.250000000004
+          },
+          {
+            "acrescimo": 11,
+            "valor_total": 194805.00000000003,
+            "valor_parcela": 21645.000000000004
+          },
+          {
+            "acrescimo": 12,
+            "valor_total": 196560.00000000003,
+            "valor_parcela": 19656.000000000004
+          }
+        ]
+      }
+    }
+  }
+}
+07/05/2025 08:29:34 | INFO     | Iniciando geração de PDF da proposta...
+07/05/2025 08:29:34 | INFO     | === INÍCIO: GERAÇÃO DE PDF DE PROPOSTA ===
+07/05/2025 08:29:34 | INFO     | Gerando proposta para: Novo teste | Tipo: Nenhuma | Desconto: 0
+07/05/2025 08:29:34 | INFO     | Selecionando template de PDF: desconto=0
+07/05/2025 08:29:34 | INFO     | Template SEM desconto selecionado
+07/05/2025 08:29:34 | INFO     | Baixando template PDF: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/proposta-forcecar-sem-desconto//proposta-forcecar-sem-desconto.pdf
+07/05/2025 08:29:34 | INFO     | Iniciando download do template...
+07/05/2025 08:29:36 | INFO     | Template PDF baixado com sucesso. Tamanho: 1723487 bytes
+07/05/2025 08:29:36 | INFO     | Mapeando dados para formulário PDF
+07/05/2025 08:29:36 | INFO     | Dados mapeados para formulário PDF: 74 campos preenchidos
+07/05/2025 08:29:36 | INFO     | Preenchendo formulário PDF via coordenadas - Abordagem preservadora
+07/05/2025 08:29:36 | INFO     | Lendo PDF original
+07/05/2025 08:29:36 | INFO     | PDF original possui 13 páginas
+07/05/2025 08:29:36 | INFO     | Processando página 11 com 11 campos
+07/05/2025 08:29:36 | INFO     | Campo 'nome_cliente': 'Novo teste' - position: left=159.72, bottom=630.47, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:29:36 | INFO     | Campo 'telefone_cliente': '21980407422' - position: left=159.5, bottom=605.04, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:29:36 | INFO     | Campo 'email_cliente': 'rodrigo@novoteste.com.br' - position: left=159.5, bottom=580.22, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:29:36 | INFO     | Campo 'marca_carro': 'Porsche' - position: left=159.5, bottom=554.12, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:29:36 | INFO     | Campo 'modelo_carro': '911' - position: left=159.5, bottom=528.03, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:29:36 | INFO     | Campo 'teto_solar': 'PANORAMICO XL' - position: left=159.14, bottom=503.21, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:29:36 | INFO     | Campo 'porta_malas': 'ELETRICA' - position: left=159.14, bottom=477.12, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:29:36 | INFO     | Campo 'tipo_documentacao': 'AUTORIZACAO, DECLARACAO, INMETRO E DETRAN' - position: left=159.78, bottom=450.76, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:29:36 | INFO     | Campo 'pacote_revisao': '4 ANOS' - position: left=100.0, bottom=480.0, width=200.0, height=20.0, alinhamento: left, página: 11
+07/05/2025 08:29:36 | INFO     | Campo 'vidro_10_anos': 'SEC FORCE LEV' - position: left=100.0, bottom=520.0, width=200.0, height=20.0, alinhamento: left, página: 11
+07/05/2025 08:29:36 | INFO     | Campo 'vidro_5_anos': 'AGP IB-33' - position: left=100.0, bottom=500.0, width=200.0, height=20.0, alinhamento: left, página: 11
+07/05/2025 08:29:37 | INFO     | Overlay aplicado com sucesso na página 11
+07/05/2025 08:29:37 | INFO     | Processando página 12 com 63 campos
+07/05/2025 08:29:37 | INFO     | Campo 'a_vista_10_anos': 'R$ 118090.00' - position: left=185.83, bottom=729.24, width=131.04, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'total_10_anos': 'R$ 118090.00' - position: left=185.06, bottom=175.7, width=130.19, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'primeira_parcela_2x_10_anos': 'R$ 60250.00' - position: left=185.6, bottom=628.34, width=131.04, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'segunda_parcela_2x_10_anos': 'R$ 60250.00' - position: left=185.6, bottom=606.26, width=131.04, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'total_2x_10_anos': 'R$ 120500.00' - position: left=100.0, bottom=660.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'sinal_50_3x_10_anos': 'R$ 60852.50' - position: left=186.08, bottom=520.82, width=132.0, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'primeira_parcela_3x_10_anos': 'R$ 30426.25' - position: left=186.08, bottom=498.74, width=132.0, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'segunda_parcela_3x_10_anos': 'R$ 30426.25' - position: left=186.08, bottom=476.66, width=132.0, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'total_3x_10_anos': 'R$ 121705.00' - position: left=100.0, bottom=600.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'sinal_60_4x_10_anos': 'R$ 74469.00' - position: left=200.48, bottom=372.02, width=117.6, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'primeira_parcela_4x_10_anos': 'R$ 16548.67' - position: left=200.48, bottom=349.94, width=117.6, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'segunda_parcela_4x_10_anos': 'R$ 16548.67' - position: left=200.48, bottom=327.86, width=117.6, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'terceira_parcela_4x_10_anos': 'R$ 16548.67' - position: left=200.48, bottom=305.78, width=117.6, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'total_4x_10_anos': 'R$ 124115.00' - position: left=300.0, bottom=540.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_4_parcelas_10_anos': 'R$ 31932.50' - position: left=208.16, bottom=191.54, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_5_parcelas_10_anos': 'R$ 25787.00' - position: left=208.16, bottom=169.46, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_6_parcelas_10_anos': 'R$ 21690.00' - position: left=208.16, bottom=147.38, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_7_parcelas_10_anos': 'R$ 18763.57' - position: left=208.16, bottom=125.3, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_8_parcelas_10_anos': 'R$ 16568.75' - position: left=208.16, bottom=103.46, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_9_parcelas_10_anos': 'R$ 14861.67' - position: left=208.16, bottom=81.62, width=116.16, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_10_parcelas_10_anos': 'R$ 13496.00' - position: left=208.16, bottom=60.02, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'a_vista_18mm': 'R$ 147490.00' - position: left=318.7, bottom=728.59, width=120.57, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'total_18mm': 'R$ 147490.00' - position: left=300.0, bottom=440.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'primeira_parcela_2x_18mm': 'R$ 75250.00' - position: left=317.68, bottom=627.49, width=121.88, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'segunda_parcela_2x_18mm': 'R$ 75250.00' - position: left=318.67, bottom=606.06, width=120.27, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'total_2x_18mm': 'R$ 150500.00' - position: left=100.0, bottom=400.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'sinal_50_3x_18mm': 'R$ 76002.50' - position: left=320.18, bottom=520.44, width=120.22, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'primeira_parcela_3x_18mm': 'R$ 38001.25' - position: left=320.79, bottom=499.13, width=118.45, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'segunda_parcela_3x_18mm': 'R$ 38001.25' - position: left=320.12, bottom=476.45, width=119.86, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'total_3x_18mm': 'R$ 152005.00' - position: left=100.0, bottom=340.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'sinal_60_4x_18mm': 'R$ 93009.00' - position: left=320.18, bottom=371.5, width=119.5, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'primeira_parcela_4x_18mm': 'R$ 20668.67' - position: left=319.94, bottom=349.27, width=119.12, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'segunda_parcela_4x_18mm': 'R$ 20668.67' - position: left=320.08, bottom=327.05, width=118.82, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'terceira_parcela_4x_18mm': 'R$ 20668.67' - position: left=320.78, bottom=306.16, width=118.21, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'total_4x_18mm': 'R$ 155015.00' - position: left=300.0, bottom=280.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_4_parcelas_18mm': 'R$ 39882.50' - position: left=325.99, bottom=191.22, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_5_parcelas_18mm': 'R$ 32207.00' - position: left=325.91, bottom=169.39, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_6_parcelas_18mm': 'R$ 27090.00' - position: left=326.46, bottom=147.26, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_7_parcelas_18mm': 'R$ 23435.00' - position: left=325.91, bottom=125.46, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_8_parcelas_18mm': 'R$ 20693.75' - position: left=326.46, bottom=103.88, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_9_parcelas_18mm': 'R$ 18561.67' - position: left=326.46, bottom=82.44, width=116.16, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_10_parcelas_18mm': 'R$ 16856.00' - position: left=326.36, bottom=60.43, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'a_vista_ultralight': 'R$ 171990.00' - position: left=439.14, bottom=729.24, width=136.93, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'total_ultralight': 'R$ 171990.00' - position: left=300.0, bottom=180.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'primeira_parcela_2x_ultralight': 'R$ 87750.00' - position: left=439.5, bottom=627.78, width=135.26, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'segunda_parcela_2x_ultralight': 'R$ 87750.00' - position: left=439.14, bottom=605.41, width=135.62, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'total_2x_ultralight': 'R$ 175500.00' - position: left=100.0, bottom=140.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'sinal_50_3x_ultralight': 'R$ 88627.50' - position: left=440.62, bottom=520.44, width=132.65, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'primeira_parcela_3x_ultralight': 'R$ 44313.75' - position: left=440.38, bottom=498.61, width=133.03, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'segunda_parcela_3x_ultralight': 'R$ 44313.75' - position: left=440.44, bottom=476.29, width=133.41, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'total_3x_ultralight': 'R$ 177255.00' - position: left=100.0, bottom=80.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'sinal_60_4x_ultralight': 'R$ 108459.00' - position: left=437.87, bottom=371.28, width=135.27, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'primeira_parcela_4x_ultralight': 'R$ 24102.00' - position: left=440.58, bottom=349.75, width=133.27, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'segunda_parcela_4x_ultralight': 'R$ 24102.00' - position: left=440.66, bottom=327.57, width=132.74, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'terceira_parcela_4x_ultralight': 'R$ 24102.00' - position: left=440.82, bottom=305.3, width=132.31, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'total_4x_ultralight': 'R$ 180765.00' - position: left=300.0, bottom=20.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_4_parcelas_ultralight': 'R$ 46507.50' - position: left=442.53, bottom=190.93, width=131.06, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_5_parcelas_ultralight': 'R$ 37557.00' - position: left=442.43, bottom=169.39, width=131.06, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_6_parcelas_ultralight': 'R$ 31590.00' - position: left=442.43, bottom=147.38, width=131.06, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_7_parcelas_ultralight': 'R$ 27327.86' - position: left=442.52, bottom=125.46, width=131.06, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_8_parcelas_ultralight': 'R$ 24131.25' - position: left=442.98, bottom=104.34, width=130.61, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_9_parcelas_ultralight': 'R$ 21645.00' - position: left=442.98, bottom=82.44, width=130.61, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:29:37 | INFO     | Campo 'cartao_10_parcelas_ultralight': 'R$ 19656.00' - position: left=442.52, bottom=60.43, width=131.51, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:29:38 | INFO     | Overlay aplicado com sucesso na página 12
+07/05/2025 08:29:39 | INFO     | PDF finalizado com sucesso: 1808185 bytes
+07/05/2025 08:29:39 | INFO     | Fazendo upload do PDF: proposta_novo_teste_20250507_082939_c968aae4.pdf
+07/05/2025 08:29:40 | INFO     | Upload concluído com sucesso. URL: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/propostas-geradas/proposta_novo_teste_20250507_082939_c968aae4.pdf
+07/05/2025 08:29:40 | INFO     | PDF gerado com sucesso: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/propostas-geradas/proposta_novo_teste_20250507_082939_c968aae4.pdf
+07/05/2025 08:29:40 | INFO     | === FIM: GERAÇÃO DE PDF DE PROPOSTA ===
+07/05/2025 08:29:40 | INFO     | PDF gerado com sucesso: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/propostas-geradas/proposta_novo_teste_20250507_082939_c968aae4.pdf
+07/05/2025 08:29:40 | INFO     | Enviando proposta por WhatsApp para: 21980407422
+07/05/2025 08:29:40 | INFO     | Enviando PDF via WhatsApp para: 21980407422
+07/05/2025 08:29:40 | INFO     | Número formatado para WhatsApp: 5521980407422
+07/05/2025 08:29:42 | ERROR    | Erro na aplicação: Erro ao enviar PDF. Status: 200, Resposta: {"error":"NOT_FOUND","message":"Unable to find matching target resource method"}
+07/05/2025 08:29:42 | ERROR    | === PROCESSAMENTO INTERROMPIDO COM ERRO ====
+07/05/2025 08:29:42 | INFO     | Proposta enviada por WhatsApp: {'error': 'NOT_FOUND', 'message': 'Unable to find matching target resource method'}
+07/05/2025 08:36:35 | INFO     | RAW REQUEST BODY (UNMODIFIED): {"nome_cliente":"Novo teste","telefone_cliente":"21980407422","email_cliente":"rodrigo@novoteste.com.br","nome_vendedor":"João Pereira","marca_veiculo":"Porsche","modelo_veiculo":"911","teto_solar":"PANORAMICO XL","abertura_porta_malas":"ELETRICA","tipo_documentacao":"AUTORIZACAO, DECLARACAO, INMETRO E DETRAN","pacote_revisao":"4 ANOS","vidro_10_anos":"SEC FORCE LEV","vidro_5_anos":"AGP IB-33","comfort10YearsSubTotal":120500,"comfort18mmSubTotal":150500,"ultralightSubTotal":175500,"tipo_blindagem":"Nenhuma","desconto_aplicado":0,"observations":"Deu certo aqui hein"}
+07/05/2025 08:36:35 | INFO     | === INICIANDO PROCESSAMENTO DE NOVA REQUISIÇÃO ====
+07/05/2025 08:36:35 | INFO     | Requisição recebida - Cliente: Novo teste | Tipo blindagem: Nenhuma
+07/05/2025 08:36:35 | INFO     | Calculando condições de pagamento...
+07/05/2025 08:36:35 | INFO     | Cálculos de pagamento concluídos para valor base: R$ 0.00
+07/05/2025 08:36:35 | INFO     | COMPARAÇÃO DE BLINDAGENS:
+07/05/2025 08:36:35 | INFO     |   - Comfort 10 anos: R$ 120500.00 (Desconto: R$ 0.00)
+07/05/2025 08:36:35 | INFO     |   - Comfort 18 mm: R$ 150500.00 (Desconto: R$ 0.00)
+07/05/2025 08:36:35 | INFO     |   - Ultralight: R$ 175500.00 (Desconto: R$ 0.00)
+07/05/2025 08:36:35 | INFO     | === Cálculos para Comfort 10 anos ===
+07/05/2025 08:36:35 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+07/05/2025 08:36:35 | INFO     |   - À vista: R$ 118090.00 (Desconto: 2%)
+07/05/2025 08:36:35 | INFO     |   - 2x sem juros: 60250.00 + 60250.00
+07/05/2025 08:36:35 | INFO     |   - 3x: Entrada de R$ 60852.50 + 2x de R$ 30426.25 (Acréscimo: 1%)
+07/05/2025 08:36:35 | INFO     |   - 4x: Entrada de R$ 74469.00 + 3x de R$ 16548.67 (Acréscimo: 3%)
+07/05/2025 08:36:35 | INFO     |   - Opções de cartão:
+07/05/2025 08:36:35 | INFO     |     * 4x: R$ 31932.50 (Total: R$ 127730.00, Acréscimo: 6%)
+07/05/2025 08:36:35 | INFO     |     * 5x: R$ 25787.00 (Total: R$ 128935.00, Acréscimo: 7%)
+07/05/2025 08:36:35 | INFO     |     * 6x: R$ 21690.00 (Total: R$ 130140.00, Acréscimo: 8%)
+07/05/2025 08:36:35 | INFO     |     * 7x: R$ 18763.57 (Total: R$ 131345.00, Acréscimo: 9%)
+07/05/2025 08:36:35 | INFO     |     * 8x: R$ 16568.75 (Total: R$ 132550.00, Acréscimo: 10%)
+07/05/2025 08:36:35 | INFO     |     * 9x: R$ 14861.67 (Total: R$ 133755.00, Acréscimo: 11%)
+07/05/2025 08:36:35 | INFO     |     * 10x: R$ 13496.00 (Total: R$ 134960.00, Acréscimo: 12%)
+07/05/2025 08:36:35 | INFO     | === Cálculos para Comfort 18 mm ===
+07/05/2025 08:36:35 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+07/05/2025 08:36:35 | INFO     |   - À vista: R$ 147490.00 (Desconto: 2%)
+07/05/2025 08:36:35 | INFO     |   - 2x sem juros: 75250.00 + 75250.00
+07/05/2025 08:36:35 | INFO     |   - 3x: Entrada de R$ 76002.50 + 2x de R$ 38001.25 (Acréscimo: 1%)
+07/05/2025 08:36:35 | INFO     |   - 4x: Entrada de R$ 93009.00 + 3x de R$ 20668.67 (Acréscimo: 3%)
+07/05/2025 08:36:35 | INFO     |   - Opções de cartão:
+07/05/2025 08:36:35 | INFO     |     * 4x: R$ 39882.50 (Total: R$ 159530.00, Acréscimo: 6%)
+07/05/2025 08:36:35 | INFO     |     * 5x: R$ 32207.00 (Total: R$ 161035.00, Acréscimo: 7%)
+07/05/2025 08:36:35 | INFO     |     * 6x: R$ 27090.00 (Total: R$ 162540.00, Acréscimo: 8%)
+07/05/2025 08:36:35 | INFO     |     * 7x: R$ 23435.00 (Total: R$ 164045.00, Acréscimo: 9%)
+07/05/2025 08:36:35 | INFO     |     * 8x: R$ 20693.75 (Total: R$ 165550.00, Acréscimo: 10%)
+07/05/2025 08:36:35 | INFO     |     * 9x: R$ 18561.67 (Total: R$ 167055.00, Acréscimo: 11%)
+07/05/2025 08:36:35 | INFO     |     * 10x: R$ 16856.00 (Total: R$ 168560.00, Acréscimo: 12%)
+07/05/2025 08:36:35 | INFO     | === Cálculos para Ultralight ===
+07/05/2025 08:36:35 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+07/05/2025 08:36:35 | INFO     |   - À vista: R$ 171990.00 (Desconto: 2%)
+07/05/2025 08:36:35 | INFO     |   - 2x sem juros: 87750.00 + 87750.00
+07/05/2025 08:36:35 | INFO     |   - 3x: Entrada de R$ 88627.50 + 2x de R$ 44313.75 (Acréscimo: 1%)
+07/05/2025 08:36:35 | INFO     |   - 4x: Entrada de R$ 108459.00 + 3x de R$ 24102.00 (Acréscimo: 3%)
+07/05/2025 08:36:35 | INFO     |   - Opções de cartão:
+07/05/2025 08:36:35 | INFO     |     * 4x: R$ 46507.50 (Total: R$ 186030.00, Acréscimo: 6%)
+07/05/2025 08:36:35 | INFO     |     * 5x: R$ 37557.00 (Total: R$ 187785.00, Acréscimo: 7%)
+07/05/2025 08:36:35 | INFO     |     * 6x: R$ 31590.00 (Total: R$ 189540.00, Acréscimo: 8%)
+07/05/2025 08:36:35 | INFO     |     * 7x: R$ 27327.86 (Total: R$ 191295.00, Acréscimo: 9%)
+07/05/2025 08:36:35 | INFO     |     * 8x: R$ 24131.25 (Total: R$ 193050.00, Acréscimo: 10%)
+07/05/2025 08:36:35 | INFO     |     * 9x: R$ 21645.00 (Total: R$ 194805.00, Acréscimo: 11%)
+07/05/2025 08:36:35 | INFO     |     * 10x: R$ 19656.00 (Total: R$ 196560.00, Acréscimo: 12%)
+07/05/2025 08:36:35 | INFO     | Preparando resposta final da proposta...
+07/05/2025 08:36:35 | INFO     | Salvando dados para PDF...
+07/05/2025 08:36:35 | INFO     | Dados para PDF:
+07/05/2025 08:36:35 | INFO     | nome_cliente         : Novo teste
+telefone_cliente     : 21980407422
+email_cliente        : rodrigo@novoteste.com.br
+nome_vendedor        : João Pereira
+marca_veiculo        : Porsche
+modelo_veiculo       : 911
+teto_solar           : PANORAMICO XL
+abertura_porta_malas : ELETRICA
+tipo_documentacao    : AUTORIZACAO, DECLARACAO, INMETRO E DETRAN
+pacote_revisao       : 4 ANOS
+vidro_10_anos        : SEC FORCE LEV
+vidro_5_anos         : AGP IB-33
+tipo_blindagem       : Nenhuma
+desconto_aplicado    : 0
+observations         : Deu certo aqui hein
+07/05/2025 08:36:35 | INFO     | CENÁRIO - Comfort 10 anos:
+07/05/2025 08:36:35 | INFO     | subtotal : 120.500.00
+07/05/2025 08:36:35 | INFO     | Condições de Pagamento:
+07/05/2025 08:36:35 | INFO     |   - À VISTA: R$ 118.090.00 (2% de desconto)
+07/05/2025 08:36:35 | INFO     |   - 2X SEM JUROS: 2x de R$ 60.250.00
+07/05/2025 08:36:35 | INFO     |   - 3X: Entrada de R$ 60.852.50 + 2x de R$ 30.426.25 (1% de acréscimo)
+07/05/2025 08:36:35 | INFO     |   - 4X: Entrada de R$ 74.469.00 + 3x de R$ 16.548.67 (3% de acréscimo)
+07/05/2025 08:36:35 | INFO     |     * 4x: R$ 31.932.50 (Total: R$ 127.730.00. Acréscimo: 6%)
+07/05/2025 08:36:35 | INFO     |     * 5x: R$ 25.787.00 (Total: R$ 128.935.00. Acréscimo: 7%)
+07/05/2025 08:36:35 | INFO     |     * 6x: R$ 21.690.00 (Total: R$ 130.140.00. Acréscimo: 8%)
+07/05/2025 08:36:35 | INFO     |     * 7x: R$ 18.763.57 (Total: R$ 131.345.00. Acréscimo: 9%)
+07/05/2025 08:36:35 | INFO     |     * 8x: R$ 16.568.75 (Total: R$ 132.550.00. Acréscimo: 10%)
+07/05/2025 08:36:35 | INFO     |     * 9x: R$ 14.861.67 (Total: R$ 133.755.00. Acréscimo: 11%)
+07/05/2025 08:36:35 | INFO     |     * 10x: R$ 13.496.00 (Total: R$ 134.960.00. Acréscimo: 12%)
+07/05/2025 08:36:35 | INFO     | CENÁRIO - Comfort 18 mm:
+07/05/2025 08:36:35 | INFO     | subtotal : 150.500.00
+07/05/2025 08:36:35 | INFO     | Condições de Pagamento:
+07/05/2025 08:36:35 | INFO     |   - À VISTA: R$ 147.490.00 (2% de desconto)
+07/05/2025 08:36:35 | INFO     |   - 2X SEM JUROS: 2x de R$ 75.250.00
+07/05/2025 08:36:35 | INFO     |   - 3X: Entrada de R$ 76.002.50 + 2x de R$ 38.001.25 (1% de acréscimo)
+07/05/2025 08:36:35 | INFO     |   - 4X: Entrada de R$ 93.009.00 + 3x de R$ 20.668.67 (3% de acréscimo)
+07/05/2025 08:36:35 | INFO     |     * 4x: R$ 39.882.50 (Total: R$ 159.530.00. Acréscimo: 6%)
+07/05/2025 08:36:35 | INFO     |     * 5x: R$ 32.207.00 (Total: R$ 161.035.00. Acréscimo: 7%)
+07/05/2025 08:36:35 | INFO     |     * 6x: R$ 27.090.00 (Total: R$ 162.540.00. Acréscimo: 8%)
+07/05/2025 08:36:35 | INFO     |     * 7x: R$ 23.435.00 (Total: R$ 164.045.00. Acréscimo: 9%)
+07/05/2025 08:36:35 | INFO     |     * 8x: R$ 20.693.75 (Total: R$ 165.550.00. Acréscimo: 10%)
+07/05/2025 08:36:35 | INFO     |     * 9x: R$ 18.561.67 (Total: R$ 167.055.00. Acréscimo: 11%)
+07/05/2025 08:36:35 | INFO     |     * 10x: R$ 16.856.00 (Total: R$ 168.560.00. Acréscimo: 12%)
+07/05/2025 08:36:35 | INFO     | CENÁRIO - Ultralight:
+07/05/2025 08:36:35 | INFO     | subtotal : 175.500.00
+07/05/2025 08:36:35 | INFO     | Condições de Pagamento:
+07/05/2025 08:36:35 | INFO     |   - À VISTA: R$ 171.990.00 (2% de desconto)
+07/05/2025 08:36:35 | INFO     |   - 2X SEM JUROS: 2x de R$ 87.750.00
+07/05/2025 08:36:35 | INFO     |   - 3X: Entrada de R$ 88.627.50 + 2x de R$ 44.313.75 (1% de acréscimo)
+07/05/2025 08:36:35 | INFO     |   - 4X: Entrada de R$ 108.459.00 + 3x de R$ 24.102.00 (3% de acréscimo)
+07/05/2025 08:36:35 | INFO     |     * 4x: R$ 46.507.50 (Total: R$ 186.030.00. Acréscimo: 6%)
+07/05/2025 08:36:35 | INFO     |     * 5x: R$ 37.557.00 (Total: R$ 187.785.00. Acréscimo: 7%)
+07/05/2025 08:36:35 | INFO     |     * 6x: R$ 31.590.00 (Total: R$ 189.540.00. Acréscimo: 8%)
+07/05/2025 08:36:35 | INFO     |     * 7x: R$ 27.327.86 (Total: R$ 191.295.00. Acréscimo: 9%)
+07/05/2025 08:36:35 | INFO     |     * 8x: R$ 24.131.25 (Total: R$ 193.050.00. Acréscimo: 10%)
+07/05/2025 08:36:35 | INFO     |     * 9x: R$ 21.645.00 (Total: R$ 194.805.00. Acréscimo: 11%)
+07/05/2025 08:36:35 | INFO     |     * 10x: R$ 19.656.00 (Total: R$ 196.560.00. Acréscimo: 12%)
+07/05/2025 08:36:35 | INFO     | Dados para PDF:
+07/05/2025 08:36:35 | INFO     | {
+  "nome_cliente": "Novo teste",
+  "telefone_cliente": "21980407422",
+  "email_cliente": "rodrigo@novoteste.com.br",
+  "nome_vendedor": "João Pereira",
+  "marca_veiculo": "Porsche",
+  "modelo_veiculo": "911",
+  "teto_solar": "PANORAMICO XL",
+  "abertura_porta_malas": "ELETRICA",
+  "tipo_documentacao": "AUTORIZACAO, DECLARACAO, INMETRO E DETRAN",
+  "pacote_revisao": "4 ANOS",
+  "vidro_10_anos": "SEC FORCE LEV",
+  "vidro_5_anos": "AGP IB-33",
+  "tipo_blindagem": "Nenhuma",
+  "desconto_aplicado": 0,
+  "observations": "Deu certo aqui hein",
+  "cenarios": {
+    "Comfort 10 anos": {
+      "subtotal": 120500.0,
+      "condicoes_pagamento": {
+        "a_vista": {
+          "valor_total": 118090.0,
+          "desconto_percentual": 2,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 118090.0
+            }
+          ]
+        },
+        "duas_vezes": {
+          "valor_total": 120500.0,
+          "desconto_percentual": 0,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 60250.0
+            },
+            {
+              "numero": 2,
+              "valor": 60250.0
+            }
+          ]
+        },
+        "tres_vezes": {
+          "valor_total": 121705.0,
+          "acrescimo_percentual": 1,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 60852.5,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 30426.25
+            },
+            {
+              "numero": 3,
+              "valor": 30426.25
+            }
+          ]
+        },
+        "quatro_vezes": {
+          "valor_total": 124115.0,
+          "acrescimo_percentual": 3,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 74469.0,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 16548.666666666668
+            },
+            {
+              "numero": 3,
+              "valor": 16548.666666666668
+            },
+            {
+              "numero": 4,
+              "valor": 16548.666666666668
+            }
+          ]
+        },
+        "cartao": {
+          "4x": {
+            "acrescimo": 6,
+            "valor_total": 127730.0,
+            "valor_parcela": 31932.5
+          },
+          "5x": {
+            "acrescimo": 7,
+            "valor_total": 128935.00000000001,
+            "valor_parcela": 25787.000000000004
+          },
+          "6x": {
+            "acrescimo": 8,
+            "valor_total": 130140.00000000001,
+            "valor_parcela": 21690.000000000004
+          },
+          "7x": {
+            "acrescimo": 9,
+            "valor_total": 131345.0,
+            "valor_parcela": 18763.571428571428
+          },
+          "8x": {
+            "acrescimo": 10,
+            "valor_total": 132550.0,
+            "valor_parcela": 16568.75
+          },
+          "9x": {
+            "acrescimo": 11,
+            "valor_total": 133755.0,
+            "valor_parcela": 14861.666666666666
+          },
+          "10x": {
+            "acrescimo": 12,
+            "valor_total": 134960.0,
+            "valor_parcela": 13496.0
+          }
+        },
+        "valor_base": 120500.0,
+        "parcelado_direto": [
+          {
+            "valor_total": 120500.0,
+            "desconto_percentual": 0,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 60250.0
+              },
+              {
+                "numero": 2,
+                "valor": 60250.0
+              }
+            ]
+          },
+          {
+            "valor_total": 121705.0,
+            "acrescimo_percentual": 1,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 60852.5,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 30426.25
+              },
+              {
+                "numero": 3,
+                "valor": 30426.25
+              }
+            ]
+          },
+          {
+            "valor_total": 124115.0,
+            "acrescimo_percentual": 3,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 74469.0,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 16548.666666666668
+              },
+              {
+                "numero": 3,
+                "valor": 16548.666666666668
+              },
+              {
+                "numero": 4,
+                "valor": 16548.666666666668
+              }
+            ]
+          }
+        ],
+        "parcelado_cartao": [
+          {
+            "acrescimo": 6,
+            "valor_total": 127730.0,
+            "valor_parcela": 31932.5
+          },
+          {
+            "acrescimo": 7,
+            "valor_total": 128935.00000000001,
+            "valor_parcela": 25787.000000000004
+          },
+          {
+            "acrescimo": 8,
+            "valor_total": 130140.00000000001,
+            "valor_parcela": 21690.000000000004
+          },
+          {
+            "acrescimo": 9,
+            "valor_total": 131345.0,
+            "valor_parcela": 18763.571428571428
+          },
+          {
+            "acrescimo": 10,
+            "valor_total": 132550.0,
+            "valor_parcela": 16568.75
+          },
+          {
+            "acrescimo": 11,
+            "valor_total": 133755.0,
+            "valor_parcela": 14861.666666666666
+          },
+          {
+            "acrescimo": 12,
+            "valor_total": 134960.0,
+            "valor_parcela": 13496.0
+          }
+        ]
+      }
+    },
+    "Comfort 18 mm": {
+      "subtotal": 150500.0,
+      "condicoes_pagamento": {
+        "a_vista": {
+          "valor_total": 147490.0,
+          "desconto_percentual": 2,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 147490.0
+            }
+          ]
+        },
+        "duas_vezes": {
+          "valor_total": 150500.0,
+          "desconto_percentual": 0,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 75250.0
+            },
+            {
+              "numero": 2,
+              "valor": 75250.0
+            }
+          ]
+        },
+        "tres_vezes": {
+          "valor_total": 152005.0,
+          "acrescimo_percentual": 1,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 76002.5,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 38001.25
+            },
+            {
+              "numero": 3,
+              "valor": 38001.25
+            }
+          ]
+        },
+        "quatro_vezes": {
+          "valor_total": 155015.0,
+          "acrescimo_percentual": 3,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 93009.0,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 20668.666666666668
+            },
+            {
+              "numero": 3,
+              "valor": 20668.666666666668
+            },
+            {
+              "numero": 4,
+              "valor": 20668.666666666668
+            }
+          ]
+        },
+        "cartao": {
+          "4x": {
+            "acrescimo": 6,
+            "valor_total": 159530.0,
+            "valor_parcela": 39882.5
+          },
+          "5x": {
+            "acrescimo": 7,
+            "valor_total": 161035.0,
+            "valor_parcela": 32207.0
+          },
+          "6x": {
+            "acrescimo": 8,
+            "valor_total": 162540.0,
+            "valor_parcela": 27090.0
+          },
+          "7x": {
+            "acrescimo": 9,
+            "valor_total": 164045.0,
+            "valor_parcela": 23435.0
+          },
+          "8x": {
+            "acrescimo": 10,
+            "valor_total": 165550.0,
+            "valor_parcela": 20693.75
+          },
+          "9x": {
+            "acrescimo": 11,
+            "valor_total": 167055.00000000003,
+            "valor_parcela": 18561.66666666667
+          },
+          "10x": {
+            "acrescimo": 12,
+            "valor_total": 168560.00000000003,
+            "valor_parcela": 16856.000000000004
+          }
+        },
+        "valor_base": 150500.0,
+        "parcelado_direto": [
+          {
+            "valor_total": 150500.0,
+            "desconto_percentual": 0,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 75250.0
+              },
+              {
+                "numero": 2,
+                "valor": 75250.0
+              }
+            ]
+          },
+          {
+            "valor_total": 152005.0,
+            "acrescimo_percentual": 1,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 76002.5,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 38001.25
+              },
+              {
+                "numero": 3,
+                "valor": 38001.25
+              }
+            ]
+          },
+          {
+            "valor_total": 155015.0,
+            "acrescimo_percentual": 3,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 93009.0,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 20668.666666666668
+              },
+              {
+                "numero": 3,
+                "valor": 20668.666666666668
+              },
+              {
+                "numero": 4,
+                "valor": 20668.666666666668
+              }
+            ]
+          }
+        ],
+        "parcelado_cartao": [
+          {
+            "acrescimo": 6,
+            "valor_total": 159530.0,
+            "valor_parcela": 39882.5
+          },
+          {
+            "acrescimo": 7,
+            "valor_total": 161035.0,
+            "valor_parcela": 32207.0
+          },
+          {
+            "acrescimo": 8,
+            "valor_total": 162540.0,
+            "valor_parcela": 27090.0
+          },
+          {
+            "acrescimo": 9,
+            "valor_total": 164045.0,
+            "valor_parcela": 23435.0
+          },
+          {
+            "acrescimo": 10,
+            "valor_total": 165550.0,
+            "valor_parcela": 20693.75
+          },
+          {
+            "acrescimo": 11,
+            "valor_total": 167055.00000000003,
+            "valor_parcela": 18561.66666666667
+          },
+          {
+            "acrescimo": 12,
+            "valor_total": 168560.00000000003,
+            "valor_parcela": 16856.000000000004
+          }
+        ]
+      }
+    },
+    "Ultralight": {
+      "subtotal": 175500.0,
+      "condicoes_pagamento": {
+        "a_vista": {
+          "valor_total": 171990.0,
+          "desconto_percentual": 2,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 171990.0
+            }
+          ]
+        },
+        "duas_vezes": {
+          "valor_total": 175500.0,
+          "desconto_percentual": 0,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 87750.0
+            },
+            {
+              "numero": 2,
+              "valor": 87750.0
+            }
+          ]
+        },
+        "tres_vezes": {
+          "valor_total": 177255.0,
+          "acrescimo_percentual": 1,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 88627.5,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 44313.75
+            },
+            {
+              "numero": 3,
+              "valor": 44313.75
+            }
+          ]
+        },
+        "quatro_vezes": {
+          "valor_total": 180765.0,
+          "acrescimo_percentual": 3,
+          "parcelas": [
+            {
+              "numero": 1,
+              "valor": 108459.0,
+              "tipo": "entrada"
+            },
+            {
+              "numero": 2,
+              "valor": 24102.0
+            },
+            {
+              "numero": 3,
+              "valor": 24102.0
+            },
+            {
+              "numero": 4,
+              "valor": 24102.0
+            }
+          ]
+        },
+        "cartao": {
+          "4x": {
+            "acrescimo": 6,
+            "valor_total": 186030.0,
+            "valor_parcela": 46507.5
+          },
+          "5x": {
+            "acrescimo": 7,
+            "valor_total": 187785.0,
+            "valor_parcela": 37557.0
+          },
+          "6x": {
+            "acrescimo": 8,
+            "valor_total": 189540.0,
+            "valor_parcela": 31590.0
+          },
+          "7x": {
+            "acrescimo": 9,
+            "valor_total": 191295.0,
+            "valor_parcela": 27327.85714285714
+          },
+          "8x": {
+            "acrescimo": 10,
+            "valor_total": 193050.00000000003,
+            "valor_parcela": 24131.250000000004
+          },
+          "9x": {
+            "acrescimo": 11,
+            "valor_total": 194805.00000000003,
+            "valor_parcela": 21645.000000000004
+          },
+          "10x": {
+            "acrescimo": 12,
+            "valor_total": 196560.00000000003,
+            "valor_parcela": 19656.000000000004
+          }
+        },
+        "valor_base": 175500.0,
+        "parcelado_direto": [
+          {
+            "valor_total": 175500.0,
+            "desconto_percentual": 0,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 87750.0
+              },
+              {
+                "numero": 2,
+                "valor": 87750.0
+              }
+            ]
+          },
+          {
+            "valor_total": 177255.0,
+            "acrescimo_percentual": 1,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 88627.5,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 44313.75
+              },
+              {
+                "numero": 3,
+                "valor": 44313.75
+              }
+            ]
+          },
+          {
+            "valor_total": 180765.0,
+            "acrescimo_percentual": 3,
+            "parcelas": [
+              {
+                "numero": 1,
+                "valor": 108459.0,
+                "tipo": "entrada"
+              },
+              {
+                "numero": 2,
+                "valor": 24102.0
+              },
+              {
+                "numero": 3,
+                "valor": 24102.0
+              },
+              {
+                "numero": 4,
+                "valor": 24102.0
+              }
+            ]
+          }
+        ],
+        "parcelado_cartao": [
+          {
+            "acrescimo": 6,
+            "valor_total": 186030.0,
+            "valor_parcela": 46507.5
+          },
+          {
+            "acrescimo": 7,
+            "valor_total": 187785.0,
+            "valor_parcela": 37557.0
+          },
+          {
+            "acrescimo": 8,
+            "valor_total": 189540.0,
+            "valor_parcela": 31590.0
+          },
+          {
+            "acrescimo": 9,
+            "valor_total": 191295.0,
+            "valor_parcela": 27327.85714285714
+          },
+          {
+            "acrescimo": 10,
+            "valor_total": 193050.00000000003,
+            "valor_parcela": 24131.250000000004
+          },
+          {
+            "acrescimo": 11,
+            "valor_total": 194805.00000000003,
+            "valor_parcela": 21645.000000000004
+          },
+          {
+            "acrescimo": 12,
+            "valor_total": 196560.00000000003,
+            "valor_parcela": 19656.000000000004
+          }
+        ]
+      }
+    }
+  }
+}
+07/05/2025 08:36:35 | INFO     | Iniciando geração de PDF da proposta...
+07/05/2025 08:36:35 | INFO     | === INÍCIO: GERAÇÃO DE PDF DE PROPOSTA ===
+07/05/2025 08:36:35 | INFO     | Gerando proposta para: Novo teste | Tipo: Nenhuma | Desconto: 0
+07/05/2025 08:36:35 | INFO     | Selecionando template de PDF: desconto=0
+07/05/2025 08:36:35 | INFO     | Template SEM desconto selecionado
+07/05/2025 08:36:35 | INFO     | Baixando template PDF: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/proposta-forcecar-sem-desconto//proposta-forcecar-sem-desconto.pdf
+07/05/2025 08:36:36 | INFO     | Iniciando download do template...
+07/05/2025 08:36:36 | INFO     | Template PDF baixado com sucesso. Tamanho: 1723487 bytes
+07/05/2025 08:36:36 | INFO     | Mapeando dados para formulário PDF
+07/05/2025 08:36:36 | INFO     | Dados mapeados para formulário PDF: 74 campos preenchidos
+07/05/2025 08:36:36 | INFO     | Preenchendo formulário PDF via coordenadas - Abordagem preservadora
+07/05/2025 08:36:36 | INFO     | Lendo PDF original
+07/05/2025 08:36:37 | INFO     | PDF original possui 13 páginas
+07/05/2025 08:36:37 | INFO     | Processando página 11 com 11 campos
+07/05/2025 08:36:37 | INFO     | Campo 'nome_cliente': 'Novo teste' - position: left=159.72, bottom=630.47, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:36:37 | INFO     | Campo 'telefone_cliente': '21980407422' - position: left=159.5, bottom=605.04, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:36:37 | INFO     | Campo 'email_cliente': 'rodrigo@novoteste.com.br' - position: left=159.5, bottom=580.22, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:36:37 | INFO     | Campo 'marca_carro': 'Porsche' - position: left=159.5, bottom=554.12, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:36:37 | INFO     | Campo 'modelo_carro': '911' - position: left=159.5, bottom=528.03, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:36:37 | INFO     | Campo 'teto_solar': 'PANORAMICO XL' - position: left=159.14, bottom=503.21, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:36:37 | INFO     | Campo 'porta_malas': 'ELETRICA' - position: left=159.14, bottom=477.12, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:36:37 | INFO     | Campo 'tipo_documentacao': 'AUTORIZACAO, DECLARACAO, INMETRO E DETRAN' - position: left=159.78, bottom=450.76, width=412.83, height=-21.12, alinhamento: left, página: 11
+07/05/2025 08:36:37 | INFO     | Campo 'pacote_revisao': '4 ANOS' - position: left=100.0, bottom=480.0, width=200.0, height=20.0, alinhamento: left, página: 11
+07/05/2025 08:36:37 | INFO     | Campo 'vidro_10_anos': 'SEC FORCE LEV' - position: left=100.0, bottom=520.0, width=200.0, height=20.0, alinhamento: left, página: 11
+07/05/2025 08:36:37 | INFO     | Campo 'vidro_5_anos': 'AGP IB-33' - position: left=100.0, bottom=500.0, width=200.0, height=20.0, alinhamento: left, página: 11
+07/05/2025 08:36:38 | INFO     | Overlay aplicado com sucesso na página 11
+07/05/2025 08:36:38 | INFO     | Processando página 12 com 63 campos
+07/05/2025 08:36:38 | INFO     | Campo 'a_vista_10_anos': 'R$ 118090.00' - position: left=185.83, bottom=729.24, width=131.04, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'total_10_anos': 'R$ 118090.00' - position: left=185.06, bottom=175.7, width=130.19, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'primeira_parcela_2x_10_anos': 'R$ 60250.00' - position: left=185.6, bottom=628.34, width=131.04, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'segunda_parcela_2x_10_anos': 'R$ 60250.00' - position: left=185.6, bottom=606.26, width=131.04, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'total_2x_10_anos': 'R$ 120500.00' - position: left=100.0, bottom=660.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'sinal_50_3x_10_anos': 'R$ 60852.50' - position: left=186.08, bottom=520.82, width=132.0, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'primeira_parcela_3x_10_anos': 'R$ 30426.25' - position: left=186.08, bottom=498.74, width=132.0, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'segunda_parcela_3x_10_anos': 'R$ 30426.25' - position: left=186.08, bottom=476.66, width=132.0, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'total_3x_10_anos': 'R$ 121705.00' - position: left=100.0, bottom=600.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'sinal_60_4x_10_anos': 'R$ 74469.00' - position: left=200.48, bottom=372.02, width=117.6, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'primeira_parcela_4x_10_anos': 'R$ 16548.67' - position: left=200.48, bottom=349.94, width=117.6, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'segunda_parcela_4x_10_anos': 'R$ 16548.67' - position: left=200.48, bottom=327.86, width=117.6, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'terceira_parcela_4x_10_anos': 'R$ 16548.67' - position: left=200.48, bottom=305.78, width=117.6, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'total_4x_10_anos': 'R$ 124115.00' - position: left=300.0, bottom=540.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_4_parcelas_10_anos': 'R$ 31932.50' - position: left=208.16, bottom=191.54, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_5_parcelas_10_anos': 'R$ 25787.00' - position: left=208.16, bottom=169.46, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_6_parcelas_10_anos': 'R$ 21690.00' - position: left=208.16, bottom=147.38, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_7_parcelas_10_anos': 'R$ 18763.57' - position: left=208.16, bottom=125.3, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_8_parcelas_10_anos': 'R$ 16568.75' - position: left=208.16, bottom=103.46, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_9_parcelas_10_anos': 'R$ 14861.67' - position: left=208.16, bottom=81.62, width=116.16, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_10_parcelas_10_anos': 'R$ 13496.00' - position: left=208.16, bottom=60.02, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'a_vista_18mm': 'R$ 147490.00' - position: left=318.7, bottom=728.59, width=120.57, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'total_18mm': 'R$ 147490.00' - position: left=300.0, bottom=440.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'primeira_parcela_2x_18mm': 'R$ 75250.00' - position: left=317.68, bottom=627.49, width=121.88, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'segunda_parcela_2x_18mm': 'R$ 75250.00' - position: left=318.67, bottom=606.06, width=120.27, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'total_2x_18mm': 'R$ 150500.00' - position: left=100.0, bottom=400.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'sinal_50_3x_18mm': 'R$ 76002.50' - position: left=320.18, bottom=520.44, width=120.22, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'primeira_parcela_3x_18mm': 'R$ 38001.25' - position: left=320.79, bottom=499.13, width=118.45, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'segunda_parcela_3x_18mm': 'R$ 38001.25' - position: left=320.12, bottom=476.45, width=119.86, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'total_3x_18mm': 'R$ 152005.00' - position: left=100.0, bottom=340.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'sinal_60_4x_18mm': 'R$ 93009.00' - position: left=320.18, bottom=371.5, width=119.5, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'primeira_parcela_4x_18mm': 'R$ 20668.67' - position: left=319.94, bottom=349.27, width=119.12, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'segunda_parcela_4x_18mm': 'R$ 20668.67' - position: left=320.08, bottom=327.05, width=118.82, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'terceira_parcela_4x_18mm': 'R$ 20668.67' - position: left=320.78, bottom=306.16, width=118.21, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'total_4x_18mm': 'R$ 155015.00' - position: left=300.0, bottom=280.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_4_parcelas_18mm': 'R$ 39882.50' - position: left=325.99, bottom=191.22, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_5_parcelas_18mm': 'R$ 32207.00' - position: left=325.91, bottom=169.39, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_6_parcelas_18mm': 'R$ 27090.00' - position: left=326.46, bottom=147.26, width=116.16, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_7_parcelas_18mm': 'R$ 23435.00' - position: left=325.91, bottom=125.46, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_8_parcelas_18mm': 'R$ 20693.75' - position: left=326.46, bottom=103.88, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_9_parcelas_18mm': 'R$ 18561.67' - position: left=326.46, bottom=82.44, width=116.16, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_10_parcelas_18mm': 'R$ 16856.00' - position: left=326.36, bottom=60.43, width=116.16, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'a_vista_ultralight': 'R$ 171990.00' - position: left=439.14, bottom=729.24, width=136.93, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'total_ultralight': 'R$ 171990.00' - position: left=300.0, bottom=180.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'primeira_parcela_2x_ultralight': 'R$ 87750.00' - position: left=439.5, bottom=627.78, width=135.26, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'segunda_parcela_2x_ultralight': 'R$ 87750.00' - position: left=439.14, bottom=605.41, width=135.62, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'total_2x_ultralight': 'R$ 175500.00' - position: left=100.0, bottom=140.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'sinal_50_3x_ultralight': 'R$ 88627.50' - position: left=440.62, bottom=520.44, width=132.65, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'primeira_parcela_3x_ultralight': 'R$ 44313.75' - position: left=440.38, bottom=498.61, width=133.03, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'segunda_parcela_3x_ultralight': 'R$ 44313.75' - position: left=440.44, bottom=476.29, width=133.41, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'total_3x_ultralight': 'R$ 177255.00' - position: left=100.0, bottom=80.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'sinal_60_4x_ultralight': 'R$ 108459.00' - position: left=437.87, bottom=371.28, width=135.27, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'primeira_parcela_4x_ultralight': 'R$ 24102.00' - position: left=440.58, bottom=349.75, width=133.27, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'segunda_parcela_4x_ultralight': 'R$ 24102.00' - position: left=440.66, bottom=327.57, width=132.74, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'terceira_parcela_4x_ultralight': 'R$ 24102.00' - position: left=440.82, bottom=305.3, width=132.31, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'total_4x_ultralight': 'R$ 180765.00' - position: left=300.0, bottom=20.0, width=200.0, height=20.0, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_4_parcelas_ultralight': 'R$ 46507.50' - position: left=442.53, bottom=190.93, width=131.06, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_5_parcelas_ultralight': 'R$ 37557.00' - position: left=442.43, bottom=169.39, width=131.06, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_6_parcelas_ultralight': 'R$ 31590.00' - position: left=442.43, bottom=147.38, width=131.06, height=-21.12, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_7_parcelas_ultralight': 'R$ 27327.86' - position: left=442.52, bottom=125.46, width=131.06, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_8_parcelas_ultralight': 'R$ 24131.25' - position: left=442.98, bottom=104.34, width=130.61, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_9_parcelas_ultralight': 'R$ 21645.00' - position: left=442.98, bottom=82.44, width=130.61, height=-20.64, alinhamento: left, página: 12
+07/05/2025 08:36:38 | INFO     | Campo 'cartao_10_parcelas_ultralight': 'R$ 19656.00' - position: left=442.52, bottom=60.43, width=131.51, height=-20.88, alinhamento: left, página: 12
+07/05/2025 08:36:39 | INFO     | Overlay aplicado com sucesso na página 12
+07/05/2025 08:36:40 | INFO     | PDF finalizado com sucesso: 1807643 bytes
+07/05/2025 08:36:40 | INFO     | Fazendo upload do PDF: proposta_novo_teste_20250507_083640_505022a5.pdf
+07/05/2025 08:36:41 | INFO     | Upload concluído com sucesso. URL: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/propostas-geradas/proposta_novo_teste_20250507_083640_505022a5.pdf
+07/05/2025 08:36:41 | INFO     | PDF gerado com sucesso: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/propostas-geradas/proposta_novo_teste_20250507_083640_505022a5.pdf
+07/05/2025 08:36:41 | INFO     | === FIM: GERAÇÃO DE PDF DE PROPOSTA ===
+07/05/2025 08:36:41 | INFO     | PDF gerado com sucesso: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/propostas-geradas/proposta_novo_teste_20250507_083640_505022a5.pdf
+07/05/2025 08:36:41 | INFO     | Enviando proposta por WhatsApp para: 21980407422
+07/05/2025 08:36:41 | INFO     | Enviando PDF via WhatsApp para: 21980407422
+07/05/2025 08:36:41 | INFO     | Número formatado para WhatsApp: 5521980407422
+07/05/2025 08:36:42 | ERROR    | Erro na aplicação: Erro ao enviar PDF. Status: 200, Resposta: {"error":"NOT_FOUND","message":"Unable to find matching target resource method"}
+07/05/2025 08:36:42 | ERROR    | === PROCESSAMENTO INTERROMPIDO COM ERRO ====
+07/05/2025 08:36:42 | INFO     | Proposta enviada por WhatsApp: {'error': 'NOT_FOUND', 'message': 'Unable to find matching target resource method'}
