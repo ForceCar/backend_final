@@ -11,7 +11,7 @@ from PyPDF2 import PdfReader, PdfWriter
 from reportlab.pdfgen import canvas
 
 # URLs dos templates de PDF no Supabase
-PDF_COM_DESCONTO_URL = "https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/proposta-forcecar-com-desconto//proposta-force-com-descconto.pdf"
+PDF_COM_DESCONTO_URL = "https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/proposta-forcecar-com-desconto//proposta-forcecar-com-desconto.pdf"
 PDF_SEM_DESCONTO_URL = "https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/proposta-forcecar-sem-desconto//proposta-forcecar-sem-desconto.pdf"
 
 # Credenciais Supabase
@@ -99,11 +99,19 @@ async def mapear_dados_para_formulario(dados: Dict[str, Any]) -> Dict[str, Any]:
     campos["marca_carro"] = dados.get("marca_veiculo", "")
     campos["modelo_carro"] = dados.get("modelo_veiculo", "")
     campos["teto_solar"] = dados.get("teto_solar", "")
-    campos["porta_malas"] = dados.get("abertura_porta_malas", "")
+    campos["porta-malas"] = dados.get("abertura_porta_malas", "")
     campos["tipo_documentacao"] = dados.get("tipo_documentacao", "")
     campos["pacote_revisao"] = dados.get("pacote_revisao", "")
-    campos["vidro_10_anos"] = dados.get("vidro_10_anos", "")
-    campos["vidro_5_anos"] = dados.get("vidro_5_anos", "")
+    
+    # Obtém valores dos vidros
+    vidro_10_anos_valor = dados.get("vidro_10_anos", "")
+    vidro_5_anos_valor = dados.get("vidro_5_anos", "")
+    
+    # Preenche todos os campos de vidros com os mesmos valores
+    campos["vidro_10_anos"] = vidro_10_anos_valor
+    campos["vidro_5_anos"] = vidro_5_anos_valor
+    campos["vidro_5_anos_18mm"] = vidro_5_anos_valor
+    campos["vidro_5_anos_ultralight"] = vidro_5_anos_valor
     # Desconto aplicado
     desconto_val = dados.get("desconto_aplicado", 0)
     campos["desconto"] = f"R$ {desconto_val:.2f}" if desconto_val else ""
@@ -172,34 +180,43 @@ async def mapear_dados_para_formulario(dados: Dict[str, Any]) -> Dict[str, Any]:
 # Coordenadas para a página 11 no template COM DESCONTO
 COORDINATE_MAP_COM_DESCONTO_PAGE_11: Dict[str, Dict[str, Any]] = {
     # Informações básicas página 11 - COM DESCONTO
-    "nome_cliente": {"page": 11, "left": 159.71, "right": 572.54, "width": 412.82, "bottom": 609.35, "top": 630.47, "height": 21.12, "alignment": "left"},
-    "telefone_cliente": {"page": 11, "left": 158.16, "right": 574.5, "width": 416.34, "bottom": 234.57, "top": 255.27, "height": 20.7, "alignment": "left"},
-    "email_cliente": {"page": 11, "left": 158.65, "right": 574.5, "width": 415.85, "bottom": 260.68, "top": 280.88, "height": 20.2, "alignment": "left"},
-    "marca_carro": {"page": 11, "left": 158, "right": 575, "width": 417, "bottom": 285, "top": 307, "height": 22, "alignment": "left"},
-    "modelo_carro": {"page": 11, "left": 158.65, "right": 574.5, "width": 415.85, "bottom": 311.93, "top": 332.13, "height": 20.2, "alignment": "left"},
-    "teto_solar": {"page": 11, "left": 158.16, "right": 574.5, "width": 416.34, "bottom": 337.07, "top": 357.27, "height": 20.2, "alignment": "left"},
-    "porta-malas": {"page": 11, "left": 158, "right": 575, "width": 417, "bottom": 362, "top": 383, "height": 21, "alignment": "left"},
-    "tipo_documentacao": {"page": 11, "left": 157, "right": 575, "width": 418, "bottom": 388, "top": 409, "height": 21, "alignment": "left"},
-    "desconto": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 540, "top": 560, "height": 20, "alignment": "left"},
-    "vidro_10_anos": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 520, "top": 540, "height": 20, "alignment": "left"},
-    "vidro_5_anos": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 500, "top": 520, "height": 20, "alignment": "left"},
-    "pacote_revisao": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 480, "top": 500, "height": 20, "alignment": "left"},
+    "nome_cliente": {"page": 11, "left": 157.44, "right": 576.0, "width": 418.56, "bottom": 611.37, "top": 632.25, "height": 20.88, "alignment": "left"},
+    "telefone_cliente": {"page": 11, "left": 157.9, "right": 576.46, "width": 418.56, "bottom": 586.41, "top": 607.29, "height": 20.88, "alignment": "left"},
+    "email_cliente": {"page": 11, "left": 157.16, "right": 575.72, "width": 418.56, "bottom": 561.34, "top": 582.22, "height": 20.88, "alignment": "left"},
+    "marca_carro": {"page": 11, "left": 158.9, "right": 577.46, "width": 418.56, "bottom": 535.44, "top": 556.32, "height": 20.88, "alignment": "left"},
+    "modelo_carro": {"page": 11, "left": 158.9, "right": 577.46, "width": 418.56, "bottom": 509.54, "top": 530.42, "height": 20.88, "alignment": "left"},
+    "teto_solar": {"page": 11, "left": 158.25, "right": 576.81, "width": 418.56, "bottom": 484.67, "top": 505.55, "height": 20.88, "alignment": "left"},
+    "porta-malas": {"page": 11, "left": 158.45, "right": 577.01, "width": 418.56, "bottom": 458.85, "top": 479.73, "height": 20.88, "alignment": "left"},
+    "tipo_documentacao": {"page": 11, "left": 158.46, "right": 577.02, "width": 418.56, "bottom": 433.12, "top": 454.0, "height": 20.88, "alignment": "left"},
+    "desconto": {"page": 11, "left": 157.44, "right": 576.0, "width": 418.56, "bottom": 378.25, "top": 399.13, "height": 20.88, "alignment": "left"},
+    "vidro_10_anos": {"page": 11, "left": 186.0, "right": 313.92, "width": 127.92, "bottom": 242.89, "top": 263.53, "height": 20.64, "alignment": "left"},
+    "vidro_5_anos_18mm": {"page": 11, "left": 315.36, "right": 444.48, "width": 129.12, "bottom": 220.81, "top": 241.93, "height": 21.12, "alignment": "left"},
+    "vidro_5_anos_ultralight": {"page": 11, "left": 445.92, "right": 573.6, "width": 127.68, "bottom": 220.81, "top": 241.93, "height": 21.12, "alignment": "left"},
+    "pacote_revisao": {"page": 11, "left": 19.92, "right": 184.56, "width": 164.64, "bottom": 199.21, "top": 219.85, "height": 20.64, "alignment": "left"},
+    "total_10_anos": {"page": 11, "left": 186.21, "right": 317.25, "width": 131.04, "bottom": 708.32, "top": 729.44, "height": 21.12, "alignment": "left"},
+    "total_18mm": {"page": 11, "left": 318.46, "right": 438.77, "width": 120.31, "bottom": 708.32, "top": 729.44, "height": 21.12, "alignment": "left"},
+    "total_ultralight": {"page": 11, "left": 439.98, "right": 574.72, "width": 134.74, "bottom": 708.69, "top": 729.81, "height": 21.12, "alignment": "left"},
 }
 
 # Coordenadas para a página 11 no template SEM DESCONTO
 COORDINATE_MAP_SEM_DESCONTO_PAGE_11: Dict[str, Dict[str, Any]] = {
     # Informações básicas página 11 - SEM DESCONTO (coordenadas diferentes)
-    "nome_cliente": {"page": 11, "left": 159.71, "right": 572.54, "width": 412.82, "bottom": 609.35, "top": 630.47, "height": 21.12, "alignment": "left"},
-    "telefone_cliente": {"page": 11, "left": 158.16, "right": 574.5, "width": 416.34, "bottom": 234.57, "top": 255.27, "height": 20.7, "alignment": "left"},
-    "email_cliente": {"page": 11, "left": 158.65, "right": 574.5, "width": 415.85, "bottom": 260.68, "top": 280.88, "height": 20.2, "alignment": "left"},
-    "marca_carro": {"page": 11, "left": 158, "right": 575, "width": 417, "bottom": 285, "top": 307, "height": 22, "alignment": "left"},
-    "modelo_carro": {"page": 11, "left": 158.65, "right": 574.5, "width": 415.85, "bottom": 311.93, "top": 332.13, "height": 20.2, "alignment": "left"},
-    "teto_solar": {"page": 11, "left": 158.16, "right": 574.5, "width": 416.34, "bottom": 337.07, "top": 357.27, "height": 20.2, "alignment": "left"},
-    "porta-malas": {"page": 11, "left": 158, "right": 575, "width": 417, "bottom": 362, "top": 383, "height": 21, "alignment": "left"},
-    "tipo_documentacao": {"page": 11, "left": 157, "right": 575, "width": 418, "bottom": 388, "top": 409, "height": 21, "alignment": "left"},
-    "vidro_10_anos": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 520, "top": 540, "height": 20, "alignment": "left"},
-    "vidro_5_anos": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 500, "top": 520, "height": 20, "alignment": "left"},
-    "pacote_revisao": {"page": 11, "left": 100, "right": 300, "width": 200, "bottom": 480, "top": 500, "height": 20, "alignment": "left"},
+    "nome_cliente": {"page": 11, "left": 157.44, "right": 576.0, "width": 418.56, "bottom": 611.37, "top": 632.25, "height": 20.88, "alignment": "left"},
+    "telefone_cliente": {"page": 11, "left": 157.9, "right": 576.46, "width": 418.56, "bottom": 586.41, "top": 607.29, "height": 20.88, "alignment": "left"},
+    "email_cliente": {"page": 11, "left": 157.16, "right": 575.72, "width": 418.56, "bottom": 561.34, "top": 582.22, "height": 20.88, "alignment": "left"},
+    "marca_carro": {"page": 11, "left": 158.9, "right": 577.46, "width": 418.56, "bottom": 535.44, "top": 556.32, "height": 20.88, "alignment": "left"},
+    "modelo_carro": {"page": 11, "left": 158.9, "right": 577.46, "width": 418.56, "bottom": 509.54, "top": 530.42, "height": 20.88, "alignment": "left"},
+    "teto_solar": {"page": 11, "left": 158.25, "right": 576.81, "width": 418.56, "bottom": 484.67, "top": 505.55, "height": 20.88, "alignment": "left"},
+    "porta-malas": {"page": 11, "left": 158.45, "right": 577.01, "width": 418.56, "bottom": 458.85, "top": 479.73, "height": 20.88, "alignment": "left"},
+    "tipo_documentacao": {"page": 11, "left": 158.46, "right": 577.02, "width": 418.56, "bottom": 433.12, "top": 454.0, "height": 20.88, "alignment": "left"},
+    "vidro_10_anos": {"page": 11, "left": 186.0, "right": 313.92, "width": 127.92, "bottom": 242.89, "top": 263.53, "height": 20.64, "alignment": "left"},
+    "vidro_5_anos": {"page": 11, "left": 315.36, "right": 444.48, "width": 129.12, "bottom": 220.81, "top": 241.93, "height": 21.12, "alignment": "left"},
+    "vidro_5_anos_18mm": {"page": 11, "left": 315.36, "right": 444.48, "width": 129.12, "bottom": 220.81, "top": 241.93, "height": 21.12, "alignment": "left"},
+    "vidro_5_anos_ultralight": {"page": 11, "left": 445.92, "right": 573.6, "width": 127.68, "bottom": 220.81, "top": 241.93, "height": 21.12, "alignment": "left"},
+    "pacote_revisao": {"page": 11, "left": 19.92, "right": 184.56, "width": 164.64, "bottom": 199.21, "top": 219.85, "height": 20.64, "alignment": "left"},
+    "total_10_anos": {"page": 11, "left": 186.21, "right": 317.25, "width": 131.04, "bottom": 708.32, "top": 729.44, "height": 21.12, "alignment": "left"},
+    "total_18mm": {"page": 11, "left": 318.46, "right": 438.77, "width": 120.31, "bottom": 708.32, "top": 729.44, "height": 21.12, "alignment": "left"},
+    "total_ultralight": {"page": 11, "left": 439.98, "right": 574.72, "width": 134.74, "bottom": 708.69, "top": 729.81, "height": 21.12, "alignment": "left"},
 }
 
 # Coordenadas para a página 12 (comum a ambos os templates)
