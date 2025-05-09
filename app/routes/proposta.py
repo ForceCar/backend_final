@@ -4,6 +4,8 @@ import uuid
 from datetime import datetime
 from typing import Dict, Any, Union
 import json  # Para serializar payload de PDF
+import os
+import tempfile
 
 from fastapi import APIRouter, Request, HTTPException, Body
 
@@ -19,6 +21,11 @@ from app.services import logger_service
 from app.services import pdf_service
 from app.services import whatsapp_service
 from app.config import PROPOSTA_ENDPOINT
+from config.form_map import (
+    FORM_MAP_WITH_DESCONTO,
+    FORM_MAP_SEM_DESCONTO,
+    PAYMENT_CONDITIONS_MAP
+)
 
 # Criação do router
 router = APIRouter()
@@ -144,7 +151,7 @@ async def gerar_proposta(request: Request, data: Dict[str, Any] = Body(...)):
         
         # --- Salvar dados para PDF ---
         logger_service.log_info("Salvando dados para PDF...")
-        pdf_data = {}
+        backend_data = {}
         # Campos básicos
         for field in [
             'nome_cliente','telefone_cliente','email_cliente','nome_vendedor',
@@ -153,10 +160,10 @@ async def gerar_proposta(request: Request, data: Dict[str, Any] = Body(...)):
             'tipo_blindagem','desconto_aplicado','observations'
         ]:
             if field in data:
-                pdf_data[field] = data[field]
+                backend_data[field] = data[field]
                 
         # Cenários de blindagem - SIMPLIFICADO para evitar duplicações
-        pdf_data['cenarios'] = {}
+        backend_data['cenarios'] = {}
         
         if tipo_blindagem == "Nenhuma":
             # Para comparação, incluir apenas um cenário por tipo de blindagem
@@ -177,120 +184,7 @@ async def gerar_proposta(request: Request, data: Dict[str, Any] = Body(...)):
                 if desconto > 0:
                     scenario['desconto_aplicado'] = desconto
                     
-                pdf_data['cenarios'][label] = scenario
-        else:
-            # Para um tipo específico de blindagem, usar valor_base que já contém desconto
-            valor_base = subtotais['valor_base']
-            
-            # Identificar o subtotal original sem desconto
-            subtotal_map = {
-                'Comfort 10 anos': 'comfort10YearsSubTotal',
-                'Comfort 18 mm': 'comfort18mmSubTotal',
-                'Ultralight': 'ultralightSubTotal'
-            }
-            subtotal = float(data.get(subtotal_map.get(tipo_blindagem, 0), 0))
-            
-            # Criar cenário único com condições de pagamento já calculadas
-            scenario = {
-                'subtotal': subtotal,
-                'condicoes_pagamento': condicoes_pagamento
-            }
-            
-            # Se houver desconto, incluir no cenário
-            desconto = data.get('desconto_aplicado', 0)
-            if desconto > 0:
-                scenario['desconto_aplicado'] = desconto
-                
-            pdf_data['cenarios'][tipo_blindagem] = scenario
-            
-        # Log payload para PDF em formato de tabela
-        logger_service.log_info("Dados para PDF:")
-        # Campos básicos
-        basic = {k: v for k, v in pdf_data.items() if k != 'cenarios'}
-        logger_service.log_info(logger_service.format_dict_table(basic))
-        
-        # Se tiver cenários, apresenta cada um com formatação mais limpa
-        cenarios = pdf_data.get('cenarios', {})
-        if cenarios:
-            for label, scenario in cenarios.items():
-                logger_service.log_info(f"CENÁRIO - {label}:")
-                
-                # Extrair e formatar informações principais do cenário
-                subtotal = scenario.get('subtotal', 0)
-                desconto = scenario.get('desconto_aplicado', 0)
-                
-                # Criar um dicionário simplificado para exibição
-                cenario_info = {
-                    'subtotal': f"{subtotal:,.2f}".replace(',', '.'),
-                }
-                
-                if desconto:
-                    cenario_info['desconto_aplicado'] = f"{desconto:,.2f}".replace(',', '.') 
-                
-                # Exibir informações básicas do cenário
-                logger_service.log_info(logger_service.format_dict_table(cenario_info))
-                
-                # Exibir condições de pagamento formatadas
-                condicoes = scenario.get('condicoes_pagamento', {})
-                if condicoes:
-                    logger_service.log_info("Condições de Pagamento:")
-                    
-                    # À vista
-                    if 'a_vista' in condicoes:
-                        av = condicoes['a_vista']
-                        valor = av.get('valor_total', 0)
-                        desconto_perc = av.get('desconto_percentual', 0)
-                        logger_service.log_info(f"  - À VISTA: R$ {valor:,.2f}".replace(',', '.') + 
-                                                f" ({desconto_perc}% de desconto)")
-                    
-                    # 2 parcelas
-                    if 'duas_vezes' in condicoes:
-                        dv = condicoes['duas_vezes']
-                        parcelas = dv.get('parcelas', [])
-                        if len(parcelas) >= 2:
-                            valor_parcela = parcelas[0].get('valor', 0)
-                            logger_service.log_info(f"  - 2X SEM JUROS: {len(parcelas)}x de R$ {valor_parcela:,.2f}".replace(',', '.'))
-                    
-                    # 3 parcelas
-                    if 'tres_vezes' in condicoes:
-                        tv = condicoes['tres_vezes']
-                        parcelas = tv.get('parcelas', [])
-                        if len(parcelas) >= 3:
-                            entrada = parcelas[0].get('valor', 0)
-                            valor_parcela = parcelas[1].get('valor', 0)
-                            acrescimo = tv.get('acrescimo_percentual', 0)
-                            logger_service.log_info(f"  - 3X: Entrada de R$ {entrada:,.2f}".replace(',', '.') + 
-                                                    f" + 2x de R$ {valor_parcela:,.2f}".replace(',', '.') +
-                                                    f" ({acrescimo}% de acréscimo)")
-                    
-                    # 4 parcelas
-                    if 'quatro_vezes' in condicoes:
-                        qv = condicoes['quatro_vezes']
-                        parcelas = qv.get('parcelas', [])
-                        if len(parcelas) >= 4:
-                            entrada = parcelas[0].get('valor', 0)
-                            valor_parcela = parcelas[1].get('valor', 0)
-                            acrescimo = qv.get('acrescimo_percentual', 0)
-                            logger_service.log_info(f"  - 4X: Entrada de R$ {entrada:,.2f}".replace(',', '.') + 
-                                                    f" + 3x de R$ {valor_parcela:,.2f}".replace(',', '.') +
-                                                    f" ({acrescimo}% de acréscimo)")
-                    
-                    # Cartão
-                    cartao = condicoes.get('cartao', {})
-                    if cartao:
-                        for parcela, info in cartao.items():
-                            valor_parcela = info.get('valor_parcela', 0)
-                            valor_total = info.get('valor_total', 0)
-                            acrescimo = info.get('acrescimo', 0)
-                            logger_service.log_info(f"    * {parcela}: R$ {valor_parcela:,.2f}".replace(',', '.') + 
-                                                   f" (Total: R$ {valor_total:,.2f}, Acréscimo: {acrescimo}%)".replace(',', '.'))
-                
-                # Se houver desconto, incluir no cenário para documentação
-                desconto = subtotais.get('desconto_aplicado', 0)
-                if desconto > 0:
-                    scenario['desconto_aplicado'] = desconto
-                    
-                pdf_data['cenarios'][label] = scenario
+                backend_data['cenarios'][label] = scenario
         else:
             # Para um tipo específico de blindagem, usar valor_base que já contém desconto
             valor_base = subtotais['valor_base']
@@ -314,54 +208,143 @@ async def gerar_proposta(request: Request, data: Dict[str, Any] = Body(...)):
             if desconto > 0:
                 scenario['desconto_aplicado'] = desconto
                 
-            pdf_data['cenarios'][tipo_blindagem] = scenario
-
-        # Log payload para PDF - apenas os dados relevantes
+            backend_data['cenarios'][tipo_blindagem] = scenario
+            
+        # Log payload para PDF em formato de tabela
         logger_service.log_info("Dados para PDF:")
-        logger_service.log_info(json.dumps(pdf_data, indent=2, ensure_ascii=False))
+        # Campos básicos
+        basic = {k: v for k, v in backend_data.items() if k != 'cenarios'}
+        logger_service.log_info(logger_service.format_dict_table(basic))
+        
+        # Preparar dados para o formulário PDF usando os mapeamentos
+        form_map = (FORM_MAP_WITH_DESCONTO if data.get("desconto_aplicado", 0) > 0 else FORM_MAP_SEM_DESCONTO).copy()
+        form_map.update(PAYMENT_CONDITIONS_MAP)
+        
+        # Converter dados do backend para o formato dos campos do formulário PDF
+        form_data = {pdf_field: str(backend_data.get(key, "")) for key, pdf_field in form_map.items() if key in backend_data}
+        
+        # Adicionar dados específicos de cenários
+        for nome_cenario, cenario in backend_data.get('cenarios', {}).items():
+            suffix_map = {"Comfort 10 anos": "10_anos", "Comfort 18 mm": "18mm", "Ultralight": "ultralight"}
+            sufixo = suffix_map.get(nome_cenario)
+            if not sufixo:
+                continue
+                
+            cond_pagto = cenario.get('condicoes_pagamento', {})
+            
+            # À vista
+            a_v = cond_pagto.get('a_vista', {})
+            if 'valor_total' in a_v:
+                form_data[form_map.get(f"a_vista_{sufixo}", "")] = f"R$ {a_v.get('valor_total', 0):.2f}"
+                form_data[form_map.get(f"total_{sufixo}", "")] = f"R$ {a_v.get('valor_total', 0):.2f}"
+            
+            # 2x sem juros
+            duas = cond_pagto.get('duas_vezes', {})
+            parcelas2 = duas.get('parcelas', [])
+            if len(parcelas2) >= 2:
+                form_data[form_map.get(f"primeira_parcela_2x_{sufixo}", "")] = f"R$ {parcelas2[0].get('valor', 0):.2f}"
+                form_data[form_map.get(f"segunda_parcela_2x_{sufixo}", "")] = f"R$ {parcelas2[1].get('valor', 0):.2f}"
+            if 'valor_total' in duas:
+                form_data[form_map.get(f"total_2x_{sufixo}", "")] = f"R$ {duas.get('valor_total', 0):.2f}"
+            
+            # 3x
+            tres = cond_pagto.get('tres_vezes', {})
+            parcelas3 = tres.get('parcelas', [])
+            if len(parcelas3) >= 1:
+                form_data[form_map.get(f"sinal_50_3x_{sufixo}", "")] = f"R$ {parcelas3[0].get('valor', 0):.2f}"
+            if len(parcelas3) >= 2:
+                form_data[form_map.get(f"primeira_parcela_3x_{sufixo}", "")] = f"R$ {parcelas3[1].get('valor', 0):.2f}"
+            if len(parcelas3) >= 3:
+                form_data[form_map.get(f"segunda_parcela_3x_{sufixo}", "")] = f"R$ {parcelas3[2].get('valor', 0):.2f}"
+                form_data[form_map.get(f"terceira_parcela_3x_{sufixo}", "")] = f"R$ {parcelas3[2].get('valor', 0):.2f}"
+            if 'valor_total' in tres:
+                form_data[form_map.get(f"total_3x_{sufixo}", "")] = f"R$ {tres.get('valor_total', 0):.2f}"
+            
+            # 4x
+            quatro = cond_pagto.get('quatro_vezes', {})
+            parcelas4 = quatro.get('parcelas', [])
+            if len(parcelas4) >= 1:
+                form_data[form_map.get(f"sinal_60_4x_{sufixo}", "")] = f"R$ {parcelas4[0].get('valor', 0):.2f}"
+            if len(parcelas4) >= 2:
+                form_data[form_map.get(f"primeira_parcela_4x_{sufixo}", "")] = f"R$ {parcelas4[1].get('valor', 0):.2f}"
+            if len(parcelas4) >= 3:
+                form_data[form_map.get(f"segunda_parcela_4x_{sufixo}", "")] = f"R$ {parcelas4[2].get('valor', 0):.2f}"
+            if len(parcelas4) >= 4:
+                form_data[form_map.get(f"terceira_parcela_4x_{sufixo}", "")] = f"R$ {parcelas4[3].get('valor', 0):.2f}"
+                form_data[form_map.get(f"quarta_parcela_4x_{sufixo}", "")] = f"R$ {parcelas4[3].get('valor', 0):.2f}"
+            if 'valor_total' in quatro:
+                form_data[form_map.get(f"total_4x_{sufixo}", "")] = f"R$ {quatro.get('valor_total', 0):.2f}"
+            
+            # Cartão de crédito
+            cartao = cond_pagto.get('cartao', {})
+            for n in range(4, 11):
+                opc = cartao.get(f"{n}x", {})
+                if 'valor_parcela' in opc:
+                    campo = form_map.get(f"cartao_{n}_parcelas_{sufixo}", "")
+                    if campo:
+                        form_data[campo] = f"R$ {opc.get('valor_parcela', 0):.2f}"
 
-        # --- Fim salvamento PDF ---
-
-        # Gerar PDF da proposta
-        logger_service.log_info("Iniciando geração de PDF da proposta...")
-        try:
-            pdf_url = await pdf_service.gerar_pdf_proposta(pdf_data)
-            logger_service.log_info(f"PDF gerado com sucesso: {pdf_url}")
+        # Criar arquivos temporários para o PDF
+        with tempfile.NamedTemporaryFile(suffix=".pdf", delete=False) as temp_template:
+            # Baixar template
+            desconto = data.get("desconto_aplicado", 0)
+            template_url, template_type = await pdf_service.selecionar_template(desconto)
+            template_bytes = await pdf_service.baixar_template(template_url)
+            temp_template.write(template_bytes)
+            temp_template_path = temp_template.name
+        
+        # Nome do arquivo de saída
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        output_filename = f"proposta_{proposta_id}_{timestamp}.pdf"
+        output_path = os.path.join("/tmp", output_filename)
+        
+        # Preencher o formulário PDF
+        logger_service.log_info(f"Preenchendo formulário PDF com {len(form_data)} campos")
+        pdf_service.fill_pdf_form(temp_template_path, output_path, form_data)
+        
+        # Fazer upload do PDF gerado
+        with open(output_path, "rb") as f:
+            pdf_bytes = f.read()
+        
+        # Upload para o Supabase
+        pdf_url = await pdf_service.upload_pdf_para_supabase(pdf_bytes, output_filename)
+        
+        logger_service.log_info(f"PDF gerado com sucesso: {pdf_url}")
+        
+        # Limpar arquivos temporários
+        os.unlink(temp_template_path)
+        os.unlink(output_path)
+        
+        # Enviar PDF por WhatsApp se o telefone estiver disponível
+        telefone_cliente = data.get("telefone_cliente")
+        if telefone_cliente:
+            logger_service.log_info(f"Enviando proposta por WhatsApp para: {telefone_cliente}")
             
-            # Enviar PDF por WhatsApp se o telefone estiver disponível
-            telefone_cliente = data.get("telefone_cliente")
-            if telefone_cliente:
-                logger_service.log_info(f"Enviando proposta por WhatsApp para: {telefone_cliente}")
-                
-                # Mensagem personalizada para o WhatsApp
-                marca = data.get("marca_veiculo", "")
-                modelo = data.get("modelo_veiculo", "")
-                mensagem = f"Olá {nome_cliente}, segue sua proposta de blindagem para o {marca} {modelo}."
-                
-                # Enviar PDF por WhatsApp
-                whatsapp_result = await whatsapp_service.enviar_pdf_whatsapp(
-                    telefone_cliente, 
-                    pdf_url, 
-                    mensagem
-                )
-                logger_service.log_info(f"Proposta enviada por WhatsApp: {whatsapp_result}")
-                
-            # Preparar resultado final
-            resultado = {
-                "status": "success",
-                "message": "Proposta gerada com sucesso",
-                "tipo_blindagem": tipo_blindagem,
-                "valor_blindagem": valor_base,
-                "condicoes_pagamento": condicoes_pagamento,
-                "pdf_url": pdf_url
-            }
+            # Mensagem personalizada para o WhatsApp
+            marca = data.get("marca_veiculo", "")
+            modelo = data.get("modelo_veiculo", "")
+            mensagem = f"Olá {nome_cliente}, segue sua proposta de blindagem para o {marca} {modelo}."
             
-            return PropostaResponse(**resultado)
+            # Enviar PDF por WhatsApp
+            whatsapp_result = await whatsapp_service.enviar_pdf_whatsapp(
+                telefone_cliente, 
+                pdf_url, 
+                mensagem
+            )
+            logger_service.log_info(f"Proposta enviada por WhatsApp: {whatsapp_result}")
             
-        except Exception as e:
-            logger_service.log_error(f"Erro ao gerar PDF ou enviar WhatsApp: {str(e)}")
-            raise HTTPException(status_code=500, detail=f"Erro ao gerar PDF ou enviar WhatsApp: {str(e)}")
-            
+        # Preparar resultado final
+        resultado = {
+            "status": "success",
+            "message": "Proposta gerada com sucesso",
+            "tipo_blindagem": tipo_blindagem,
+            "valor_blindagem": valor_base,
+            "condicoes_pagamento": condicoes_pagamento,
+            "pdf_url": pdf_url
+        }
+        
+        return PropostaResponse(**resultado)
+        
     except Exception as e:
         logger_service.log_error(f"Erro no processamento da proposta: {str(e)}")
         return PropostaResponse(
