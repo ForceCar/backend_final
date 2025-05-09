@@ -10,8 +10,8 @@ import io
 from PyPDF2 import PdfReader, PdfWriter
 
 # URLs dos templates de PDF no Supabase
-PDF_COM_DESCONTO_URL = "https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/proposta-forcecar-com-desconto//proposta-forcecar-com-desconto.pdf"
-PDF_SEM_DESCONTO_URL = "https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/proposta-forcecar-sem-desconto//proposta-forcecar-sem-desconto.pdf"
+PDF_COM_DESCONTO_URL = "https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/preenchivel-com-desconto//com-desconto.pdf"
+PDF_SEM_DESCONTO_URL = "https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/preenchivel-sem-desconto//sem_desconto.pdf"
 
 # Credenciais Supabase
 SUPABASE_URL = "https://ahvryabvarxisvfdnmye.supabase.co"
