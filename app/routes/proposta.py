@@ -220,6 +220,12 @@ async def gerar_proposta(request: Request, data: Dict[str, Any] = Body(...)):
         form_map = (FORM_MAP_WITH_DESCONTO if data.get("desconto_aplicado", 0) > 0 else FORM_MAP_SEM_DESCONTO).copy()
         form_map.update(PAYMENT_CONDITIONS_MAP)
         
+        # Adicionar valores totais das blindagens
+        if "comfort18mm" in subtotais:
+            backend_data["total_comfort_18mm"] = f"R$ {subtotais['comfort18mm']['valor_final']:.2f}"
+        if "ultralight" in subtotais:
+            backend_data["total_ultralight"] = f"R$ {subtotais['ultralight']['valor_final']:.2f}"
+            
         # Converter dados do backend para o formato dos campos do formulário PDF
         form_data = {pdf_field: str(backend_data.get(key, "")) for key, pdf_field in form_map.items() if key in backend_data}
         
