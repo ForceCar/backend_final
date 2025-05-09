@@ -62841,3 +62841,4 @@ observations         : Deu certo aqui hein
 08/05/2025 19:37:02 | ERROR    | Erro na aplicação: Erro ao enviar PDF. Status: 200, Resposta: {"error":"NOT_FOUND","message":"Unable to find matching target resource method"}
 08/05/2025 19:37:02 | ERROR    | === PROCESSAMENTO INTERROMPIDO COM ERRO ====
 08/05/2025 19:37:02 | INFO     | Proposta enviada por WhatsApp: {'error': 'NOT_FOUND', 'message': 'Unable to find matching target resource method'}
+09/05/2025 07:41:38 | INFO     | Iniciando Forsecar Backend API v1.0.0
