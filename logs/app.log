@@ -63101,3 +63101,89 @@ observations         : Deu certo aqui hein
 09/05/2025 17:18:34 | ERROR    | Erro na aplicação: Erro ao enviar PDF. Status: 200, Resposta: {"error":"NOT_FOUND","message":"Unable to find matching target resource method"}
 09/05/2025 17:18:34 | ERROR    | === PROCESSAMENTO INTERROMPIDO COM ERRO ====
 09/05/2025 17:18:34 | INFO     | Proposta enviada por WhatsApp: {'error': 'NOT_FOUND', 'message': 'Unable to find matching target resource method'}
+10/05/2025 12:11:41 | INFO     | RAW REQUEST BODY (UNMODIFIED): {"nome_cliente":"Novo teste","telefone_cliente":"21980407422","email_cliente":"rodrigo@novoteste.com.br","nome_vendedor":"João Pereira","marca_veiculo":"Porsche","modelo_veiculo":"911","teto_solar":"PANORAMICO XL","abertura_porta_malas":"ELETRICA","tipo_documentacao":"AUTORIZACAO, DECLARACAO, INMETRO E DETRAN","pacote_revisao":"4 ANOS","vidro_10_anos":"SEC FORCE LEV","vidro_5_anos":"AGP IB-33","comfort10YearsSubTotal":120500,"comfort18mmSubTotal":150500,"ultralightSubTotal":175500,"tipo_blindagem":"Nenhuma","desconto_aplicado":11.11,"observations":"Deu certo aqui hein"}
+10/05/2025 12:11:42 | INFO     | === INICIANDO PROCESSAMENTO DE NOVA REQUISIÇÃO ====
+10/05/2025 12:11:42 | INFO     | Requisição recebida - Cliente: Novo teste | Tipo blindagem: Nenhuma
+10/05/2025 12:11:42 | INFO     | Calculando condições de pagamento...
+10/05/2025 12:11:42 | INFO     | Cálculos de pagamento concluídos para valor base: R$ 0.00
+10/05/2025 12:11:42 | INFO     | COMPARAÇÃO DE BLINDAGENS:
+10/05/2025 12:11:42 | INFO     |   - Comfort 10 anos: R$ 120500.00 (Desconto: R$ 11.11)
+10/05/2025 12:11:42 | INFO     |   - Comfort 18 mm: R$ 150500.00 (Desconto: R$ 11.11)
+10/05/2025 12:11:42 | INFO     |   - Ultralight: R$ 175500.00 (Desconto: R$ 11.11)
+10/05/2025 12:11:42 | INFO     | === Cálculos para Comfort 10 anos ===
+10/05/2025 12:11:42 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+10/05/2025 12:11:42 | INFO     |   - À vista: R$ 118079.11 (Desconto: 2%)
+10/05/2025 12:11:42 | INFO     |   - 2x sem juros: 60244.44 + 60244.44
+10/05/2025 12:11:42 | INFO     |   - 3x: Entrada de R$ 60846.89 + 2x de R$ 30423.44 (Acréscimo: 1%)
+10/05/2025 12:11:42 | INFO     |   - 4x: Entrada de R$ 74462.13 + 3x de R$ 16547.14 (Acréscimo: 3%)
+10/05/2025 12:11:42 | INFO     |   - Opções de cartão:
+10/05/2025 12:11:42 | INFO     |     * 4x: R$ 31929.56 (Total: R$ 127718.22, Acréscimo: 6%)
+10/05/2025 12:11:42 | INFO     |     * 5x: R$ 25784.62 (Total: R$ 128923.11, Acréscimo: 7%)
+10/05/2025 12:11:42 | INFO     |     * 6x: R$ 21688.00 (Total: R$ 130128.00, Acréscimo: 8%)
+10/05/2025 12:11:42 | INFO     |     * 7x: R$ 18761.84 (Total: R$ 131332.89, Acréscimo: 9%)
+10/05/2025 12:11:42 | INFO     |     * 8x: R$ 16567.22 (Total: R$ 132537.78, Acréscimo: 10%)
+10/05/2025 12:11:42 | INFO     |     * 9x: R$ 14860.30 (Total: R$ 133742.67, Acréscimo: 11%)
+10/05/2025 12:11:42 | INFO     |     * 10x: R$ 13494.76 (Total: R$ 134947.56, Acréscimo: 12%)
+10/05/2025 12:11:42 | INFO     | === Cálculos para Comfort 18 mm ===
+10/05/2025 12:11:42 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+10/05/2025 12:11:42 | INFO     |   - À vista: R$ 147479.11 (Desconto: 2%)
+10/05/2025 12:11:42 | INFO     |   - 2x sem juros: 75244.45 + 75244.45
+10/05/2025 12:11:42 | INFO     |   - 3x: Entrada de R$ 75996.89 + 2x de R$ 37998.44 (Acréscimo: 1%)
+10/05/2025 12:11:42 | INFO     |   - 4x: Entrada de R$ 93002.13 + 3x de R$ 20667.14 (Acréscimo: 3%)
+10/05/2025 12:11:42 | INFO     |   - Opções de cartão:
+10/05/2025 12:11:42 | INFO     |     * 4x: R$ 39879.56 (Total: R$ 159518.22, Acréscimo: 6%)
+10/05/2025 12:11:42 | INFO     |     * 5x: R$ 32204.62 (Total: R$ 161023.11, Acréscimo: 7%)
+10/05/2025 12:11:42 | INFO     |     * 6x: R$ 27088.00 (Total: R$ 162528.00, Acréscimo: 8%)
+10/05/2025 12:11:42 | INFO     |     * 7x: R$ 23433.27 (Total: R$ 164032.89, Acréscimo: 9%)
+10/05/2025 12:11:42 | INFO     |     * 8x: R$ 20692.22 (Total: R$ 165537.78, Acréscimo: 10%)
+10/05/2025 12:11:42 | INFO     |     * 9x: R$ 18560.30 (Total: R$ 167042.67, Acréscimo: 11%)
+10/05/2025 12:11:42 | INFO     |     * 10x: R$ 16854.76 (Total: R$ 168547.56, Acréscimo: 12%)
+10/05/2025 12:11:42 | INFO     | === Cálculos para Ultralight ===
+10/05/2025 12:11:42 | INFO     | DETALHES DAS CONDIÇÕES DE PAGAMENTO:
+10/05/2025 12:11:42 | INFO     |   - À vista: R$ 171979.11 (Desconto: 2%)
+10/05/2025 12:11:42 | INFO     |   - 2x sem juros: 87744.45 + 87744.45
+10/05/2025 12:11:42 | INFO     |   - 3x: Entrada de R$ 88621.89 + 2x de R$ 44310.94 (Acréscimo: 1%)
+10/05/2025 12:11:42 | INFO     |   - 4x: Entrada de R$ 108452.13 + 3x de R$ 24100.47 (Acréscimo: 3%)
+10/05/2025 12:11:42 | INFO     |   - Opções de cartão:
+10/05/2025 12:11:42 | INFO     |     * 4x: R$ 46504.56 (Total: R$ 186018.22, Acréscimo: 6%)
+10/05/2025 12:11:42 | INFO     |     * 5x: R$ 37554.62 (Total: R$ 187773.11, Acréscimo: 7%)
+10/05/2025 12:11:42 | INFO     |     * 6x: R$ 31588.00 (Total: R$ 189528.00, Acréscimo: 8%)
+10/05/2025 12:11:42 | INFO     |     * 7x: R$ 27326.13 (Total: R$ 191282.89, Acréscimo: 9%)
+10/05/2025 12:11:42 | INFO     |     * 8x: R$ 24129.72 (Total: R$ 193037.78, Acréscimo: 10%)
+10/05/2025 12:11:42 | INFO     |     * 9x: R$ 21643.63 (Total: R$ 194792.67, Acréscimo: 11%)
+10/05/2025 12:11:42 | INFO     |     * 10x: R$ 19654.76 (Total: R$ 196547.56, Acréscimo: 12%)
+10/05/2025 12:11:42 | INFO     | Preparando resposta final da proposta...
+10/05/2025 12:11:42 | INFO     | Salvando dados para PDF...
+10/05/2025 12:11:42 | INFO     | Dados para PDF:
+10/05/2025 12:11:42 | INFO     | nome_cliente         : Novo teste
+telefone_cliente     : 21980407422
+email_cliente        : rodrigo@novoteste.com.br
+nome_vendedor        : João Pereira
+marca_veiculo        : Porsche
+modelo_veiculo       : 911
+teto_solar           : PANORAMICO XL
+abertura_porta_malas : ELETRICA
+tipo_documentacao    : AUTORIZACAO, DECLARACAO, INMETRO E DETRAN
+pacote_revisao       : 4 ANOS
+vidro_10_anos        : SEC FORCE LEV
+vidro_5_anos         : AGP IB-33
+tipo_blindagem       : Nenhuma
+desconto_aplicado    : 11.11
+observations         : Deu certo aqui hein
+10/05/2025 12:11:42 | INFO     | Selecionando template de PDF: desconto=11.11
+10/05/2025 12:11:42 | INFO     | Template COM desconto selecionado
+10/05/2025 12:11:42 | INFO     | Baixando template PDF: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/preenchivel-com-desconto//com-desconto.pdf
+10/05/2025 12:11:42 | INFO     | Iniciando download do template...
+10/05/2025 12:11:43 | INFO     | Template PDF baixado com sucesso. Tamanho: 4068517 bytes
+10/05/2025 12:11:43 | INFO     | Preenchendo formulário PDF com 70 campos
+10/05/2025 12:11:43 | INFO     | Preenchendo formulário PDF: /var/folders/2p/p2x9xcwd1hbbfs1b8qn4jdg00000gn/T/tmp3ke0e7f5.pdf
+10/05/2025 12:11:43 | INFO     | Salvando PDF preenchido em: /tmp/proposta_39446717-bedf-4ccd-aacb-eb7cee227afc_20250510_121143.pdf
+10/05/2025 12:11:43 | INFO     | Fazendo upload do PDF: proposta_39446717-bedf-4ccd-aacb-eb7cee227afc_20250510_121143.pdf
+10/05/2025 12:11:45 | INFO     | PDF enviado com sucesso. URL pública: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/propostas-geradas/proposta_39446717-bedf-4ccd-aacb-eb7cee227afc_20250510_121143.pdf
+10/05/2025 12:11:45 | INFO     | PDF gerado com sucesso: https://ahvryabvarxisvfdnmye.supabase.co/storage/v1/object/public/propostas-geradas/proposta_39446717-bedf-4ccd-aacb-eb7cee227afc_20250510_121143.pdf
+10/05/2025 12:11:45 | INFO     | Enviando proposta por WhatsApp para: 21980407422
+10/05/2025 12:11:45 | INFO     | Enviando PDF via WhatsApp para: 21980407422
+10/05/2025 12:11:45 | INFO     | Número formatado para WhatsApp: 5521980407422
+10/05/2025 12:11:45 | ERROR    | Erro na aplicação: Erro ao enviar PDF. Status: 200, Resposta: {"error":"NOT_FOUND","message":"Unable to find matching target resource method"}
+10/05/2025 12:11:45 | ERROR    | === PROCESSAMENTO INTERROMPIDO COM ERRO ====
+10/05/2025 12:11:45 | INFO     | Proposta enviada por WhatsApp: {'error': 'NOT_FOUND', 'message': 'Unable to find matching target resource method'}
